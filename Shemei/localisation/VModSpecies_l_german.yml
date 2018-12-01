@@ -22,19 +22,19 @@
  trait_matriarchy:0 "Matriarchal"
  trait_matriarchy_desc:0 "Diese Spezies ist aussschliesslich weiblichen Geschlechts. Zur Fortpflanzung ist diese Lebensform foglich auf (männliche) Xenos angewiesen."
  #Traits Biological
- trait_infertile:0 "Parasit"
- trait_infertile_desc:0 "Parasiten sind auf eine Wirtsspezies angewiesen um zu wachsen und sich fortzupflanzen. Ohne einen fremden Wirt müssten diese Aliens sich gegenseitig befallen, was jedoch kaum akzeptabel wäre.  \n"
+ trait_parasite:0 "Parasit"
+ trait_parasite_desc:0 "Parasiten sind auf eine Wirtsspezies angewiesen um zu wachsen und sich fortzupflanzen. Ohne einen fremden Wirt müssten diese Aliens sich gegenseitig befallen, was jedoch kaum akzeptabel wäre.  \n"
  trait_pride:0 "Stolz"
  trait_pride_desc:0 "Diese Spezies ist davon Überzeugt, ganz an der Spitze der Evolution zu stehen. Ihr Realitätssinn hält sie glücklicherweise noch am Boden.\n"
- #Traits Matriarchy
- trait_invitro:0 "Autogamie"
- trait_invitro_desc:0 "Diese Spezies kann sich auch Fortpflanzen, wenn nur ein Elternteil vorhanden ist oder genetisch zur Fortpflanzung beiträgt.\n"
  
  #pop_modifiers
- parasite_boni:0 "Keine Wirtsspezies"
- matriarchy_mali:0 "Keine Spezies zur Paarung"
-
+ parasite_mali:0 "Keine Wirtsspezies"
+ 
  #Customtooltip
  TRAIT_Parasite_EFFECT:0 "Zufriedenheit (Andere Spezies): §R-5%§!\nBenötigt Xeno-Spezies für Wachstum"
  trait_matriarchy_EFFECT:0 "Benötigt Xeno-Spezies für Wachstum"
  TRAIT_INVITRO_EFFECT:0 "Benötigt keine andere Spezies für Wachstum"
+
+ #planet modifiers
+ beautiful_oasis:0 "Üppige Oasen"
+ beautiful_oasis_desc:0 "Auf dieser Wüstenwelt gibt es einige wunderschöne, üppige Oasen. Der wunderbare Charme der farbenfrohen Oasenstädte täuscht viele Reisende über die unbarmherzige, lebensfeindliche Ödnis der Sanddünen hinweg."

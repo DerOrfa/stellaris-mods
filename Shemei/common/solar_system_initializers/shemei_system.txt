@@ -181,14 +181,6 @@ lamia_system_initializer = {
 			orbit_distance = 12
 			orbit_angle = { min = -30 max = 300 }
 			has_ring = no
-			
-		init_effect = {
-			add_modifier = {
-				modifier = unstable_tectonics_VMODS
-				days = -1 # -1 = never expires
-			}
-		}
-			
 		}
 		moon = {
 			name = "Mitheria"

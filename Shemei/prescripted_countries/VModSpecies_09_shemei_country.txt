@@ -4,7 +4,7 @@ lamia = {
 	spawn_enabled = yes
 
 	species = {
-		species_class="VMAT"
+		species_class="MAT"
 		portrait="shemei"
 		name = "Shemei"
 		plural = "Shemei"
@@ -13,7 +13,7 @@ lamia = {
 		trait="trait_pride"
 		trait="trait_charismatic"
 		trait="trait_adaptive"
-		trait="trait_infertile"
+		trait="trait_parasite"
 		trait="trait_decadent"
 	}
 
@@ -24,8 +24,11 @@ lamia = {
 		plural = "Yurrghal"
 		adjective = "Yurrghal"
 		name_list = "REP3"
-		trait = "trait_syncretic_proles"
-		trait = "trait_strong"
+		trait="trait_syncretic_proles"
+		trait="trait_industrious"
+		trait="trait_fleeting"
+		trait="trait_slow_learners"
+		trait="trait_strong"
 	}
 
 	ship_prefix = ""

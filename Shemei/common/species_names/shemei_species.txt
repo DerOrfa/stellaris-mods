@@ -1,7 +1,7 @@
 # Generated species derive their names from here
 
 ### 
-VMAT = {
+MAT = {
 	shemei = {
 		name = Shemei
 		plural = Shemei

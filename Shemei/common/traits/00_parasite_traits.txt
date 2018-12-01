@@ -1,0 +1,26 @@
+##################
+# Species Traits #
+##################
+
+trait_parasite = { #Now Parasite
+	cost = -2
+	
+	allowed_archetypes = { BIOLOGICAL }
+	
+	modifier = { pop_other_species_happiness = -0.05 }
+	opposites = { "trait_rapid_breeders" "trait_slow_breeders" }
+	icon = "gfx/interface/icons/traits/trait_infertile.dds"
+	randomized = no
+	custom_tooltip = TRAIT_Parasite_EFFECT
+
+}
+
+trait_pride = { 
+	cost = 1
+	
+	allowed_archetypes = { BIOLOGICAL }
+	
+	modifier = { tile_resource_unity_mult = 0.10 }
+	icon = "gfx/interface/icons/traits/trait_pride.dds"
+
+}

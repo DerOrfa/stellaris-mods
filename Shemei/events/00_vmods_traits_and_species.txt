@@ -1,215 +1,48 @@
-namespace = species
+namespace = parasite
 
-###############################
-###############################
-#Events for parasite procreation
-###############################
+#################################
+#Events for parasite procreation#
+#################################
 pop_event = {
-    id = species.1
-    hide_window = yes
+	id = parasite.1
+	hide_window = yes
 
-    trigger = {
-        pop_has_trait = trait_infertile
-    }
+	trigger = {
+		pop_has_trait = trait_parasite
+	}
  
-    immediate = {
-	
-	if = {
-		limit = {
-			planet = {
-					any_pop = {
-							NOT = { is_same_species = ROOT }
-							}
-					}
-					has_modifier = parasite_boni
-			}
-
-			remove_modifier = parasite_boni
-
-		}
-	}	
-}
-
-pop_event = {
-    id = species.2
-    hide_window = yes
-
-    trigger = {
-        pop_has_trait = trait_infertile
-    }
- 
-    immediate = {
-	
-        if = {
-		
-			limit = {
-                planet = {
-				NOT = {
-                    any_pop = {
-                        NOT = { is_same_species = ROOT }
-                    }
-                }
-				}
-				NOT = { has_modifier = parasite_boni }
-			}
-
-			add_modifier = {
-				   modifier = parasite_boni
-                   days = -1
-				   }
-       }
-
-    }
-}
-
-###############################
-###############################
-#Events for matriarhcy procreatrion
-###############################
-pop_event = {
-    id = species.5
-    hide_window = yes
-
-    trigger = {
-        pop_has_trait = trait_matriarchy
-    }
- 
-    immediate = {
-	
-        if = {
-			limit = {
-				
-					planet = {
-							any_pop = {
-									NOT = { is_same_species = ROOT }
-									}
-							}
-							has_modifier = matriarchy_mali
-			}
-
-			remove_modifier = matriarchy_mali
-
-		}
-		
-		 if = {
-			limit = {
-					has_trait = trait_invitro
-					has_modifier = matriarchy_mali
-			}
-
-			remove_modifier = matriarchy_mali
-
-		}
-		
+	immediate = {
 		if = {
 			limit = {
-					has_trait = trait_infertile
-					has_modifier = matriarchy_mali
+				planet_has_other_pops = yes
+				has_modifier = parasite_mali
 			}
-
-			remove_modifier = matriarchy_mali
-
+			remove_modifier = parasite_mali
 		}
-	}	
+	}
 }
 
-
 pop_event = {
-    id = species.6
-    hide_window = yes
+	id = parasite.2
+	hide_window = yes
 
-    trigger = {
-        pop_has_trait = trait_matriarchy
-    }
- 
-    immediate = {
-	
-        if = {
-		
+	trigger = {
+		pop_has_trait = trait_parasite
+	}
+
+	immediate = {
+
+		if = {
 			limit = {
-                planet = {
-				NOT = {
-                    any_pop = {
-                        NOT = { is_same_species = ROOT }
-                    }
-                }
-				}
-				NOT = { has_modifier = matriarchy_mali }
-				NOT = { has_trait = trait_infertile }
-				NOT = { has_trait = trait_invitro }
-#				NOT = { has_trait = trait_vmods_asari }
+				planet_has_other_pops = no
+				NOT = { has_modifier = parasite_mali }
 			}
 
 			add_modifier = {
-				   modifier = matriarchy_mali
-                   days = -1
-				   }
-       }
-
-    }
-}
-###############################
-###############################
-#Events for VMOD ARCHETYPES Init
-###############################
-event = {
-	id = species.7 
-	hide_window = yes
-	is_triggered_only = yes
-	
-	immediate = {
-		every_country = {
-			limit = { is_species_class = VMAT }
-			country_event = { id = species.9 }
+				modifier = parasite_mali
+				days = -1
+			}
 		}
+
 	}
 }
-
-######
-##110 VMAT
-country_event = {
-	id = species.9
-	hide_window = yes
-	is_triggered_only = yes
-
-	trigger = { is_country_type = default }
-
-	immediate = {
-		random_owned_planet = { 
-			limit = { is_capital = yes } 
-			if = { 
-				limit = { 
-					owner_species = { is_species_class = VMAT }
-					#any_pop = { species = { is_same_value = owner_species } }
-				}                
-				random_owned_pop = {
-					limit = { species = { is_same_value = prev.owner_species } } 
-					create_species = {
-						name = this
-						namelist = this
-						plural = this
-						class = this
-						portrait = this
-						traits = this
-						traits = { trait = trait_matriarchy }
-						homeworld = prev #this points to the planet
-					}
-				}
-				every_owned_pop = {
-					limit = { 
-							species = { is_species_class = VMAT }
-							#species = { is_same_value = owner_species } 
-					}
-										
-					change_species = last_created    
-				}
-				prev = {
-					every_owned_leader = { change_species = last_created }
-					every_pool_leader = { change_species = last_created }
-					change_dominant_species = { species = last_created }                        
-				}                
-			}                
-		}
-	}
-}
-

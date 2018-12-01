@@ -22,19 +22,20 @@
  trait_matriarchy:0 "Matriarchal"
  trait_matriarchy_desc:0 "This species is exclusively female. Their procreation depends on (male) xenos."
  #Traits
- trait_infertile:0 "Parasites"
- trait_infertile_desc:0 "Parasites need a host species to grow and procreate. Without such a host, these aliens would have to infest each other, but this would be mostly not accepted. \n"
+ trait_parasite:0 "Parasites"
+ trait_parasite_desc:0 "Parasites need a host species to grow and procreate. Without such a host, these aliens would have to infest each other, but this would be mostly not accepted. \n"
  trait_pride:0 "Proud"
  trait_pride_desc:0 "This species is convinced that it is at the head of evolution. Fortunately, their sense for reality holding them still on the ground.\n"
- #Traits Matriarchy
- trait_invitro:0 "Autogamy"
- trait_invitro_desc:0 "This species can also reproduce if only one parent is available or genetically contributes to reproduction.\n"
-
+ 
  #pop_modifiers
  parasite_boni:0 "No host species"
- matriarchy_mali:0 "No species for mating"
  
  #Customtooltip
  TRAIT_Parasite_EFFECT:0 "Other Species Happiness: §R-5%§!\nNeeds xeno-species for growth"
  trait_matriarchy_EFFECT:0 "Needs xeno-species for growth"
  TRAIT_INVITRO_EFFECT:0 "Can growth without other species"
+
+ #planet modifiers
+ beautiful_oasis:0 "Lush oases"
+ beautiful_oasis_desc:0 "On this desert world there are some beautiful, lush oases. The wonderful charm of the colorful oasis towns deceive many travelers over the ruthless, hostile desolation of the neverending dunes."
+ 

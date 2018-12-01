@@ -1,0 +1,7 @@
+planet_has_other_pops = {
+	planet = { 
+		any_pop = { 
+			NOT = { is_same_species = ROOT } 
+		} 
+	}
+}
