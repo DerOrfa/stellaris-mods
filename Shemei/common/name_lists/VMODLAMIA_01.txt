@@ -1,0 +1,288 @@
+﻿### Shemei 1
+### Created by Lukas Vladec
+VMODLAMIA_01 = {
+randomized = no
+
+	ship_names = {
+
+		generic = {	
+			Alolei Atei Azenei Bahitei Banathei Denderei Djabenei Djeserei Ebei Ekibei Emei Emuisherei Eshei Femei
+			Fukanei Hagei Halimei Hagikei Harerei Hebonei Hatshenei Hetherei Hetshepei Ibonei Irisei Jendei Kakra
+			Kebei Khara Khepei Kissra Kira Lailei Mandira Masikei Merira Meshei Meshkenra Metei Mira Miwsherei Mosra 
+			Mukamutara Mukantagara Muminei Mukarra Mutei Nabirei Naemra Nafra Nafretei Nafrinei Nailshra Nanei Nathifei
+			Nebira Nebra Zalikra Urbei Umara Themra Tamerei Tahra Tabra Subei Sitei Sitra Shukra Shukrei Sheritei Sheritra
+			Shepra Shepsei Shemra Shemei Shashaitei Shashaitra Shashei Shashara Shanei Shanra Shamisei Shamira Shainefei
+			Shainefra Seshafei Seshafra Rashidei Rashira Sagira Rabira Panei Panira Olabisei Olufera Omorora Nura Nubitei 
+			Neshithei 
+		}
+
+		corvette = {
+		}
+		
+		destroyer = {
+		}
+		
+		cruiser = {
+		}
+		
+		battleship = {
+		}
+		
+		titan = {
+		}
+
+		colossus = {
+		}
+		
+		science = {
+		}
+		
+		colonizer = {
+		}
+		
+		constructor = {
+		}
+		
+		mining_station = { }
+		research_station = { }
+		#wormhole_station = { }
+		#terraform_station = { }
+		observation_station = { }
+		#outpost_station = {	}
+		
+		transport = { }
+		
+		military_station_small = { 
+		}
+
+		ion_cannon = {
+		}
+	}
+	
+	ship_class_names = {
+		generic = {	
+			Alolei Atei Azenei Bahitei Banathei Denderei Djabenei Djeserei Ebei Ekibei Emei Emuisherei Eshei Femei
+			Fukanei Hagei Halimei Hagikei Harerei Hebonei Hatshenei Hetherei Hetshepei Ibonei Irisei Jendei Kakra
+			Kebei Khara Khepei Kissra Kira Lailei Mandira Masikei Merira Meshei Meshkenra Metei Mira Miwsherei Mosra 
+			Mukamutara Mukantagara Muminei Mukarra Mutei Nabirei Naemra Nafra Nafretei Nafrinei Nailshra Nanei Nathifei
+			Nebira Nebra Zalikra Urbei Umara Themra Tamerei Tahra Tabra Subei Sitei Sitra Shukra Shukrei Sheritei Sheritra
+			Shepra Shepsei Shemra Shemei Shashaitei Shashaitra Shashei Shashara Shanei Shanra Shamisei Shamira Shainefei
+			Shainefra Seshafei Seshafra Rashidei Rashira Sagira Rabira Panei Panira Olabisei Olufera Omorora Nura Nubitei 
+			Neshithei 
+		}
+
+		corvette = {
+		}
+		
+		destroyer = {
+		}
+		
+		cruiser = {
+		}
+		
+		battleship = {
+		}
+		
+		titan = {
+		}
+
+		colossus = {
+		}
+		
+		science = {
+		}
+		
+		colonizer = {
+		}
+		
+		constructor = {
+		}
+				
+		transport = {
+		}
+		
+		military_station_small = { 
+		}
+
+		ion_cannon = {
+		}	
+
+		mining_station = { }
+		research_station = { }
+		#wormhole_station = { }
+		#terraform_station = { }
+		observation_station = { }
+		outpost_station = {	}		
+	}
+
+	fleet_names = {
+		random_names = {
+				"Feshak Heeron" "Feshak Telgur" "Feshak Heeron" "Feshak Telzek" "Feshak Sarbir" "Feshak Teltza" "Feshak Firug" "Feshak Sirha" "Feshak Lelton" "Feshak Nergam" "Feshak Naame"
+				
+			}
+			
+		sequential_name = "%O% Ashgrinak Sherrah"
+	}
+	
+	army_names = {
+		generic = { 
+			sequential_name = "%O% Sherzak Golah"
+		}
+
+		assault_army = {
+			sequential_name = "%O% Sherzaah"
+		}
+		
+		slave_army = {
+			sequential_name = "%O% Bashugol"
+		}
+		
+		clone_army = {
+			sequential_name = "%O% Sherzak Milah"
+		}
+		
+		robotic_army = {
+			sequential_name = "%O% Ashashaah"
+		}
+		
+		robotic_defense_army = {
+			sequential_name = "%O% Ashashaah"
+		}
+		
+		android_army = {
+			sequential_name = "%O% Ashashak Sheraah"
+		}
+		
+		android_defense_army = {
+			sequential_name = "%O% Ashashak Sheraah"
+		}
+		
+		psionic_army = { 
+			sequential_name = "%O% Sherzak Sheraah"
+		}
+		
+		xenomorph_army = {
+			sequential_name = "%O% Ashashak Geelh"
+		}
+		
+		gene_warrior_army = {
+			sequential_name = "%O% Shiirdeshak Sheraah"
+		}
+	}
+
+	### PLANETS
+
+	planet_names = {
+
+		generic = {
+			names = {
+				Gol'Xerak Gol'Zuruk Gol'Zarak Gol'Dunrak Gol'Zeltek Gol'Xultok Gol'Tzimzek Gol'Zrang Gol'Zruuk Gol'Zaral Gol'Zaar Gol'Zruum Gol'Arah Gol'Aruk Gol'Amun Gol'Arak Gol'Armun Gol'Anub
+				Gol'Gorgon Gol'Kelab Gol'Kabal Gol'Keral Gol'Zumrok Gol'Krelak Gol'Kumruk Gol'Zertek Gol'Guldon Gol'Gulder Gol'Gundram Gol'Gahan Gol'Sarak Gol'Saana Gol'Zuuma Gol'Balor Gol'Badun
+				Gol'Krinak Gol'Zumtrek Gol'Tazar Gol'Tali Gol'Tumur Gol'Gengan
+			}
+		}
+		
+		pc_desert = {
+			names = {
+				
+			}
+		}
+		
+		pc_tropical = {
+			names = {
+				
+			}
+		}
+		
+		pc_arid = {
+			names = {
+				
+			}
+		}
+		
+		pc_continental = {
+			names = {
+				
+			}
+		}
+		
+		pc_gaia = {
+			names = {
+				
+			}
+		}
+		
+		pc_ocean = {
+			names = {
+				
+			}
+		}
+		
+		pc_tundra = {
+			names = {
+				
+			}
+		}
+		
+		pc_arctic = {
+			names = {
+				
+			}
+		}
+		
+	}
+
+	### CHARACTERS
+
+		character_names = {
+			default = {
+			# A complete name
+			full_names = { ""
+				}
+			
+			# Always combined with a second name
+			first_names_male = {
+				Shohanna Sheila Shealia Sheela Shola Shera Sheran Sharea Shara Sharla Shurha Shandra Shakra Shakhira Shakka Sheeka Sherra 
+				Sheria Shela Shelea Shelka Shenga Sherga Sheresa Sherena Sheren Sherha Shmura Shmala Shmerla Shmasa Shmerga Shwelia Shwera
+				Shwaria Shwirga Shroka Shrola Shrona Shronea Shrila Shrilea Shrilla Shrillen Shrol Shreeol Shreen Shreean Shiila Shiilen
+				Shiilia Shalla 
+				
+				}
+			
+			first_names_female = {
+				Shohanna Sheila Shealia Sheela Shola Shera Sheran Sharea Shara Sharla Shurha Shandra Shakra Shakhira Shakka Sheeka Sherra 
+				Sheria Shela Shelea Shelka Shenga Sherga Sheresa Sherena Sheren Sherha Shmura Shmala Shmerla Shmasa Shmerga Shwelia Shwera
+				Shwaria Shwirga Shroka Shrola Shrona Shronea Shrila Shrilea Shrilla Shrillen Shrol Shreeol Shreen Shreean Shiila Shiilen
+				Shiilia Shalla 
+				
+				}
+			
+			# Always combined with a first name
+			second_names = {
+					Xer'Heeron Xer'Korgon Xer'Telgur Xer'Zulgur Xer'Telzek Xer'Sarbus Xer'Sarbir Xer'Kongol Xer'Nergam Xer'Heeran Xer'Neeram Xer'Naame
+					Xer'Lelton Xal'Heraan Xel'Tratur Xel'Sirha Xel'Firna Xel'Farna Xel'Firug Xel'Heeron Xel'Yelza Xel'Teltza Xel'Zera Xel'Zura Xel'Zara
+					
+				}
+			
+			regnal_first_names_male = {
+				Shohanna Sheila Shealia Sheela Shola Shera Sheran Sharea Shara Sharla Shurha Shandra Shakra Shakhira Shakka Sheeka Sherra 
+				Sheria Shela Shelea Shelka Shenga Sherga Sheresa Sherena Sheren Sherha Shmura Shmala Shmerla Shmasa Shmerga Shwelia Shwera
+				Shwaria Shwirga Shroka Shrola Shrona Shronea Shrila Shrilea Shrilla Shrillen Shrol Shreeol Shreen Shreean Shiila Shiilen
+				Shiilia Shalla 
+			}
+			
+			regnal_first_names_female = {
+				Shohanna Sheila Shealia Sheela Shola Shera Sheran Sharea Shara Sharla Shurha Shandra Shakra Shakhira Shakka Sheeka Sherra 
+				Sheria Shela Shelea Shelka Shenga Sherga Sheresa Sherena Sheren Sherha Shmura Shmala Shmerla Shmasa Shmerga Shwelia Shwera
+				Shwaria Shwirga Shroka Shrola Shrona Shronea Shrila Shrilea Shrilla Shrillen Shrol Shreeol Shreen Shreean Shiila Shiilen
+				Shiilia Shalla 
+			}
+			
+			regnal_second_names = { 
+				Xer'Heeron Xer'Korgon Xer'Telgur Xer'Zulgur Xer'Telzek Xer'Sarbus Xer'Sarbir Xer'Kongol Xer'Nergam Xer'Heeran Xer'Neeram Xer'Naame
+				Xer'Lelton Xal'Heraan Xel'Tratur Xel'Sirha Xel'Firna Xel'Farna Xel'Firug Xel'Heeron Xel'Yelza Xel'Teltza Xel'Zera Xel'Zura Xel'Zara
+			}
+		}
+	}
+	
+}

@@ -1,0 +1,203 @@
+@distance = 50
+@base_moon_distance = 10
+
+### Lamia System
+lamia_system_initializer = {
+	name = "Lamia"
+	
+	class = "sc_g"
+	asteroids_distance = 60
+	flags = { }
+	
+	usage = custom_empire
+
+	init_effect = {	}
+	
+	planet = {
+		name = "Lamia"
+		class = "pc_g_star"
+		orbit_distance = 0
+		orbit_angle = 1
+		size = 30
+		has_ring = no
+	}
+	
+	planet = {
+		name = "Zefessa"
+		class = "pc_molten"
+		orbit_distance = 40
+		orbit_angle = { min = -30 max = 300 }
+		size = 12
+		has_ring = no
+	}
+	
+	planet = {
+		name = "Anatessus"
+		class = "pc_asteroid"
+		orbit_distance = 20
+		orbit_angle = { min = -30 max = 300 }
+		size = 2
+		has_ring = no
+	}
+	
+	planet = {
+		name = "Argilek"
+		class = "pc_asteroid"
+		orbit_distance = 0
+		orbit_angle = { min = 150 max = 200 }
+		size = 3
+		has_ring = no
+	}
+	
+	planet = {
+		name = "Kalishanthe"
+		class = "pc_gas_giant"
+		orbit_distance = 38
+		orbit_angle = { min = -30 max = 300 }
+		size = 24
+		has_ring = no
+		
+		moon = {
+			name = "Faisha"
+			class = "pc_frozen"
+			size = 5
+			orbit_distance = 12
+			orbit_angle = 30
+			has_ring = no
+		}
+		
+		moon = {
+			name = "Misantheia"
+			class = "pc_frozen"
+			size = 3
+			orbit_distance = 3
+			orbit_angle = 30
+			has_ring = no
+		}
+		
+		moon = {
+			name = "Rethisfea"
+			class = "pc_barren_cold"
+			size = 7
+			orbit_distance = 9
+			orbit_angle = 45
+			has_ring = no
+		}
+	}
+	
+	planet = {
+		name = "Sabeisa"
+		class = "pc_barren_cold"
+		orbit_distance = 40
+		orbit_angle = -15
+		size = 16
+		has_ring = no
+	}
+	
+	planet = {
+		name = "Shamixera"
+		class = "pc_toxic"
+		orbit_distance = 30
+		orbit_angle = -155
+		size = 12
+		has_ring = no
+		
+	moon = {
+		name = "Gol'Xerak"
+		class = "pc_desert"
+		orbit_distance = 6
+		orbit_angle = { min = -30 max = 300 }
+		size = 14
+		starting_planet = yes
+		has_ring = no
+		tile_blockers = none
+		modifiers = none
+		flags = { planet_golxerak }
+		
+		init_effect = {
+			prevent_anomaly = yes
+			
+		}
+		
+		init_effect = {
+			add_modifier = {
+				modifier = beautiful_oasis
+				days = -1 # -1 = never expires
+				} 
+			}
+		
+		init_effect = {
+			generate_start_buildings_and_blockers = yes
+		}
+		
+		init_effect = {
+			random_tile = {
+				limit = { has_blocker = tb_failing_infrastructure }
+				set_blocker = "tb_deep_sinkhole"
+				set_deposit = d_vast_mineral_deposit				
+			}
+			random_tile = {
+				limit = { has_blocker = tb_failing_infrastructure }
+				set_blocker = "tb_dangerous_wildlife"
+				set_deposit = d_vast_society_deposit				
+			}
+			random_tile = {
+				limit = { has_blocker = tb_failing_infrastructure }
+				set_blocker = "tb_deep_sinkhole"
+				set_deposit = d_physics_deposit				
+			}
+						
+		}
+		
+	
+		}
+	
+	}
+	
+	planet = {
+		name = "Nefelsha"
+		class = "pc_barren_cold"
+		orbit_distance = 48
+		orbit_angle = -120
+		size = 22
+		has_ring = no
+	}
+	
+	
+	planet = {
+		name = "Sirganthe"
+		class = "pc_gas_giant"
+		orbit_distance = 34
+		orbit_angle = -20
+		size = 30
+		has_ring = yes
+		change_orbit = 7
+		
+		
+		moon = {
+			name = "Prixossa"
+			class = "pc_ocean"
+			size = 8
+			orbit_distance = 12
+			orbit_angle = { min = -30 max = 300 }
+			has_ring = no
+			
+		init_effect = {
+			add_modifier = {
+				modifier = unstable_tectonics_VMODS
+				days = -1 # -1 = never expires
+			}
+		}
+			
+		}
+		moon = {
+			name = "Mitheria"
+			class = "pc_frozen"
+			size = 12
+			orbit_distance = 5
+			orbit_angle = { min = -30 max = 300 }
+			has_ring = no
+		}
+	}
+	
+}

@@ -1,0 +1,10 @@
+on_leader_spawned = {
+	events = {
+		elven_leader_events.21
+		elven_leader_events.22
+		elven_leader_events.23
+		elven_leader_events.231
+		elven_leader_events.232
+		elven_leader_events.24
+	}
+}

@@ -1,0 +1,147 @@
+namespace = elven_leader_events
+
+#matriarchy 
+country_event = {
+	id = elven_leader_events.21
+	is_triggered_only = yes
+	hide_window = yes
+
+	trigger = {
+		has_policy_flag = elven_gender_matriarchy_governor
+		from = {
+			OR = {
+				leader_class = governor
+				leader_class = ruler
+			}
+			gender = male
+		}
+	}
+
+	immediate = {
+		from = {
+			set_is_female = yes
+			set_name = random
+			leader_age = -10 
+		}
+	}
+}
+
+#full matriarchy
+country_event = {
+	id = elven_leader_events.22
+	is_triggered_only = yes
+	hide_window = yes
+
+	trigger = {
+		has_policy_flag = elven_gender_matriarchy_full
+		from = {
+			gender = male
+		}
+	}
+
+	immediate = {
+		from = {
+			set_is_female = yes
+			set_name = random
+			leader_age = -10 
+		}
+	}
+}
+
+#military for males only
+country_event = {
+	id = elven_leader_events.23
+	is_triggered_only = yes
+	hide_window = yes
+
+	trigger = {
+		has_policy_flag = elven_gender_patriarchy_military
+		from = {
+			OR = {
+				leader_class = admiral
+				leader_class = general
+			}
+			gender = female
+		}
+	}
+
+	immediate = {
+		from = {
+			set_is_female = no
+			set_name = random
+			leader_age = -10 
+		}
+	}
+}
+
+#military for females only (elerian style)
+country_event = {
+	id = elven_leader_events.231
+	is_triggered_only = yes
+	hide_window = yes
+
+	trigger = {
+		has_policy_flag = elven_gender_matriarchy_military
+		from = {
+			OR = {
+				leader_class = admiral
+				leader_class = general
+			}
+			gender = male
+		}
+	}
+
+	immediate = {
+		from = {
+			set_is_female = yes
+			set_name = random
+			leader_age = -5 
+		}
+	}
+}
+country_event = {
+	id = elven_leader_events.232
+	is_triggered_only = yes
+	hide_window = yes
+
+	trigger = {
+		has_policy_flag = elven_gender_matriarchy_military
+		from = {
+			OR = {
+				leader_class = governor
+				leader_class = scientist
+			}
+			gender = female
+		}
+	}
+
+	immediate = {
+		from = {
+			set_is_female = no
+			set_name = random
+			leader_age = -5 
+		}
+	}
+}
+
+#full patriarchy
+country_event = {
+	id = elven_leader_events.24
+	is_triggered_only = yes
+	hide_window = yes
+
+	trigger = {
+		has_policy_flag = elven_gender_patriarchy_full
+		from = {
+			gender = female
+		}
+	}
+
+	immediate = {
+		from = {
+			set_is_female = no
+			set_name = random
+			leader_age = -10 
+		}
+	}
+}

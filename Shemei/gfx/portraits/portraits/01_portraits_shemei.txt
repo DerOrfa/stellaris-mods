@@ -1,0 +1,119 @@
+##############################################################
+###	PORTRAITS SETTINGS
+###
+### Which portraits are used is set in 
+### common\species_classes\00_species_classes.txt
+###
+###	This file configures how portraits and planet backgrounds are built.
+###	Default position orientation is lower left.
+##############################################################
+
+portraits = {
+
+	# Shemei
+	shemei_female_01 = {
+		entity = "humanoid_05_female_01_entity"	
+		clothes_selector = "shemei_female_clothes_01" 
+		hair_selector = "shemei_female_hair_01"	
+		greeting_sound = "humanoid_female_greeting_a" 
+							
+		character_textures = {
+				"gfx/models/portraits/shemei/Shemei_female_body_01.dds"
+				"gfx/models/portraits/shemei/Shemei_female_body2_01.dds"
+				"gfx/models/portraits/shemei/Shemei_female_body3_01.dds"
+		}
+			
+	}
+	shemei_female_03 = {
+		entity = "humanoid_05_female_01_entity"	
+		clothes_selector = "shemei_female_clothes_01" 
+		hair_selector = "shemei_female_hair_01"	
+		greeting_sound = "humanoid_female_greeting_c" 
+		character_textures = {
+				"gfx/models/portraits/shemei/Shemei_female_body_03.dds"
+				"gfx/models/portraits/shemei/Shemei_female_body2_03.dds"
+				"gfx/models/portraits/shemei/Shemei_female_body3_03.dds"
+		}
+	}
+	shemei_female_04 = {
+		entity = "humanoid_05_female_01_entity"	
+		clothes_selector = "shemei_female_clothes_01" 
+		hair_selector = "shemei_female_hair_01"	
+		greeting_sound = "humanoid_female_greeting_d" 
+		character_textures = {
+				"gfx/models/portraits/shemei/Shemei_female_body_04.dds"
+				"gfx/models/portraits/shemei/Shemei_female_body2_04.dds"
+				"gfx/models/portraits/shemei/Shemei_female_body3_04.dds"
+		}
+	}
+}
+
+portrait_groups = {
+	shemei = {
+		default = shemei_female_01
+		game_setup = { #will run with a limited country scope. species and government is set but the country does not actually exist
+			add = {
+				portraits = {
+					shemei_female_01
+					#shemei_female_02
+					shemei_female_03
+					shemei_female_04
+				}
+			}
+			#set = {
+			#	trigger = { ... }
+			#	portraits = { ... }
+			#	#using "set =" instead of "add" will first clear any portraits already added
+			#}
+		}		
+		
+		#species scope
+		species = { #generic portrait for a species
+			add = {
+				portraits = {
+					shemei_female_01
+					#shemei_female_02
+					shemei_female_03
+					shemei_female_04
+				}
+			}
+		}		
+		
+		#pop scope
+		pop = { #for a specific pop
+			add = {
+				portraits = {
+					shemei_female_01
+					#shemei_female_02
+					shemei_female_03
+					shemei_female_04
+				}
+			}
+		}
+		
+		#leader scope
+		leader = { #scientists, generals, admirals, governor
+			add = {
+				portraits = {
+					shemei_female_01
+					#shemei_female_02
+					shemei_female_03
+					shemei_female_04
+				}
+			}
+		}
+
+			
+		#leader scope 
+		ruler = {
+			add = {
+				portraits = {
+					shemei_female_01
+					#shemei_female_02
+					shemei_female_03
+					shemei_female_04
+				}
+			}
+		}
+	}
+}

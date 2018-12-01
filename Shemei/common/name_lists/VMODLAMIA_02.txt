@@ -1,0 +1,281 @@
+﻿### matriarchy 2 #ascellian
+### Created by Lukas Vladec
+VMODLAMIA_02 = {
+randomized = no
+
+	ship_names = {
+
+		generic = {	
+			Eshu	Yemoja	Ajaka	Oshun Ogun	Iroco	Oranyan	Oba Oshosi	Shango	Egungun	Oyansa Babalu	Obatala	Ibeji	Oke
+			Osanyin	Orunmila	Aye	Ori Logun	Olokun	Ode	Oduduwa Yewa	Aganju	Ara	Iroko Arya	Erinle	Osumare	Oko
+			Oshunmare	Otin	Iyansan	Nana
+		}
+
+		corvette = {
+		}
+		
+		destroyer = {
+		}
+		
+		cruiser = {
+		}
+		
+		battleship = {
+		}
+		
+		titan = {
+		}
+
+		colossus = {
+		}
+		
+		science = {
+		}
+		
+		colonizer = {
+		}
+		
+		constructor = {
+		}
+		
+		mining_station = { }
+		research_station = { }
+		#wormhole_station = { }
+		#terraform_station = { }
+		observation_station = { }
+		#outpost_station = {	}
+		
+		transport = { }
+		
+		military_station_small = { 
+		}
+
+		ion_cannon = {
+		}
+	}
+	
+	ship_class_names = {
+		generic = {	
+			Eshu	Yemoja	Ajaka	Oshun Ogun	Iroco	Oranyan	Oba Oshosi	Shango	Egungun	Oyansa Babalu	Obatala	Ibeji	Oke
+			Osanyin	Orunmila	Aye	Ori Logun	Olokun	Ode	Oduduwa Yewa	Aganju	Ara	Iroko Arya	Erinle	Osumare	Oko
+			Oshunmare	Otin	Iyansan	Nana
+		}
+
+		corvette = {
+		}
+		
+		destroyer = {
+		}
+		
+		cruiser = {
+		}
+		
+		battleship = {
+		}
+		
+		titan = {
+		}
+
+		colossus = {
+		}
+		
+		science = {
+		}
+		
+		colonizer = {
+		}
+		
+		constructor = {
+		}
+				
+		transport = {
+		}
+		
+		military_station_small = { 
+		}
+
+		ion_cannon = {
+		}	
+
+		mining_station = { }
+		research_station = { }
+		#wormhole_station = { }
+		#terraform_station = { }
+		observation_station = { }
+		outpost_station = {	}		
+	}
+
+	fleet_names = {
+		random_names = {
+				"Aja Strike Force" "Aje Strike Force" "Ayao Strike Force" "Egungun Strile Force"
+				"Mawu Strike Force" "Buluku Strike Force" "Nana Strike Force" "Oba Strike Force" 
+				"Olokun Strike Force" "Osun Strike Force" "Oya Strike Force" "Yemoja Strike Force"
+				
+			}
+			
+		sequential_name = "%O% Eledumare"
+	}
+	
+	army_names = {
+		generic = { 
+			sequential_name = "%O% Vodunsi Defenders"
+		}
+
+		assault_army = {
+			sequential_name = "%O% Vodunsi Assault Group"
+		}
+		
+		slave_army = {
+			sequential_name = "%O% Eru Assault Group"
+		}
+		
+		clone_army = {
+			sequential_name = "%O% Zonbi Flesh Seekers"
+		}
+		
+		robotic_army = {
+			sequential_name = "%O% Nkisi War Units"
+		}
+		
+		robotic_defense_army = {
+			sequential_name = "%O% Nkisi War Units"
+		}
+		
+		android_army = {
+			sequential_name = "%O% Nkondi Pack"
+		}
+		
+		android_defense_army = {
+			sequential_name = "%O% Nkondi Pack"
+		}
+		
+		psionic_army = { 
+			sequential_name = "%O% Bokor Strike Group"
+		}
+		
+		xenomorph_army = {
+			sequential_name = "%O% Kozo Pack"
+		}
+		
+		gene_warrior_army = {
+			sequential_name = "%O% Mounted Ones"
+		}
+	}
+
+	### PLANETS
+
+	planet_names = {
+
+		generic = {
+			names = {
+				Adjassou	Houn'to	Belie	Tonnere	Jeambi	Mademo	Pie
+				Adjinakou	Pye	Boli	Diejuste	Josenger	Maitfour	Silibo
+				Adya 	Weddo	Bossou	Dinclinsin	Joumalonge	Madelai	Simbi
+				Agaou	Tonnerre	Boum'ba	Erzulie	Met	Shango	Sobo
+				Agassou	Belcan	Brize	Filomez	Twa	Maman	Sousson
+				Agwe	Shah	Bugid	Ghede	Kapombi	Marassa	Ti
+				Anaisa	Ashadeh	Debas	Linto	Klemay	Jumaux	Kita
+				Anmino	Maza	Clermeil	Loraj	Legba	Maroule	Quinto
+				Ayida	Aiba	Wedo	Nibo	Linglesou	Mombu	Malicca
+				Ayizan	Hounon'gon	Damballa	Doubye	Lasirene	Manze	Tiean
+				Azaka	Danpet	Dan	Granmait	Limba	Mounanchou	Wawe
+				Bacalou	Basamed	Demeplait	Granbos	Loco	Nago	Badessy
+				Linguetor	Barominel	Dereyale	Guinee	Lovana	Ogoun	Kalfou
+				Lemba	Pannan					
+			}
+		}
+		
+		pc_desert = {
+			names = {
+				
+			}
+		}
+		
+		pc_tropical = {
+			names = {
+				
+			}
+		}
+		
+		pc_arid = {
+			names = {
+				
+			}
+		}
+		
+		pc_continental = {
+			names = {
+				
+			}
+		}
+		
+		pc_gaia = {
+			names = {
+				
+			}
+		}
+		
+		pc_ocean = {
+			names = {
+				
+			}
+		}
+		
+		pc_tundra = {
+			names = {
+				
+			}
+		}
+		
+		pc_arctic = {
+			names = {
+				
+			}
+		}
+		
+	}
+
+	### CHARACTERS
+
+		character_names = {
+		default = {
+			# A complete name
+			full_names = {
+			}
+			
+			# Always combined with a second name
+			first_names = {
+				Prisyxih	Vilinaya	Nessnila	Risnessa	Uhrvielle	Elrinoris
+				Sharlenne	Ginorriane	Bwynnixi	Zellriane	Yseryla	Zellielle
+				Iphisvia	Ginorsea	Orintora	Tryxvielle	Vilinerris	Winola
+				Prisienne	Glyslyss	Drentyse	Iphiseva	Ryriesh	Hyrelin
+				Qyrith	Ynisless	Xylith	Isirielle	Berinesh	Iphisnara
+				Bwynelin	Nemorney	Lynnlith	Nemoreva	Nemorerris	Ynisnys
+				Sarnore	Rhelvienne	Glyssha	Hyraith		
+			}
+			
+			# Always combined with a first name
+			second_names = {
+				Wamuiru	Wanyoike	Ngina	Ng'Endo
+				Wandia	Gitari	Noni	Moombi
+				Wambeere	Kinuthia	Nungari	Nyagura
+				Nyaguthii	Wamiti	Wanjira	Nyaguthii
+				Wamuhu	Kungu	Waceke	Wambui
+				Muringa	Gathuuri	Wangu	Wangai
+				Mukondi	Njau	Ngendo	Ngina
+				Waitherero	Karanja	Wairimu	Wangari
+				Mukina	Matu	Wangera	Kihara
+				Gakuhi			
+			}
+			
+			regnal_first_names = {
+				Kutamba Nyaradzai Tsvakai Anesuishe Kuda Rudairo Yananiso Watinoda Tadiwanashe Nyemwererai
+				Chipo Simukai Anokosha Matida Nhambo Matiroya Tanaka Musatye Fadzai Muchazvirega
+			}
+			
+			regnal_second_names = {
+			}
+		}
+	}
+	
+}

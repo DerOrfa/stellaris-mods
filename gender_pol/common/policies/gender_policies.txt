@@ -1,0 +1,173 @@
+elven_gender_policy = {
+
+	option = {
+		name = "elven_gender_default"
+
+		policy_flags = {
+			elven_gender_default
+		}
+		valid = {
+			NOR = {
+				is_species_class = MAT
+				is_species_class = VMAT
+			}
+		}
+	}
+
+	option = {
+		name = "elven_gender_matriarchy_full"
+
+		valid = {
+			NOR = {
+				has_ethic = ethic_egalitarian
+				has_ethic = ethic_fanatic_egalitarian
+			}
+		}
+
+		policy_flags = {
+			elven_gender_matriarchy_full
+		}
+
+		AI_weight = {
+			factor = 0
+		}
+		modifier = {
+			leader_cost = 1
+			leader_skill_levels = 3
+			ruler_skill_levels = 3
+		}
+
+	}
+
+	option = {
+		name = "elven_gender_matriarchy_governor"
+
+		valid = {
+			NOR = {
+				has_ethic = ethic_egalitarian
+				has_ethic = ethic_fanatic_egalitarian
+			}
+			NOR = {
+				is_species_class = MAT
+				is_species_class = VMAT
+			}
+		}
+
+		policy_flags = {
+			elven_gender_matriarchy_governor
+		}
+
+		AI_weight = {
+			modifier = {
+				factor = 10
+				OR = { 
+					has_country_flag = tulshar_personality_flag
+					has_country_flag = lunari_personality_flag
+				}
+			}
+		}
+		modifier = {
+			leader_governor_cost  = 0.75
+			governor_skill_levels = 3
+		}
+	}
+
+	option = {
+		name = "elven_gender_patriarchy_military"
+
+		valid = {
+			NOR = {
+				has_ethic = ethic_egalitarian
+				has_ethic = ethic_fanatic_egalitarian
+			}
+			NOR = {
+				is_species_class = MAT
+				is_species_class = VMAT
+			}
+		}
+
+		policy_flags = {
+			elven_gender_patriarchy_military
+		}
+
+		modifier = {
+			leader_admiral_cost = 0.5
+			leader_general_cost = 0.5
+			admiral_skill_levels = 2
+			general_skill_levels = 2
+		}
+
+		AI_weight = {
+			modifier = {
+				factor = 10
+				OR = { 
+					has_country_flag = ayleid_personality_flag
+				}
+			}
+		}
+	}
+	option = {
+		name = "elven_gender_matriarchy_military"
+
+		valid = {
+			NOR = {
+				has_ethic = ethic_egalitarian
+				has_ethic = ethic_fanatic_egalitarian
+			}
+			NOR = {
+				is_species_class = MAT
+				is_species_class = VMAT
+			}
+		}
+
+		policy_flags = {
+			elven_gender_matriarchy_military
+		}
+
+		modifier = {
+			leader_admiral_cost = 0.5
+			leader_general_cost = 0.5
+			leader_governor_cost  = 0.5
+			admiral_skill_levels = 2
+			general_skill_levels = 2
+			governor_skill_levels = 2
+		}
+
+		AI_weight = {
+			modifier = {
+				factor = 10
+				OR = { 
+					has_country_flag = ayleid_personality_flag
+				}
+			}
+		}
+	}
+
+	option = {
+		name = "elven_gender_patriarchy_full"
+
+		valid = {
+			NOR = {
+				has_ethic = ethic_egalitarian
+				has_ethic = ethic_fanatic_egalitarian
+			}
+			NOR = {
+				is_species_class = MAT
+				is_species_class = VMAT
+			}
+		}
+
+		policy_flags = {
+			elven_gender_patriarchy_full
+		}
+		modifier = {
+			leader_cost = 1
+			leader_skill_levels = 3
+			ruler_skill_levels = 3
+		}
+
+		AI_weight = {
+			factor = 0
+		}
+	}
+}

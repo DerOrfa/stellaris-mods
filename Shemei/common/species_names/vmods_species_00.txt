@@ -1,0 +1,12 @@
+# Generated species derive their names from here
+
+### 
+VMAT = {
+	shemei = {
+		name = Shemei
+		plural = Shemei
+		home_planet = "Gol'Xerak"
+		home_system = Lamia
+		name_list = "VMODLAMIA_01"
+	}
+}
