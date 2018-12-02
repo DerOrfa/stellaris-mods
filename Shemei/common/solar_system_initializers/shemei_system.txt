@@ -6,7 +6,10 @@ lamia_system_initializer = {
 	name = "Lamia"
 	
 	class = "sc_g"
-	asteroids_distance = 60
+	asteroid_belt = {
+		type = rocky_asteroid_belt
+		radius = 60
+	}
 	flags = { }
 	
 	usage = custom_empire
