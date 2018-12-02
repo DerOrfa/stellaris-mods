@@ -1,0 +1,9 @@
+﻿l_english:
+ trait_parasite:0 "Parasites"
+ trait_parasite_desc:0 "Parasites need a host species to grow and procreate. Without such a host, these aliens would have to infest each other, but this would be mostly not accepted. \n"
+ 
+ #pop_modifiers
+ parasite_mali:0 "No host species"
+ 
+ #Customtooltip
+ TRAIT_Parasite_EFFECT:0 "Other Species Happiness: §R-5%§!\nNeeds xeno-species for growth"

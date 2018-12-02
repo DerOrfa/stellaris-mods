@@ -4,7 +4,7 @@
  lamia_system_initializer_DESC:0 "Lamia - deceptive paradise, home of the unscrupulous Shemei.\n\n$system_initializer_DESC$"
  
  #Species Typ
- VMAT:0 "Matriarchial"
+ MAT:0 "Matriarchial"
 
  #NameLists
  name_list_VMODLAMIA_01:0 "Matriarchal 1"
@@ -15,26 +15,9 @@
  EMPIRE_DESIGN_lamia:0 "Shemei Cult"
  EMPIRE_DESIGN_lamia_desc:0 "The Shemei are parasitic reptiles, which must lay their eggs into other organisms to successfully fertilizes.\n\nApart from this, the all-female Shemei are perceived as very attractive by most species. Due to their proud and unapproachable nature, the serpentine humanoids seems often very desirable for foreigners.\n\nBecause of this, usually smaller groups of (often male) Xenos gather around the Shemei. Their culture is therefore built around this cultism: as matriarchal priestesses, they control their followers and use them as host species, while these at the same time providing food as well as material wealth to the Shemei.\n\nBasically dependent on their servants, the inner society of Shemei is nevertheless very elitist. The complex religion of the Shemei is, for example, a well-kept secret, and outsiders are usually not initiated into even the simplest rituals. Xenos have to serve as a breeding ground and pamper a Shemei priestess (almost 90% of the entire Shemei population) on the one hand, on the other hand the Shemei are hardly interested in the needs of their followers.\n\nThe fact that this lifestyle, based on total exploitation, is working, is due solely to the intriguing and at the same enchanting nature of the Shemei.\n\nNow, with the invention of FTL-drives, the Shemei want to spread their influence over the whole galaxy, and make all the lower species into subjects."
  
- #Flag Category
- FLAG_CATEGORY_VMods:0 "V-Mods"
- 
- #Characteristic Traits
- trait_matriarchy:0 "Matriarchal"
- trait_matriarchy_desc:0 "This species is exclusively female. Their procreation depends on (male) xenos."
- #Traits
- trait_parasite:0 "Parasites"
- trait_parasite_desc:0 "Parasites need a host species to grow and procreate. Without such a host, these aliens would have to infest each other, but this would be mostly not accepted. \n"
  trait_pride:0 "Proud"
  trait_pride_desc:0 "This species is convinced that it is at the head of evolution. Fortunately, their sense for reality holding them still on the ground.\n"
  
- #pop_modifiers
- parasite_boni:0 "No host species"
- 
- #Customtooltip
- TRAIT_Parasite_EFFECT:0 "Other Species Happiness: §R-5%§!\nNeeds xeno-species for growth"
- trait_matriarchy_EFFECT:0 "Needs xeno-species for growth"
- TRAIT_INVITRO_EFFECT:0 "Can growth without other species"
-
  #planet modifiers
  beautiful_oasis:0 "Lush oases"
  beautiful_oasis_desc:0 "On this desert world there are some beautiful, lush oases. The wonderful charm of the colorful oasis towns deceive many travelers over the ruthless, hostile desolation of the neverending dunes."

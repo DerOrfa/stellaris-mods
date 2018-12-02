@@ -1,0 +1,10 @@
+﻿l_german:
+ trait_parasite:0 "Parasit"
+ trait_parasite_desc:0 "Parasiten sind auf eine Wirtsspezies angewiesen um zu wachsen und sich fortzupflanzen. Ohne einen fremden Wirt müssten diese Aliens sich gegenseitig befallen, was jedoch kaum akzeptabel wäre.  \n"
+ 
+ #pop_modifiers
+ parasite_mali:0 "Keine Wirtsspezies"
+ 
+ #Customtooltip
+ TRAIT_Parasite_EFFECT:0 "Zufriedenheit (Andere Spezies): §R-5%§!\nBenötigt Xeno-Spezies für Wachstum"
+

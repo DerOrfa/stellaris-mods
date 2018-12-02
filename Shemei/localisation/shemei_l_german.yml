@@ -4,7 +4,7 @@
  lamia_system_initializer_DESC:0 "Lamia - trügerisches Paradies, Heimat der skrupellosen Shemei.\n\n$system_initializer_DESC$"
  
  #Species Typ
- VMAT:0 "Matriarchial"
+ MAT:0 "Matriarchial"
 
  #NameLists
  name_list_VMODLAMIA_01:0 "Matriarchal 1"
@@ -15,26 +15,10 @@
  EMPIRE_DESIGN_lamia:0 "Shemei Cult"
  EMPIRE_DESIGN_lamia_desc:0 "Die Shemei sind parasitäre Reptilien, welche zur Befruchtung ihre Eier in fremde Organismen legen müssen.\n\nAbgesehen davon werden die ausschliesslich weiblichen Shemei von den meisten Spezies als sehr attraktiv wahrgenommen. Durch ihre stolze und unnahbare Art, wirken die mit terranischen Schlangen vegleichbaren Humanoide oft zusätzlich sehr begehrenswert.\n\nAufgrund dessen versammeln sich normalerweise immer kleinere Gruppen (oftmals männlicher) Xenos um die Shemei. Ihre Kultur ist demnach um diese Kultbildung aufgebaut: Als matriarchale Priesterinnen kontrollieren sie ihre Anhängern und nützen Sie als Wirtsspezies, während diese gleichzeitig die Shemei sowohl mit Nahrung als auch mit materiellem Reichtum versorgen.\n\nIm Grunde von ihrer Dienerschaft voll abhängig, ist die innere Gesellschaft der Shemei trotzdem sehr elitär aufgebaut. Die komplexe Religion der Shemei ist beispielsweise ein gut gehütetes Geheimnis, und Aussenstehende werden normalerweise nicht einmal in die einfachsten Rituale eingeweiht. Xenos dürfen eine Shemei-Priesterin (nahezu 90% der gesamten Shemei-Population) einerseits versorgen, verwöhnen und als Brutstätte dienen, andererseits interessieren sich die Shemei kaum für die Bedürfnisse ihrer Anhänger.\n\nDass diese, auf totaler Ausnützung basierende, Lebensweise funktioniert, ist alleine der intriganten und gleichzeitig bezaubernden Art der Shemei zu verdanken.\n\nNun, mit der Erfindung von Überlicht-Antrieben, wollen die Shemei ihren Einfluss über die ganze Galaxie ausbreiten, und sich alle niederen Spezies zu Untertanen machen."
 
- #Flag Category
- FLAG_CATEGORY_VMods:0 "V-Mods"
- 
- #Characteristics Traits
- trait_matriarchy:0 "Matriarchal"
- trait_matriarchy_desc:0 "Diese Spezies ist aussschliesslich weiblichen Geschlechts. Zur Fortpflanzung ist diese Lebensform foglich auf (männliche) Xenos angewiesen."
- #Traits Biological
- trait_parasite:0 "Parasit"
- trait_parasite_desc:0 "Parasiten sind auf eine Wirtsspezies angewiesen um zu wachsen und sich fortzupflanzen. Ohne einen fremden Wirt müssten diese Aliens sich gegenseitig befallen, was jedoch kaum akzeptabel wäre.  \n"
+  #Characteristics Traits
  trait_pride:0 "Stolz"
  trait_pride_desc:0 "Diese Spezies ist davon Überzeugt, ganz an der Spitze der Evolution zu stehen. Ihr Realitätssinn hält sie glücklicherweise noch am Boden.\n"
  
- #pop_modifiers
- parasite_mali:0 "Keine Wirtsspezies"
- 
- #Customtooltip
- TRAIT_Parasite_EFFECT:0 "Zufriedenheit (Andere Spezies): §R-5%§!\nBenötigt Xeno-Spezies für Wachstum"
- trait_matriarchy_EFFECT:0 "Benötigt Xeno-Spezies für Wachstum"
- TRAIT_INVITRO_EFFECT:0 "Benötigt keine andere Spezies für Wachstum"
-
  #planet modifiers
  beautiful_oasis:0 "Üppige Oasen"
  beautiful_oasis_desc:0 "Auf dieser Wüstenwelt gibt es einige wunderschöne, üppige Oasen. Der wunderbare Charme der farbenfrohen Oasenstädte täuscht viele Reisende über die unbarmherzige, lebensfeindliche Ödnis der Sanddünen hinweg."
