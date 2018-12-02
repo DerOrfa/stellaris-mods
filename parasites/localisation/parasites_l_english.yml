@@ -7,3 +7,13 @@
  
  #Customtooltip
  TRAIT_Parasite_EFFECT:0 "Other Species Happiness: §R-5%§!\nNeeds xeno-species for growth"
+
+
+parasite.2.name:0 "SOMETHING_WEIRD"
+parasite.2.desc:0 "SOMETHING_WEIRD"
+ 
+parasite.5.name:0 "TEMPLE_FOUND"
+parasite.5.desc:0 "TEMPLE_FOUND"
+
+building_parasite_temple_1:0 "TEMPLE"
+building_parasite_temple_1_desc:0 "TEMPLE"

@@ -1,10 +1,91 @@
 namespace = parasite
 
+# initialize parasite event chain on mars (aka the only terraforming candidate  in sol)
+event = {
+	id = parasite.1
+	hide_window = yes
+	fire_only_once = yes 
+	is_triggered_only = yes
+	
+	immediate = {
+		random_system_within_border = {
+			random_system_planet = {
+				limit = {
+					OR = {
+						has_modifier = terraforming_candidate
+						has_planet_flag = martiancolony # compatibility with mod "colony on mars"
+					}
+				} 
+				planet_event = { id = parasite.2 days = 3 random = 1 }
+			}	
+		}
+	}
+}
+
+# parasite temple discovered creates temple and special project
+planet_event = {
+	id = parasite.2
+	is_triggered_only = yes
+	fire_only_once = yes 
+
+	title = "parasite.2.name"
+	desc = "parasite.2.desc"
+	picture = GFX_evt_alien_nature
+	show_sound = event_alien_nature
+	location = this
+
+	option = {
+		name = EXCELLENT
+		set_planet_flag = parasite_temple
+		random_tile = {
+			limit = {
+				has_blocker = no
+				has_resource = no
+			}
+			set_building = "building_parasite_temple_1"
+		}
+		enable_special_project = {
+			name = "PARASITE_TEMPLE_INVESTIGATE"
+			location = this
+			owner = FromFromFrom
+		}
+
+		hidden_effect = {  }
+	}
+	option = {
+		name = parasite.2.b
+	}
+
+}
+
+ship_event = {
+	id = parasite.5
+	is_triggered_only = yes
+	fire_only_once = yes 
+	
+	title = "parasite.5.name"
+	desc = "parasite.5.desc"
+	picture = GFX_evt_alien_nature
+	show_sound = event_alien_nature
+	location = this
+
+	option = {
+		name = EXCELLENT
+		leader = { 
+			add_experience = 500
+			add_trait = leader_trait_expertise_statecraft 
+			add_trait = trait_ruler_charismatic
+			set_leader_flag = parasite_leader
+		}
+	}
+}
+
+
 #################################
 #Events for parasite procreation#
 #################################
 pop_event = {
-	id = parasite.1
+	id = parasite.100
 	hide_window = yes
 
 	trigger = {
@@ -23,7 +104,7 @@ pop_event = {
 }
 
 pop_event = {
-	id = parasite.2
+	id = parasite.101
 	hide_window = yes
 
 	trigger = {

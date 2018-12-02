@@ -1,0 +1,19 @@
+# Great Pyramid
+building_parasite_temple_1 = {
+	is_listed = no
+	icon = "building_great_pyramid"
+	
+	cost = {}
+
+	required_resources = {}
+	
+	produced_resources = {
+		society_research = 3
+	}
+	
+	upgrades = {}
+	
+	ai_replace = no
+	event_building = yes
+}
+
