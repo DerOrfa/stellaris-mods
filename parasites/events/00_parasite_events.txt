@@ -1,7 +1,7 @@
 namespace = parasite
 
 # initialize parasite event chain on mars (aka the only terraforming candidate  in sol)
-event = {
+country_event = {
 	id = parasite.1
 	hide_window = yes
 	fire_only_once = yes 
@@ -9,6 +9,7 @@ event = {
 	
 	immediate = {
 		random_system_within_border = {
+			limit = { has_star_flag = sol_system }
 			random_system_planet = {
 				limit = {
 					OR = {
@@ -16,14 +17,15 @@ event = {
 						has_planet_flag = martiancolony # compatibility with mod "colony on mars"
 					}
 				} 
-				planet_event = { id = parasite.2 days = 3 random = 1 }
+				save_event_target_as = parasite_planet
 			}	
 		}
+		country_event = { id = parasite.2 days = 3 random = 1 }
 	}
 }
 
 # parasite temple discovered creates temple and special project
-planet_event = {
+country_event = {
 	id = parasite.2
 	is_triggered_only = yes
 	fire_only_once = yes 
@@ -32,32 +34,35 @@ planet_event = {
 	desc = "parasite.2.desc"
 	picture = GFX_evt_alien_nature
 	show_sound = event_alien_nature
-	location = this
+	location = event_target:parasite_planet
 
 	option = {
 		name = EXCELLENT
-		set_planet_flag = parasite_temple
-		random_tile = {
-			limit = {
-				has_blocker = no
-				has_resource = no
+		hidden_effect = { 
+			event_target:parasite_planet = {
+				set_planet_flag = parasite_temple
+				random_tile = {
+					limit = {
+						has_blocker = no
+						has_resource = no
+					}
+					set_building = "building_parasite_temple_1"
+				}
 			}
-			set_building = "building_parasite_temple_1"
 		}
 		enable_special_project = {
 			name = "PARASITE_TEMPLE_INVESTIGATE"
-			location = this
-			owner = FromFromFrom
+			location = event_target:parasite_planet
+			owner = this
 		}
 
-		hidden_effect = {  }
 	}
 	option = {
 		name = parasite.2.b
 	}
-
 }
 
+# entered temple
 ship_event = {
 	id = parasite.5
 	is_triggered_only = yes
@@ -65,7 +70,7 @@ ship_event = {
 	
 	title = "parasite.5.name"
 	desc = "parasite.5.desc"
-	picture = GFX_evt_alien_nature
+	picture = GFX_evt_big_landing_ship
 	show_sound = event_alien_nature
 	location = this
 
@@ -79,7 +84,6 @@ ship_event = {
 		}
 	}
 }
-
 
 #################################
 #Events for parasite procreation#
