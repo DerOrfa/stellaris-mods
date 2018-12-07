@@ -4,4 +4,4 @@ tags={
 	"Species"
 }
 picture="parasites.png"
-supported_version="2.1.*"
+supported_version="2.2.*"

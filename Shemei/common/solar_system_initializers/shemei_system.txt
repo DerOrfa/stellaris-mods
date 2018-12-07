@@ -105,56 +105,34 @@ lamia_system_initializer = {
 		size = 12
 		has_ring = no
 		
-	moon = {
-		name = "Gol'Xerak"
-		class = "pc_desert"
-		orbit_distance = 6
-		orbit_angle = { min = -30 max = 300 }
-		size = 14
-		starting_planet = yes
-		has_ring = no
-		tile_blockers = none
-		modifiers = none
-		flags = { planet_golxerak }
-		
-		init_effect = {
-			prevent_anomaly = yes
+		moon = {
+			name = "Gol'Xerak"
+			class = "pc_desert"
+			orbit_distance = 6
+			orbit_angle = { min = -30 max = 300 }
+			size = 14
+			starting_planet = yes
+			has_ring = no
+			tile_blockers = none
+			modifiers = none
+			flags = { planet_golxerak }
 			
-		}
-		
-		init_effect = {
-			add_modifier = {
-				modifier = beautiful_oasis
-				days = -1 # -1 = never expires
-				} 
+			init_effect = {
+				prevent_anomaly = yes
+				
 			}
-		
-		init_effect = {
-			generate_start_buildings_and_blockers = yes
-		}
-		
-		init_effect = {
-			random_tile = {
-				limit = { has_blocker = tb_failing_infrastructure }
-				set_blocker = "tb_deep_sinkhole"
-				set_deposit = d_vast_mineral_deposit				
+			
+			init_effect = {
+				add_modifier = {
+					modifier = beautiful_oasis
+					days = -1 # -1 = never expires
+					} 
+				}
+			
+			init_effect = {
+#				generate_start_buildings_and_blockers = yes
 			}
-			random_tile = {
-				limit = { has_blocker = tb_failing_infrastructure }
-				set_blocker = "tb_dangerous_wildlife"
-				set_deposit = d_vast_society_deposit				
-			}
-			random_tile = {
-				limit = { has_blocker = tb_failing_infrastructure }
-				set_blocker = "tb_deep_sinkhole"
-				set_deposit = d_physics_deposit				
-			}
-						
 		}
-		
-	
-		}
-	
 	}
 	
 	planet = {

@@ -1,17 +1,12 @@
-@pandora_trait_points = 2
-@pandora_max_traits = 2
-@species_trait_points = 2
-@species_max_traits = 5
-
 MAT = {
 	archetype = BIOLOGICAL
 	possible = { authority = { NOT = { value = auth_machine_intelligence text = SPECIES_CLASS_MUST_NOT_USE_MACHINE_INTELLIGENCE } } }
 	gender = no
 	
-	portraits = { "shemei" }
+	portraits = { "shemei" "lotus" }
 	
 	# These should not be used for randomly generated species
-	non_randomized_portraits = { "shemei" }
+	non_randomized_portraits = { "shemei" "lotus" }
 	
 	graphical_culture = mammalian_01
 	move_pop_sound_effect = "moving_pop_confirmation"
