@@ -18,9 +18,10 @@ country_event = {
 					}
 				} 
 				save_event_target_as = parasite_planet
+				FROMFROM = { country_event = { id = parasite.2 days = 3 random = 1 } }
 			}	
 		}
-		country_event = { id = parasite.2 days = 3 random = 1 }
+		
 	}
 }
 
@@ -41,13 +42,14 @@ country_event = {
 		hidden_effect = { 
 			event_target:parasite_planet = {
 				set_planet_flag = parasite_temple
-				random_tile = {
-					limit = {
-						has_blocker = no
-						has_resource = no
-					}
-					set_building = "building_parasite_temple_1"
-				}
+# needs update for jobs based system
+#				random_tile = {
+#					limit = {
+#						has_blocker = no
+#						has_resource = no
+#					}
+#					set_building = "building_parasite_temple_1"
+#				}
 			}
 		}
 		enable_special_project = {
@@ -85,49 +87,126 @@ ship_event = {
 	}
 }
 
-#################################
-#Events for parasite procreation#
-#################################
+##################################
+#Events for parasite procreation #
+##################################
+
+#when a new pop is born 
 pop_event = {
 	id = parasite.100
+	is_triggered_only = yes
 	hide_window = yes
 
 	trigger = {
 		pop_has_trait = trait_parasite
 	}
- 
+
 	immediate = {
-		if = {
-			limit = {
-				planet_has_other_pops = yes
-				has_modifier = parasite_mali
+		planet = { planet_event = { id = parasite.101 } }
+	}
+}
+#maybe kill a host on that planet
+planet_event = {
+	id = parasite.101
+	is_triggered_only = yes
+	hide_window = yes
+
+	immediate = {
+		random_pop = { 
+			limit = { has_job = parasite_host }   
+			random_list = {
+				50 = {# chances of survival
+						modifier = {
+							factor = 0.8
+							is_enslaved = yes
+						}
+						modifier = {
+							factor = 0.5
+							has_citizenship_type = { type = citizenship_purge }
+							has_purge_type = { type = purge_labor_camps }
+						}
+						modifier = {
+							factor = 1.2
+							or = {
+								pop_has_trait = trait_strong 
+								pop_has_trait = trait_enduring 
+							}
+						}
+						modifier = {
+							factor = 1.3 
+							or = {
+								pop_has_trait = trait_very_strong 
+								pop_has_trait = trait_resilient 
+								pop_has_trait = trait_robust 
+							}
+						}
+						modifier = {
+							factor = 0.75
+							pop_has_trait = trait_weak 
+						}
+					}
+				50 = { kill_pop = yes }
 			}
-			remove_modifier = parasite_mali
 		}
 	}
 }
 
-pop_event = {
-	id = parasite.101
-	hide_window = yes
 
+# triggered every day
+planet_event = {# add host job
+	id = parasite.110
+	hide_window = yes
+	
 	trigger = {
-		pop_has_trait = trait_parasite
+		any_pop = { pop_has_trait = trait_parasite } 
+		NOT = { has_modifier = planet_parasite_procreation }
 	}
 
 	immediate = {
+		add_modifier = { modifier = planet_parasite_procreation days = -1 }
+	}
+}
 
-		if = {
-			limit = {
-				planet_has_other_pops = no
-				NOT = { has_modifier = parasite_mali }
-			}
+planet_event = {# remove host job
+	id = parasite.111
+	hide_window = yes
+	
+	trigger = {
+		has_modifier = planet_parasite_procreation 
+		NOT = { any_pop = { pop_has_trait = trait_parasite } }
+	}
 
-			add_modifier = {
-				modifier = parasite_mali
-				days = -1
-			}
-		}
+	immediate = {
+		remove_modifier = planet_parasite_procreation 
+	}
+}
 
+planet_event = { # add no-host malus if there is no host
+	id = parasite.112
+	hide_window = yes
+	
+	trigger = {
+		has_modifier = planet_parasite_procreation 
+		NOT = { has_modifier = planet_parasite_no_host } 
+		NOT = { any_pop = { has_job = parasite_host } }
+	}
+
+	immediate = {
+		add_modifier = { modifier = planet_parasite_no_host days = -1 }
+	}
+}
+
+planet_event = { # remove no-host malus if there is a host
+	id = parasite.113
+	hide_window = yes
+	
+	trigger = {
+		has_modifier = planet_parasite_procreation 
+		has_modifier = planet_parasite_no_host
+		any_pop = { has_job = parasite_host }
+	}
+
+	immediate = {
+		remove_modifier = planet_parasite_no_host
 	}
 }

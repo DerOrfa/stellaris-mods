@@ -7,7 +7,7 @@ trait_parasite = {
 	
 	allowed_archetypes = { BIOLOGICAL }
 	
-	modifier = { pop_other_species_happiness = -0.05 }
+#	modifier = { pop_other_species_happiness = -0.05 } removed in 2.2
 	opposites = { "trait_rapid_breeders" "trait_slow_breeders" }
 	icon = "gfx/interface/icons/traits/trait_parasite.dds"
 	randomized = no

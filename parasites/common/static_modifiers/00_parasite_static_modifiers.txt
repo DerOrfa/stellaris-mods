@@ -1,4 +1,12 @@
-parasite_mali = {
-		pop_growth_speed = -0.75
-		pop_happiness = -0.20
+planet_parasite_procreation = {
+	icon = "gfx/interface/icons/planet_modifiers/parasite.dds"
+	icon_frame = 2
+	job_parasite_host_add = 1
+}
+
+planet_parasite_no_host = {
+	icon = "gfx/interface/icons/planet_modifiers/parasite.dds"
+	icon_frame = 3
+	pop_happiness = -0.2
+	pop_growth_speed = -0.5
 }

@@ -1,7 +1,14 @@
-planet_has_other_pops = {
-	planet = { 
-		any_pop = { 
-			NOT = { is_same_species = ROOT } 
-		} 
+pop_can_be_host = {
+	is_organic_species = yes
+	OR = { # not parasite itself, or enslaved parasite, or in labor camp
+		NOT = { has_trait = trait_parasite }
+		AND = {
+			is_enslaved = yes
+			NOT = { has_slavery_type = { type = slavery_military } }
+		}
+		AND = {
+			has_citizenship_type = { type = citizenship_purge }
+			has_purge_type = { type = purge_labor_camps }
+		}
 	}
 }

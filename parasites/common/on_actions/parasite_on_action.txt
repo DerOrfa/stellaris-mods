@@ -3,3 +3,21 @@ on_game_start_country = {
 		parasite.1
 	}
 }
+
+# A pop has finished growing
+# This = Planet scope
+# From = Country
+# FromFrom = Pop
+on_pop_grown = {
+	events = {
+		parasite.100
+	}
+}
+
+# A pop has been added to the planet
+# Root = pop
+# From = planet
+on_pop_added = {
+	events = {
+	}
+}

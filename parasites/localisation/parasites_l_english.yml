@@ -6,7 +6,7 @@
  parasite_mali:0 "No host species"
  
  #Customtooltip
- TRAIT_Parasite_EFFECT:0 "Other Species Happiness: §R-5%§!\nNeeds xeno-species for growth"
+ TRAIT_Parasite_EFFECT:0 "Needs xeno-species for growth"
 
 
 parasite.2.name:0 "SOMETHING_WEIRD"
@@ -17,3 +17,15 @@ parasite.5.desc:0 "TEMPLE_FOUND"
 
 building_parasite_temple_1:0 "TEMPLE"
 building_parasite_temple_1_desc:0 "TEMPLE"
+
+job_parasite_host:0 "Host"
+job_parasite_host_plural:0 "Hosts"
+job_parasite_host_desc:0 "These pops are used as hosts for parasitic procreation. To compensate for the high casualty rate the hosts are also encouraged to breed uppon them self. Nonetheless, we probably will have to replace them eventually."
+
+planet_parasite_procreation:0 "Parasitic procreation"
+planet_parasite_procreation_desc:0 "Parasitic procreation"
+
+planet_parasite_no_host:0 "No hosts for parasitic procreation"
+planet_parasite_no_host_desc:0 "No hosts for parasitic procreation"
+
+mod_job_parasite_host_add:0 "Host jobs"
