@@ -42,14 +42,6 @@ country_event = {
 		hidden_effect = { 
 			event_target:parasite_planet = {
 				set_planet_flag = parasite_temple
-# needs update for jobs based system
-#				random_tile = {
-#					limit = {
-#						has_blocker = no
-#						has_resource = no
-#					}
-#					set_building = "building_parasite_temple_1"
-#				}
 			}
 		}
 		enable_special_project = {
@@ -84,6 +76,24 @@ ship_event = {
 			add_trait = trait_ruler_charismatic
 			set_leader_flag = parasite_leader
 		}
+		event_target:parasite_planet = {
+			add_deposit = ancient_lotus_temple_station
+		}
+	}
+}
+
+# planet has been terraformed 
+# From = Terraforming country
+planet_event = {
+	id = parasite.50
+	is_triggered_only = yes
+	hide_window = yes
+	
+	trigger = {
+		has_planet_flag = parasite_temple
+	}
+	immediate = {
+		add_deposit = ancient_lotus_temple
 	}
 }
 
@@ -91,25 +101,15 @@ ship_event = {
 #Events for parasite procreation #
 ##################################
 
-#when a new pop is born 
-pop_event = {
-	id = parasite.100
-	is_triggered_only = yes
-	hide_window = yes
-
-	trigger = {
-		pop_has_trait = trait_parasite
-	}
-
-	immediate = {
-		planet = { planet_event = { id = parasite.101 } }
-	}
-}
-#maybe kill a host on that planet
+#when a new pop is born maybe kill a host on that planet
 planet_event = {
 	id = parasite.101
 	is_triggered_only = yes
 	hide_window = yes
+
+	trigger = {
+		FROMFROM = { pop_has_trait = trait_parasite }
+	}
 
 	immediate = {
 		random_pop = { 

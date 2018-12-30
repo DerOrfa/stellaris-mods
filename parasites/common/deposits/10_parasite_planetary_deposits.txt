@@ -1,0 +1,83 @@
+## Possible Deposit Variables ##
+# resources, resource and amount
+# potential trigger (planet scope)
+# blocked_modifier - applied to planet
+# constant_modifier - applied to planet always
+# station = station class in orbit to gather
+
+
+ancient_lotus_temple_station = {
+	resources = {
+		category = orbital_research_deposits
+		produces = {
+			society_research = 10
+		}
+	}
+	station = shipclass_research_station 
+	is_for_colonizeable = no
+	
+	potential = { always = no }
+	drop_weight = { weight = 0 }
+	
+	should_swap_deposit_on_terraforming = yes
+    terraforming_swap_types = {
+        ancient_lotus_temple
+    }
+}
+
+
+ancient_lotus_temple = {
+	category = deposit_cat_rare
+	
+	icon = d_city_ruins
+	
+#	resources = {
+#		category = deposit_blockers
+#		cost = {
+#			energy = 300
+#		}
+#	}
+#	blocker_swap_types = { ancient_lotus_temple_rebuilt }
+#has_authority 
+
+	triggered_planet_modifier = {
+		potential = {
+			exists = owner
+			owner = { has_civic = civic_exalted_priesthood }					
+		}
+		modifier = {
+			job_high_priest_add = 1
+		}
+	}
+	triggered_planet_modifier = {
+		potential = {
+			exists = owner
+			owner = {
+				OR = { 
+					has_ethic = "ethic_spiritualist"
+					has_ethic = "ethic_fanatic_spiritualist"
+				}
+			}
+		}
+		modifier = {
+			job_priest_add = 2
+		}
+	}
+	triggered_planet_modifier = {
+		potential = {
+			exists = owner
+			owner = {
+				NOR = { 
+					has_ethic = "ethic_spiritualist"
+					has_ethic = "ethic_fanatic_spiritualist"
+				}
+			}
+		}
+		modifier = {
+			job_researcher_add = 2
+		}
+	}
+	
+	potential = { always = no } # added by event
+}
+
