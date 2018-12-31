@@ -22,21 +22,12 @@ on_pop_added = {
 	}
 }
 
-
-#!!!!!!!!!!!!!!!!!!!!!!!#
-#overrides 00_on_actions#
-#!!!!!!!!!!!!!!!!!!!!!!!#
-
 # This = construction ship
 # From = planet it is built on
 # Fires when construction is complete,
 # immediately before station is created
 on_building_research_station = {
 	events = {
-		mandate.120
-		tutorial.12
-		tutorial.1200
-		tutorial.56
 	}
 }
 
@@ -45,9 +36,6 @@ on_building_research_station = {
 # From = Terraforming country
 on_terraforming_complete = {
 	events = {
-		action.68
-		syndaw.1320 # Planet of the Mechs achievement check
-		distar.197
 		parasite.50
 	}
 }
