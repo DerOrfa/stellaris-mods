@@ -35,3 +35,8 @@ on_ruler_set = {
 	events = {}
 }
 
+on_leader_spawned = {
+	events = {
+		parasite.40
+	}
+}

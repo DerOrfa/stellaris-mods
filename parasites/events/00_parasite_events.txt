@@ -237,7 +237,7 @@ country_event = {
 		}
 
 		hidden_effect = {
-			set_country_flag = parasite_station_extended
+			set_country_flag = parasite_station_extended #will cause all leaders to become "parasite"-leaders
 		}
 	}
 	option = {
@@ -296,6 +296,48 @@ country_event = {
 	}
 }
 
+#a leader was created the normal way - change him to be a parasite leader
+country_event = {
+	id = parasite.40
+	is_triggered_only = yes
+	hide_window = yes
+
+	trigger = {
+		has_country_flag = parasite_station_extended
+	}
+
+	immediate = {
+		from = {
+			set_name = random
+#			leader_age = -10
+			add_experience = 500
+			set_leader_flag = parasite_leader
+			add_trait = leader_trait_eager 
+
+			if = {
+				limit = { leader_class = admiral  }
+				add_trait = leader_trait_trickster
+			}
+			else_if = {
+				limit = { OR  = { 
+						leader_class = general 
+						leader_class = ruler
+				} }
+				add_trait = leader_trait_charismatic
+			} 
+			else_if = {
+				limit = { leader_class = governor }
+				add_trait = leader_trait_intellectual
+			} 
+			else_if = {
+				limit = { leader_class = scientist }
+				add_trait = leader_trait_spark_of_genius
+			} 
+		}
+	}
+}
+
+
 # planet has been terraformed 
 # From = Terraforming country
 planet_event = {
@@ -306,9 +348,8 @@ planet_event = {
 	trigger = {
 		has_planet_flag = parasite_temple
 	}
-	immediate = {
+	immediate = { # we keep "parasite_station_extended" intentionaly
 		add_deposit = ancient_lotus_temple
-		remove_planet_flag = parasite_station_extended
 	}
 }
 
