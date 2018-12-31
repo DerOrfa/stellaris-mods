@@ -89,7 +89,7 @@ ship_event = {
 	}
 }
 
-# new officer
+# new officer (random event )
 ship_event = {
 	id = parasite.10
 	title = "anomaly.4055.name"
@@ -98,7 +98,7 @@ ship_event = {
 	show_sound = event_laboratory_sound
 	location = this
 
-	mean_time_to_happen = { months = 1 }
+	mean_time_to_happen = { months = 36 }
 	
 	trigger = { 
 		exists = leader
@@ -139,6 +139,163 @@ ship_event = {
 	}	
 }
 
+# parasite station randomly creates a parasite leader (scientist only)
+planet_event = {
+	id = parasite.20
+	hide_window = yes
+
+	mean_time_to_happen = { months = 1 }
+	
+	trigger = { 
+		has_planet_flag = parasite_temple
+		has_research_station = yes
+	} 
+	
+	immediate = { 
+		log = "parasite.20 triggered"
+		print_scope_effect = yes
+		planet_event = { id = parasite.30 days = 3 random = 1 } 	#start timer for extending station after first created leader
+		starbase = { owner = { country_event = { id = parasite.22 } }}
+	}
+}
+country_event = {
+	id = parasite.22
+	is_triggered_only = yes
+	title = "anomaly.4055.name"
+	desc = "parasite.22.desc"
+	picture = GFX_evt_physics_research
+	show_sound = event_laboratory_sound
+	location = FROMFROM
+	
+	trigger = { # only if we still use the station as a science station
+		NOT = { has_country_flag = parasite_station_extended }
+	}
+	
+	immediate = { 
+		log = "parasite.22 triggered"
+		print_scope_effect = yes
+	}
+	option = {
+		name = anomaly.4055.a
+		create_leader = {
+			class = scientist
+			species = owner_main_species
+			name = random
+			skill = 3
+			leader_age_min = 20
+			leader_age_max = 30
+			traits = {
+				trait = leader_trait_spark_of_genius
+			}
+			effect = {
+				set_leader_flag = parasite_leader
+			}
+		}
+	}
+	option = {
+		name = anomaly.4055.b
+		hidden_effect = {
+			#todo add some effect
+		}
+	}
+}
+
+# event to extend station (this will make all new leaders parasite leaders)
+planet_event = {
+	id = parasite.30
+	is_triggered_only = yes
+	fire_only_once = yes
+	hide_window = yes
+
+	immediate = { 
+		starbase = { owner = { country_event = { id = parasite.32 } }}
+	}
+}
+country_event = {
+	id = parasite.32
+	is_triggered_only = yes
+	title = "parasite.32.name"
+	desc = "parasite.32.desc"
+	picture = GFX_evt_physics_research
+	show_sound = event_laboratory_sound
+	location = FROMFROM
+	fire_only_once = yes
+	
+	option = {
+		name = parasite.32.a
+		custom_tooltip = parasite.32.a.desc
+		ai_chance = {
+			factor = 150
+			modifier = {
+				factor = 4
+				has_ethic = ethic_authoritarian
+			}
+			modifier = {
+				factor = 8
+				has_ethic = ethic_fanatic_authoritarian
+			}
+		}
+
+		hidden_effect = {
+			set_country_flag = parasite_station_extended
+		}
+	}
+	option = {
+		name = parasite.32.b
+		ai_chance = {
+			factor = 100
+			modifier = {
+				factor = 4
+				has_ethic = ethic_egalitarian
+			}
+			modifier = {
+				factor = 8
+				has_ethic = ethic_fanatic_egalitarian
+			}
+		}
+	}
+	option = {
+		name = parasite.32.c
+		FROMFROM = { 
+			remove_deposit = ancient_lotus_temple 
+			remove_planet_flag = parasite_temple
+		}
+		ai_chance = {
+			factor = 100
+			modifier = {
+				factor = 2
+				has_ethic = ethic_egalitarian
+			}
+			modifier = {
+				factor = 4
+				has_ethic = ethic_fanatic_egalitarian
+			} 
+			modifier = {
+				factor = 0.75
+				OR = { 
+					has_ethic = ethic_authoritarian 
+					has_ethic = ethic_xenophile
+				}
+			}
+			modifier = {
+				factor = 0.5
+				OR = {
+					has_ethic = ethic_fanatic_authoritarian 
+					has_ethic = ethic_fanatic_xenophile
+				}
+			}
+			modifier = {
+				factor = 5
+				has_ethic = ethic_xenophobe
+			}
+			modifier = {
+				factor = 10
+				has_ethic = ethic_fanatic_xenophobe
+			}
+		}
+	}
+}
+
 # planet has been terraformed 
 # From = Terraforming country
 planet_event = {
@@ -151,6 +308,7 @@ planet_event = {
 	}
 	immediate = {
 		add_deposit = ancient_lotus_temple
+		remove_planet_flag = parasite_station_extended
 	}
 }
 
