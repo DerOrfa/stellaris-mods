@@ -80,12 +80,33 @@ ship_event = {
 		leader = { 
 			add_experience = 500
 			add_trait = leader_trait_expertise_statecraft 
-			add_trait = trait_ruler_charismatic
+#			add_trait = trait_ruler_charismatic
+			add_trait = leader_trait_resilient 
 			set_leader_flag = parasite_leader
+			
+			create_species = {
+				name = "lotus_touched.name"
+				plural = "lotus_touched.plural"
+				class = this
+				portrait = this
+				traits = {
+					trait="trait_decadent"
+					trait="trait_intelligent"
+					trait="trait_charismatic"
+					trait="trait_natural_sociologists"
+				}
+				homeworld = home_planet
+			}
+			last_created_species = { save_event_target_as = lotus_touched_species }
 		}
-		event_target:parasite_planet = {
-			add_deposit = ancient_lotus_temple_station
+		
+hidden_effect = {
+			event_target:parasite_planet = {
+				add_deposit = ancient_lotus_temple_station
+			}
+			owner = { country_event = { id = parasite.300 days = 400 random = 5 } } #start timer for speciation
 		}
+
 	}
 }
 
@@ -186,6 +207,7 @@ country_event = {
 			leader_age_max = 30
 			traits = {
 				trait = leader_trait_spark_of_genius
+				trait = random_trait
 			}
 			effect = {
 				set_leader_flag = parasite_leader
@@ -310,7 +332,7 @@ country_event = {
 		from = {
 			set_name = random
 #			leader_age = -10
-			add_experience = 500
+ 			add_experience = 1000
 			set_leader_flag = parasite_leader
 			add_trait = leader_trait_eager 
 
@@ -319,11 +341,12 @@ country_event = {
 				add_trait = leader_trait_trickster
 			}
 			else_if = {
-				limit = { OR  = { 
-						leader_class = general 
-						leader_class = ruler
-				} }
+				limit = { leader_class = general }
 				add_trait = leader_trait_charismatic
+			} 
+			else_if = {
+				limit = { leader_class = ruler }
+				add_trait = trait_ruler_charismatic
 			} 
 			else_if = {
 				limit = { leader_class = governor }
@@ -352,4 +375,55 @@ planet_event = {
 		add_deposit = ancient_lotus_temple
 	}
 }
+
+
+# parasite leader became ruler
+country_event = {
+	id = parasite.200
+	is_triggered_only = yes
+	hide_window = yes
+	
+	trigger = { 
+		exists = ruler
+		ruler = {
+			has_leader_flag = parasite_leader
+		}
+	}
+	
+	immediate = {
+		ruler = { add_trait = trait_ruler_charismatic }
+	}
+} 
+
+# first speciation
+country_event = {
+	id = parasite.300
+	is_triggered_only = yes
+	fire_only_once = yes 
+	
+	title = "parasite.300.name"
+	desc = "parasite.300.desc"
+	picture = GFX_evt_alien_propaganda
+	show_sound = event_mystic_reveal
+	#event_public_unrest
+
+	option = {
+		name = FASCINATING
+		#reveal all leaders
+		every_owned_leader = {
+			limit = { has_leader_flag = parasite_leader }
+			change_species = event_target:lotus_touched_species
+		}
+		
+		#"reveal" pops on planets
+		every_owned_planet = { 
+			random_pop = {
+				limit = {
+					is_pop_category = ruler
+				}
+				change_species = event_target:lotus_touched_species
+			}
+		}
+	}
+} 
 

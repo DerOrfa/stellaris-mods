@@ -32,7 +32,9 @@ on_terraforming_complete = {
 }
 
 on_ruler_set = {
-	events = {}
+	events = {
+		parasite.200
+	}
 }
 
 on_leader_spawned = {
