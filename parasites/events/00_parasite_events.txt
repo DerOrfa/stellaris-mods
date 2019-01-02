@@ -212,7 +212,7 @@ country_event = {
 		}
 	}
 	option = {
-		name = parasite.22.b
+		name = anomaly.4055.b
 		hidden_effect = {
 			#todo add some effect
 		}
@@ -441,6 +441,11 @@ country_event = {
 		name = FASCINATING
 		#reveal all leaders
 		every_owned_leader = {
+			limit = { has_leader_flag = parasite_leader }
+			change_species = event_target:lotus_touched_species
+			remove_leader_flag = parasite_leader #this is not needed anymore
+		}
+		every_pool_leader = {
 			limit = { has_leader_flag = parasite_leader }
 			change_species = event_target:lotus_touched_species
 			remove_leader_flag = parasite_leader #this is not needed anymore
