@@ -326,43 +326,62 @@ country_event = {
 	}
 
 	immediate = {
+		#pick out the parasite species if there is one
 		if = {
-			limit = { #if first speciation has occured and this is not that species, reject the leader
+			limit = { any_owned_pop = { species = { has_species_flag = parasite_speciation_1 } } }
+			random_owned_pop = { 
+				limit = { species = { has_species_flag = parasite_speciation_1 } } 
+				species = { save_event_target_as = lotus_touched_species } 
+			}
+		} else_if = {
+			limit = { any_owned_leader = { species = { has_species_flag = parasite_speciation_1 } } }
+			random_owned_leader = { 
+				limit = { species = { has_species_flag = parasite_speciation_1 } } 
+				species = { save_event_target_as = lotus_touched_species } 
+			}
+		}
+
+		#generic modification for parasite station education
+		from = {
+#			leader_age = -10
+#				add_experience = 1000 level up will be messaged
+			set_skill = 2
+			
+			add_trait = leader_trait_eager 
+
+			if = {
+				limit = { leader_class = admiral  }
+				add_trait = leader_trait_trickster
+			}
+			else_if = {
+				limit = { leader_class = general }
+				add_trait = leader_trait_charismatic
+			} 
+			else_if = {
+				limit = { leader_class = ruler }
+				add_trait = trait_ruler_charismatic
+			} 
+			else_if = {
+				limit = { leader_class = governor }
+				add_trait = leader_trait_intellectual
+			} 
+			else_if = {
+				limit = { leader_class = scientist }
+				add_trait = leader_trait_spark_of_genius
+			} 
+		}
+
+		#if first speciation has occured and this is not that species, reject the leader
+		# @todo this will break if we did not find the parasite species
+		if = {
+			limit = { 
 				has_country_flag = parasite_speciation_1
 				from = { species = { NOT = { has_species_flag = parasite_speciation_1 } } }
+				exists = event_target:lotus_touched_species 
 			}
-			from = { kill_leader = { show_notification = yes } }
-			print_scope_effect = yes
-
-		} else = {
-			from = {
-				set_name = "Hallo Wlt"#random
-	#			leader_age = -10
-				add_experience = 1000
-				set_leader_flag = parasite_leader
-				add_trait = leader_trait_eager 
-
-				if = {
-					limit = { leader_class = admiral  }
-					add_trait = leader_trait_trickster
-				}
-				else_if = {
-					limit = { leader_class = general }
-					add_trait = leader_trait_charismatic
-				} 
-				else_if = {
-					limit = { leader_class = ruler }
-					add_trait = trait_ruler_charismatic
-				} 
-				else_if = {
-					limit = { leader_class = governor }
-					add_trait = leader_trait_intellectual
-				} 
-				else_if = {
-					limit = { leader_class = scientist }
-					add_trait = leader_trait_spark_of_genius
-				} 
-			}
+			from = { change_species = event_target:lotus_touched_species }
+		} else = { #otherwise just mark them
+			from = { set_leader_flag = parasite_leader }
 		}
 	}
 }
