@@ -190,7 +190,7 @@ country_event = {
 	location = FROMFROM
 	
 	trigger = { # only if we still use the station as a science station
-		NOT = { has_country_flag = parasite_station_extended }
+		NOT = { has_policy_flag = parasite_station_education_full }
 	}
 	
 	option = {
@@ -240,6 +240,10 @@ country_event = {
 	location = FROMFROM
 	fire_only_once = yes
 	
+	immediate = {
+		set_country_flag = parasite_station_extended #open option to educate leaders on the station
+	}
+	
 	option = {
 		name = parasite.32.a
 		custom_tooltip = parasite.32.a.desc
@@ -254,10 +258,12 @@ country_event = {
 				has_ethic = ethic_fanatic_authoritarian
 			}
 		}
-
-		hidden_effect = {
-			set_country_flag = parasite_station_extended #will cause all leaders to become "parasite"-leaders
+		set_policy = {
+			policy = parasite_station
+			option = parasite_station_education_full
+			cooldown = yes
 		}
+
 	}
 	option = {
 		name = parasite.32.b
@@ -322,7 +328,7 @@ country_event = {
 	hide_window = yes
 
 	trigger = {
-		has_country_flag = parasite_station_extended
+		has_policy_flag = parasite_station_education_full
 	}
 
 	immediate = {
@@ -458,7 +464,7 @@ country_event = {
 					is_pop_category = ruler
 				}
 				change_species = event_target:lotus_touched_species
-				pop_change_ethic = ethic_authoritarian
+				hidden_effect = { pop_change_ethic = ethic_authoritarian }
 			}
 		}
 	}

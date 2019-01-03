@@ -1,0 +1,46 @@
+
+parasite_station = {
+	potential = {	
+		has_country_flag = parasite_station_extended
+		# todo need to check if we actually control the temple
+	}
+	
+	option = {
+		name = "parasite_station_education_full"
+		
+		potential = { has_country_flag = parasite_station_extended }
+		
+		policy_flags = { parasite_station_education_full }
+		
+		valid = { always = yes }
+		
+		modifier = {
+			leader_skill_levels = 2
+		}
+
+
+		AI_weight = {
+			factor = 2
+			modifier = {
+				factor = 0.5
+				has_ethic = ethic_xenophobe
+				has_ethic = ethic_fanatic_xenophobe
+				has_ai_personality_behaviour = isolationist 
+			}
+		}
+	}	
+	
+	option = {
+		name = "parasite_station_education_none"
+		
+		valid = { always = yes }
+		potential = { always = yes }
+		
+		policy_flags = { parasite_station_education_none }
+
+		AI_weight = {
+			factor = 1
+		}
+	}
+}
+
