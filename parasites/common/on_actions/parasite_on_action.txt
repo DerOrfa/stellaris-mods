@@ -22,12 +22,20 @@ on_pop_added = {
 	}
 }
 
+# Executes after a policy has been changed
+# use last_changed_policy to identify which policy it was
+# This = Country
+on_policy_changed = {
+	events = {
+	}
+}
+
 # Planet has been terraformed
 # This = Planet
 # From = Terraforming country
 on_terraforming_complete = {
 	events = {
-		parasite.50
+		parasite.900
 	}
 }
 

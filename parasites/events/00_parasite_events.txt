@@ -392,22 +392,106 @@ country_event = {
 	}
 }
 
-
-# planet has been terraformed 
-# From = Terraforming country
-planet_event = {
+#if we centralized our education under the influence of the parasite temple
+#make non-parasite leaders have "accidents"
+country_event = {
 	id = parasite.50
-	is_triggered_only = yes
 	hide_window = yes
 	
+	mean_time_to_happen = { months = 6 }
+
 	trigger = {
-		has_planet_flag = parasite_temple
+		has_policy_flag = parasite_station_education_full
 	}
-	immediate = { # we keep "parasite_station_extended" intentionaly
-		add_deposit = ancient_lotus_temple
+
+	immediate = {
+		log = "==== Assassination attempt "
+		random_list = { 
+			60 ={
+				random_pool_leader = {
+					limit = { NOR= { 
+						has_leader_flag = parasite_leader 
+						species = { has_species_flag = parasite_speciation_1 }
+					} }
+					save_event_target_as = accident_leader
+					log = "==== Assassination attempt on pooled [This.GetName] from [Root.GetName]"
+					random_list = { 
+						33 = { #leader is killed
+							log = "==== [This.GetName] is killed"
+							kill_leader = { show_notification = no }
+						} 
+						33 = { #survives and becomes shaken
+							if = {
+								log = "==== [This.GetName] is shaken"
+								limit = { NOT = { has_trait = leader_trait_shaken } }
+								add_trait = leader_trait_shaken
+							}
+						} 
+						33 = { #survives
+						} 
+					}
+				}
+			}
+			40 ={
+				random_owned_leader = {
+					limit = { NOR= { 
+						has_leader_flag = parasite_leader 
+						species = { has_species_flag = parasite_speciation_1 }
+					} }
+					save_event_target_as = accident_leader
+					log = "Assassination attempt on owned [This.GetName] from [Root.GetName]"
+					random_list = { 
+						33 = { #leader is killed
+							owner = { country_event = { id=parasite.60 } } #kill'n'tell
+						} 
+						33 = { #survives and becomes shaken
+							owner = { country_event = { id=parasite.65 } } #not-kill'n'tell
+						} 
+						33 = { #survives
+						} 
+					}
+				}
+			}
+		}
 	}
 }
 
+#kill'n'tell
+country_event = { 
+	id = parasite.60
+	is_triggered_only = yes
+	title = "parasite.60.name"
+	desc = "parasite.60.desc"
+	picture = GFX_evt_exploding_ship
+	show_sound = event_ship_explosion
+	
+	option = {
+		name = TERRIBLE
+		event_target:accident_leader = { 
+			kill_leader = { show_notification = yes }  
+		}
+	}
+}
+
+#not-kill'n'tell
+country_event = { 
+	id = parasite.65
+	is_triggered_only = yes
+	title = "parasite.65.name"
+	desc = "parasite.65.desc"
+	picture = GFX_evt_exploding_ship
+	show_sound = event_ship_explosion
+
+	option = {
+		name = TERRIBLE
+		event_target:accident_leader = { 
+			if = {
+				limit = { NOT = { has_trait = leader_trait_shaken } }
+				add_trait = leader_trait_shaken
+			}
+		}
+	}
+}
 
 # parasite leader became ruler
 country_event = {
@@ -469,3 +553,19 @@ country_event = {
 		}
 	}
 }
+
+# planet has been terraformed 
+# From = Terraforming country
+planet_event = {
+	id = parasite.900
+	is_triggered_only = yes
+	hide_window = yes
+	
+	trigger = {
+		has_planet_flag = parasite_temple
+	}
+	immediate = { # we keep "parasite_station_extended" intentionaly
+		add_deposit = ancient_lotus_temple
+	}
+}
+
