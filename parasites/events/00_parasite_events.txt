@@ -80,7 +80,7 @@ ship_event = {
 		leader = { 
 			add_experience = 500
 			add_trait = leader_trait_expertise_statecraft 
-#			add_trait = trait_ruler_charismatic
+			add_ruler_trait = trait_ruler_charismatic
 			add_trait = leader_trait_resilient 
 			set_leader_flag = parasite_leader
 			
@@ -102,8 +102,8 @@ ship_event = {
 				set_species_flag = parasite_speciation_1
 			}
 		}
-		
-hidden_effect = {
+
+		hidden_effect = {
 			event_target:parasite_planet = {
 				add_deposit = ancient_lotus_temple_station
 			}
@@ -126,7 +126,7 @@ ship_event = {
 	
 	trigger = { 
 		exists = leader
-		leader = { has_leader_flag = parasite_leader } 
+		leader = { is_parasite_leader = yes } 
 	} 
 		
 	option = {
@@ -332,7 +332,7 @@ country_event = {
 	}
 
 	immediate = {
-		#pick out the parasite species if there is one
+		#restore parasite species from leaders or pops
 		if = {
 			limit = { any_owned_pop = { species = { has_species_flag = parasite_speciation_1 } } }
 			random_owned_pop = { 
@@ -349,12 +349,15 @@ country_event = {
 
 		#generic modification for parasite station education
 		from = {
-#			leader_age = -10
-#				add_experience = 1000 level up will be messaged
+#			leader_age = -10 #will not make them younger but live shorter
 			set_skill = 2
 			
-			add_trait = leader_trait_eager 
-
+			# before takeover parasite leaders are eager to get into service
+			if = { limit = { NOT = { has_trait = leader_trait_eager } } 
+				add_trait = leader_trait_eager 
+				set_leader_flag = parasite_eager #remember to remove this after takeover
+			}
+			
 			if = {
 				limit = { leader_class = admiral  }
 				add_trait = leader_trait_trickster
@@ -376,9 +379,10 @@ country_event = {
 				add_trait = leader_trait_spark_of_genius
 			} 
 		}
+		
 
 		#if first speciation has occured and this is not that species, reject the leader
-		# @todo this will break if we did not find the parasite species
+		# @todo this will break if we did not find the parasite species above
 		if = {
 			limit = { 
 				has_country_flag = parasite_speciation_1
@@ -407,12 +411,13 @@ country_event = {
 	immediate = {
 		log = "==== Assassination attempt "
 		random_list = { 
-			60 ={
+			70 = {
+				modifier = { #skip if there are no non-parasite leaders in the pool anymore
+					factor = 0
+					count_pool_leader = { limit = { is_parasite_leader = no } count < 1 }
+				}
 				random_pool_leader = {
-					limit = { NOR= { 
-						has_leader_flag = parasite_leader 
-						species = { has_species_flag = parasite_speciation_1 }
-					} }
+					limit = { is_parasite_leader = no }
 					save_event_target_as = accident_leader
 					log = "==== Assassination attempt on pooled [This.GetName] from [Root.GetName]"
 					random_list = { 
@@ -420,24 +425,25 @@ country_event = {
 							log = "==== [This.GetName] is killed"
 							kill_leader = { show_notification = no }
 						} 
-						33 = { #survives and becomes shaken
-							if = {
-								log = "==== [This.GetName] is shaken"
-								limit = { NOT = { has_trait = leader_trait_shaken } }
-								add_trait = leader_trait_shaken
-							}
+						33 = { #survives and becomes shaken 
+							log = "==== [This.GetName] is shaken"
+							make_leader_shaken = yes
 						} 
 						33 = { #survives
 						} 
 					}
 				}
 			}
-			40 ={
+			30 ={
 				random_owned_leader = {
-					limit = { NOR= { 
-						has_leader_flag = parasite_leader 
-						species = { has_species_flag = parasite_speciation_1 }
-					} }
+					limit = { is_parasite_leader = no }
+					weights = {
+						base = 10
+						modifier = { # rulers are better protected
+							mult = 0.5
+							leader_class = ruler
+						}
+					}
 					save_event_target_as = accident_leader
 					log = "Assassination attempt on owned [This.GetName] from [Root.GetName]"
 					random_list = { 
@@ -483,13 +489,8 @@ country_event = {
 	show_sound = event_ship_explosion
 
 	option = {
-		name = TERRIBLE
-		event_target:accident_leader = { 
-			if = {
-				limit = { NOT = { has_trait = leader_trait_shaken } }
-				add_trait = leader_trait_shaken
-			}
-		}
+		name = WORRYING
+		event_target:accident_leader = { make_leader_shaken = yes }
 	}
 }
 
@@ -502,13 +503,10 @@ country_event = {
 	trigger = { 
 		exists = ruler
 		ruler = {
-			has_leader_flag = parasite_leader
+			is_parasite_leader = yes
 		}
 	}
 	
-	immediate = {
-		ruler = { add_trait = trait_ruler_charismatic }
-	}
 } 
 
 # first speciation

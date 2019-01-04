@@ -1,0 +1,21 @@
+#This = leader
+make_leader_shaken = {
+	if = {
+		limit = { NOT = { has_leader_flag = leader_shaken } }
+
+		if = { limit = { leader_class = scientist }
+			add_trait = trait_scientist_shaken
+		}
+		if = { limit = { leader_class = admiral	}
+			add_trait = trait_admiral_shaken
+		}
+		if = { limit = { leader_class = general }
+			add_trait = trait_general_shaken
+		}
+		if = { limit = { leader_class = governor }
+			add_trait = trait_governor_shaken
+		}
+		add_ruler_trait = trait_ruler_shaken
+		set_leader_flag = leader_shaken
+	}
+}
