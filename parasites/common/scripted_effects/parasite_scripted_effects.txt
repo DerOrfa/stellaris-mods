@@ -86,6 +86,91 @@ make_leader_parasite = {
 		log = "==== flagging [This.GetName] a parasite"
 		set_leader_flag = parasite_leader
 	}
+}
 
+#this = leader to be replaced
+replace_leader = {
+	owner = { save_event_target_as = parasite_country }
+	
+	#get assignment
+	event_target:accident_leader = { 
+		if = { 
+			limit = { exists = fleet }
+			fleet = { save_event_target_as = assignment }
+			log = "Replaced [This.GetName] commands the fleet [This.Fleet.GetName]"
+		} 
+#		else_if = { #asking governors for sector-scope seems broken
+#			limit = { exists = sector}
+#			sector = { save_event_target_as = assignment }
+#			log = "Replaced [This.GetName] commands the sector [This.Sector.GetName]"
+#		}
+	}
+
+	if = { limit = { exists = event_target:assignment}
+		if = {
+			limit = { leader_class = admiral  }
+			owner = {
+				create_saved_leader  = {
+					key = replacement
+					event_leader = no
+					immortal = no 
+					class = admiral
+					name = random
+					skill = 3
+					leader_age_min = 20
+					leader_age_max = 30
+					effect = { save_event_target_as = replacement }
+				}
+			}
+		}
+		else_if = {
+			limit = { leader_class = general }
+			owner = {
+				create_saved_leader  = {
+					key = replacement
+					event_leader = no
+					immortal = no 
+					class = general
+					name = random
+					skill = 3
+					leader_age_min = 20
+					leader_age_max = 30
+					effect = { save_event_target_as = replacement }
+				}
+			}
+		} 
+		else_if = {
+			limit = { leader_class = governor }
+			owner = {
+				create_saved_leader  = {
+					key = replacement
+					event_leader = no
+					immortal = no 
+					class = governor
+					name = random
+					skill = 3
+					leader_age_min = 20
+					leader_age_max = 30
+					effect = { save_event_target_as = replacement }
+				}
+			}
+		} 
+		else_if = {
+			limit = { leader_class = scientist }
+			owner = {
+				create_saved_leader  = {
+					key = replacement
+					event_leader = no
+					immortal = no 
+					class = scientist
+					name = random
+					skill = 3
+					leader_age_min = 20
+					leader_age_max = 30
+					effect = { save_event_target_as = replacement }
+				}
+			}
+		}
+	}
 }
 

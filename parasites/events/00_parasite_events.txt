@@ -25,6 +25,17 @@ country_event = {
 					}
 				} 
 				save_event_target_as = parasite_planet
+				#clear any station around the planet
+				FROMFROM = { 
+					every_owned_ship = {
+						limit = { 
+							exists = orbit 
+							orbit = { is_same_value = event_target:parasite_planet }
+						}
+						orbit = { log = "Removing [Prev.GetName] orbiting [This.GetName] to make place for lotus station" }
+						delete_ship = This
+					}
+				}
 				FROMFROM = { country_event = { id = parasite.2 days = 3 random = 1 } }
 			}	
 		}
@@ -105,6 +116,7 @@ ship_event = {
 
 		hidden_effect = {
 			event_target:parasite_planet = {
+				clear_deposits = yes
 				add_deposit = ancient_lotus_temple_station
 			}
 			owner = { country_event = { id = parasite.300 days = 400 random = 5 } } #start timer for speciation
@@ -349,27 +361,30 @@ country_event = {
 	}
 
 	immediate = {
-		log = "==== Assassination attempt "
+		log = "Assassination attempt in [This.GetName]"
 		random_list = { 
 			70 = {
 				modifier = { #skip if there are no non-parasite leaders in the pool anymore
 					factor = 0
 					count_pool_leader = { limit = { is_parasite_leader = no } count < 1 }
 				}
+				if = { limit = { count_pool_leader = { limit = { is_parasite_leader = no } count < 1 } }
+					log = "Err: Assassination attempt on pooled despite no pooled leaders left"
+				}
 				random_pool_leader = {
 					limit = { is_parasite_leader = no }
 					save_event_target_as = accident_leader
-					log = "==== Assassination attempt on pooled [This.GetName] from [Root.GetName]"
 					random_list = { 
 						33 = { #leader is killed
-							log = "==== [This.GetName] is killed"
+							log = "Assassination attempt on pooled [This.GetName] from [Root.GetName] succeded"
 							kill_leader = { show_notification = no }
 						} 
 						33 = { #survives and becomes shaken 
-							log = "==== [This.GetName] is shaken"
+							log = "Assassination attempt on pooled [This.GetName] from [Root.GetName] made [Root.GetHerHim] shaken"
 							make_leader_shaken = yes
 						} 
 						33 = { #survives
+							log = "Assassination attempt on pooled [This.GetName] from [Root.GetName] failed"
 						} 
 					}
 				}
@@ -394,6 +409,7 @@ country_event = {
 							owner = { country_event = { id=parasite.65 } } #not-kill'n'tell
 						} 
 						33 = { #survives
+							log = "Assassination attempt on owned [This.GetName] from [Root.GetName] failed"
 						} 
 					}
 				}
@@ -407,32 +423,60 @@ country_event = {
 	id = parasite.60
 	is_triggered_only = yes
 	title = "parasite.60.name"
-	desc = "parasite.60.desc"
 	picture = GFX_evt_exploding_ship
 	show_sound = event_ship_explosion
-	
+
 	immediate = {
-		#get assignment
-		event_target:accident_leader = { 
-			if = { 
-				limit = { exists = fleet }
-				fleet = { save_event_target_as = assignment }
-			} else_if = { 
-				limit = { exists = planet}
-				planet = { save_event_target_as = assignment }
-			}
-		}
-#		create_saved_leader = {
-#			key = replacer
-#			type = event_target:accident_leader
-#			species = event_target:accident_leader
-#		}
+		event_target:accident_leader = { replace_leader = yes }
+	}
+
+	desc = {
+		trigger = { NOT = { exists = event_target:assignment } }
+		text = "parasite.60.noassignment"
+	}	
+	desc = {
+		trigger = { exists = event_target:assignment }
+		text = "parasite.60.assignment"
 	}
 	
+	#replacement exists and we want that
 	option = {
-		name = TERRIBLE
-		event_target:accident_leader = { 
-			kill_leader = { show_notification = yes }  
+		name = "parasite.60.a"
+		trigger = { exists = event_target:assignment }
+		event_target:accident_leader = { kill_leader = { show_notification = yes } }
+		
+		custom_tooltip = "parasite.60.a.desc"
+
+		activate_saved_leader = {
+			key = replacement
+			effect = {
+				make_leader_parasite = yes
+				event_target:assignment = {
+					assign_leader = PREV
+				}
+			}
+		}
+	}
+	#replacement rejected
+	option = {
+		name =  "parasite.60.b"
+		trigger = { exists = event_target:assignment }
+		
+		event_target:accident_leader = { kill_leader = { show_notification = yes } }
+
+		if = { limit = { exists = event_target:assignment}		
+			remove_saved_leader = replacement
+		}
+	}
+	#replacement not available
+	option = {
+		name =  TERRIBLE
+		trigger = { NOT = { exists = event_target:assignment } }
+		
+		event_target:accident_leader = { kill_leader = { show_notification = yes } }
+
+		if = { limit = { exists = event_target:assignment}		
+			remove_saved_leader = replacement
 		}
 	}
 }

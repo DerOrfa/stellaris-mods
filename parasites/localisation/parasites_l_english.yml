@@ -40,7 +40,7 @@ parasite_station_education_full_desc:0 "This will greatly boost the skill of our
 
 parasite_station_education_none:0 "Traditional education."
 parasite_station_education_none_name:0 "Traditional education."
-parasite_station_education_none_desc:0 "Evoid exposing our future leaders to influence of the Louts Temple.\nThe scientists on the station will still be exposed."
+parasite_station_education_none_desc:0 "Avoid exposing our future leaders to the influence of the Louts Temple.\nThe scientists on the station will still be exposed."
 
 
 # storyline
@@ -58,8 +58,17 @@ parasite.32.a.desc:0 "All future leaders will be trained at the station.$parasit
 parasite.32.b:0 "I don't like the idea of a literally detached elite. Stick to the research."
 parasite.32.c:0 "This is going way to far. Shut the whole thing down."
 
-parasite.60.desc:0 "parasite.60.desc"
-parasite.65.desc:0 "parasite.65.desc"
+parasite.60.name:0 "A tragic accident"
+parasite.60.noassignment:0 "[accident_leader.GetName] got killed in a freak accident."
+parasite.60.assignment:0 "$parasite.60.noassignment$\n\nLuckily [accident_leader.GetHisHer] assistent [replacement.GetName] who has worked very closely with [accident_leader.GetHimHer] stepped in an offered to take over [accident_leader.GetHisHer] command."
+
+parasite.60.a:0 "Agreed, uninterrupted command is essential"
+parasite.60.a.desc:0 "$parasite.60.a.base.tooltip$\n[replacement.GetName] will succed [accident_leader.GetName] in [accident_leader.GetHisHer] command."
+
+parasite.60.b:0 "No. Let's have a proper selection process"
+
+parasite.65.name:0 "A dangerous accident"
+parasite.65.desc:0 "[accident_leader.GetName] nearly got killed in a freak accident."
 
 parasite.300.desc:0 "In the recent years it became increasingly clear that those who have been influenced by the ancient temple are more than just talented.\n\nAlthough they are a bit shy of manual labor they seem to be born for administrative or academic jobs.\nAnd because of their undeniable contributions to the state, the public generaly does not mind the fact that they quite naturally fill all the top jobs.\n\nThey also seem to pass on their eerily intelligence and charisma to their children, so we probably should consider them to be their own species."
 
