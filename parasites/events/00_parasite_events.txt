@@ -127,26 +127,26 @@ ship_event = {
 	trigger = { 
 		exists = leader
 		leader = { is_parasite_leader = yes } 
-	} 
+	}
+	
+	immediate = { #ROOT is not the country, so we have to save it
+		owner = { save_event_target_as = parasite_country }
+	}
 		
 	option = {
 		name = anomaly.4055.a
-		hidden_effect = {
-			owner = {
-				create_leader = {
-					class = scientist
-					species = owner_main_species
-					name = random
-					skill = 3
-					gender = leader
-					leader_age_min = 20
-					leader_age_max = 30
-					traits = {
-						trait = leader_trait_spark_of_genius
-					}
-					effect = {
-						set_leader_flag = parasite_leader
-					}
+		owner = {
+			save_event_target_as = parasite_country #needed for make_leader_parasite below
+			create_leader = {
+				class = scientist
+				species = owner_main_species
+				name = random
+				skill = 3
+				gender = leader
+				leader_age_min = 20
+				leader_age_max = 30
+				effect = {
+					make_leader_parasite = yes
 				}
 			}
 		}
@@ -193,6 +193,8 @@ country_event = {
 		NOT = { has_policy_flag = parasite_station_education_full }
 	}
 	
+	immediate = { save_event_target_as = parasite_country } #needed for make_leader_parasite below
+
 	option = {
 		name = parasite.22.a
 		create_leader = {
@@ -202,12 +204,8 @@ country_event = {
 			skill = 3
 			leader_age_min = 20
 			leader_age_max = 30
-			traits = {
-				trait = leader_trait_spark_of_genius
-				trait = random_trait
-			}
 			effect = {
-				set_leader_flag = parasite_leader
+				make_leader_parasite = yes
 			}
 		}
 	}
@@ -322,6 +320,7 @@ country_event = {
 }
 
 #a leader was created the normal way - change him to be a parasite leader
+# scope: country, from: leader
 country_event = {
 	id = parasite.40
 	is_triggered_only = yes
@@ -332,67 +331,8 @@ country_event = {
 	}
 
 	immediate = {
-		#restore parasite species from leaders or pops
-		if = {
-			limit = { any_owned_pop = { species = { has_species_flag = parasite_speciation_1 } } }
-			random_owned_pop = { 
-				limit = { species = { has_species_flag = parasite_speciation_1 } } 
-				species = { save_event_target_as = lotus_touched_species } 
-			}
-		} else_if = {
-			limit = { any_owned_leader = { species = { has_species_flag = parasite_speciation_1 } } }
-			random_owned_leader = { 
-				limit = { species = { has_species_flag = parasite_speciation_1 } } 
-				species = { save_event_target_as = lotus_touched_species } 
-			}
-		}
-
-		#generic modification for parasite station education
-		from = {
-#			leader_age = -10 #will not make them younger but live shorter
-			set_skill = 2
-			
-			# before takeover parasite leaders are eager to get into service
-			if = { limit = { NOT = { has_trait = leader_trait_eager } } 
-				add_trait = leader_trait_eager 
-				set_leader_flag = parasite_eager #remember to remove this after takeover
-			}
-			
-			if = {
-				limit = { leader_class = admiral  }
-				add_trait = leader_trait_trickster
-			}
-			else_if = {
-				limit = { leader_class = general }
-				add_trait = leader_trait_charismatic
-			} 
-			else_if = {
-				limit = { leader_class = ruler }
-				add_trait = trait_ruler_charismatic
-			} 
-			else_if = {
-				limit = { leader_class = governor }
-				add_trait = leader_trait_intellectual
-			} 
-			else_if = {
-				limit = { leader_class = scientist }
-				add_trait = leader_trait_spark_of_genius
-			} 
-		}
-		
-
-		#if first speciation has occured and this is not that species, reject the leader
-		# @todo this will break if we did not find the parasite species above
-		if = {
-			limit = { 
-				has_country_flag = parasite_speciation_1
-				from = { species = { NOT = { has_species_flag = parasite_speciation_1 } } }
-				exists = event_target:lotus_touched_species 
-			}
-			from = { change_species = event_target:lotus_touched_species }
-		} else = { #otherwise just mark them
-			from = { set_leader_flag = parasite_leader }
-		}
+		save_event_target_as = parasite_country #needed for make_leader_parasite below
+		FROM = { make_leader_parasite = yes }
 	}
 }
 
@@ -470,6 +410,24 @@ country_event = {
 	desc = "parasite.60.desc"
 	picture = GFX_evt_exploding_ship
 	show_sound = event_ship_explosion
+	
+	immediate = {
+		#get assignment
+		event_target:accident_leader = { 
+			if = { 
+				limit = { exists = fleet }
+				fleet = { save_event_target_as = assignment }
+			} else_if = { 
+				limit = { exists = planet}
+				planet = { save_event_target_as = assignment }
+			}
+		}
+#		create_saved_leader = {
+#			key = replacer
+#			type = event_target:accident_leader
+#			species = event_target:accident_leader
+#		}
+	}
 	
 	option = {
 		name = TERRIBLE

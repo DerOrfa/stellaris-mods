@@ -19,3 +19,74 @@ make_leader_shaken = {
 		set_leader_flag = leader_shaken
 	}
 }
+
+#this = leader
+#uses event_target:parasite_country
+make_leader_parasite = {
+	#restore parasite species from leaders or pops
+	event_target:parasite_country = {
+		log = "==== picking parasite species from [This.GetName]"
+		print_scope_effect = yes
+		if = {
+			limit = { any_owned_pop = { species = { has_species_flag = parasite_speciation_1 } } }
+			random_owned_pop = { 
+				limit = { species = { has_species_flag = parasite_speciation_1 } } 
+				species = { save_event_target_as = lotus_touched_species } 
+			}
+		} else_if = {
+			limit = { any_owned_leader = { species = { has_species_flag = parasite_speciation_1 } } }
+			random_owned_leader = { 
+				limit = { species = { has_species_flag = parasite_speciation_1 } } 
+				species = { save_event_target_as = lotus_touched_species } 
+			}
+		}
+	}
+
+	#generic modification for parasite station education
+#	leader_age = -10 #will not make them younger but live shorter
+	set_skill = 2
+	
+	# before takeover parasite leaders are eager to get into service
+	if = { limit = { NOT = { has_trait = leader_trait_eager } } 
+		add_trait = leader_trait_eager 
+		set_leader_flag = parasite_eager #remember to remove this after takeover
+	}
+	
+	if = {
+		limit = { leader_class = admiral  }
+		add_trait = leader_trait_trickster
+	}
+	else_if = {
+		limit = { leader_class = general }
+		add_trait = leader_trait_charismatic
+	} 
+	else_if = {
+		limit = { leader_class = ruler }
+		add_trait = trait_ruler_charismatic
+	} 
+	else_if = {
+		limit = { leader_class = governor }
+		add_trait = leader_trait_intellectual
+	} 
+	else_if = {
+		limit = { leader_class = scientist }
+		add_trait = leader_trait_spark_of_genius
+	} 
+	
+	#if first speciation has occured and this is not that species, reject the leader
+	# @todo this will break if we did not find the parasite species above
+	if = {
+		limit = { 
+			event_target:parasite_country = { has_country_flag = parasite_speciation_1 }
+			species = { NOT = { has_species_flag = parasite_speciation_1 } }
+			exists = event_target:lotus_touched_species 
+		}
+		log = "==== making [This.GetName] a full parasite"
+		change_species = event_target:lotus_touched_species
+	} else = { #otherwise just mark them
+		log = "==== flagging [This.GetName] a parasite"
+		set_leader_flag = parasite_leader
+	}
+
+}
+

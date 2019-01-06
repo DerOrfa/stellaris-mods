@@ -45,6 +45,8 @@ on_ruler_set = {
 	}
 }
 
+# a new leader is generated for an empire, to be available for recruitment
+# scope: country, from: leader
 on_leader_spawned = {
 	events = {
 		parasite.40
