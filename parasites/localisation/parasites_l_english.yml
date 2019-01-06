@@ -46,10 +46,10 @@ parasite_station_education_none_desc:0 "Evoid exposing our future leaders to inf
 # storyline
 parasite.5.name:0 "Opening the Temple"
 
-parasite.10.desc:0 "[Root.GetLeaderName] is calling our attention to [Root.Leader.GetHerHis] first officer at the [Root.GetName]. [Root.Leader.GetSheHeCap] praises the protégés unusual talent and recommends giving [Root.Leader.GetHerHis] an own command."
+parasite.10.desc:0 "[Root.GetLeaderName] is calling our attention to [Root.Leader.GetHerHis] first officer at the [Root.GetName]. [Root.Leader.GetSheHeCap] praises the protégés unusual talent and recommends giving that young talent an own command."
 
 parasite.22.desc:0 "The commander of the research Station above [FROMFROM.GetName] is telling us about an especially talented scientist who seems to be a little bored of the daily research work on the station."
-parasite.22.a:0 "Maybe we should give that young prodigy a bigger challenge."
+parasite.22.a:0 "Maybe we should give that upstart a bigger challenge."
 
 parasite.32.name:0 "Fountainhead"
 parasite.32.desc:0 "The research station above [FROMFROM.GetName] seems to be a real fountain of talent. The commander of the station is certain this is somehow related to the temple on the planet. He suggest to gather all of our greatest talents there to raise their skills to even higher levels."
@@ -57,6 +57,9 @@ parasite.32.a:0 "Obviously the most talented deserve the best education availabl
 parasite.32.a.desc:0 "All future leaders will be trained at the station.$parasite.32.a.base.tooltip$"
 parasite.32.b:0 "I don't like the idea of a literally detached elite. Stick to the research."
 parasite.32.c:0 "This is going way to far. Shut the whole thing down."
+
+parasite.60.desc:0 "parasite.60.desc"
+parasite.65.desc:0 "parasite.65.desc"
 
 parasite.300.desc:0 "In the recent years it became increasingly clear that those who have been influenced by the ancient temple are more than just talented.\n\nAlthough they are a bit shy of manual labor they seem to be born for administrative or academic jobs.\nAnd because of their undeniable contributions to the state, the public generaly does not mind the fact that they quite naturally fill all the top jobs.\n\nThey also seem to pass on their eerily intelligence and charisma to their children, so we probably should consider them to be their own species."
 

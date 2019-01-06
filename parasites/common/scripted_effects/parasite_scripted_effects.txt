@@ -26,7 +26,6 @@ make_leader_parasite = {
 	#restore parasite species from leaders or pops
 	event_target:parasite_country = {
 		log = "==== picking parasite species from [This.GetName]"
-		print_scope_effect = yes
 		if = {
 			limit = { any_owned_pop = { species = { has_species_flag = parasite_speciation_1 } } }
 			random_owned_pop = { 
