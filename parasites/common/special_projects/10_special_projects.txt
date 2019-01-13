@@ -50,7 +50,7 @@
 special_project = {
 	key = "PARASITE_TEMPLE_INVESTIGATE"
 	cost = 0
-	days_to_research = 18
+	days_to_research = @DIGGING_TIME
 	tech_department = society_technology
 	picture = GFX_evt_landing_ship
 

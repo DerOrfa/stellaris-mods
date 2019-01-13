@@ -1,22 +1,12 @@
 ﻿l_english:
- trait_parasite:0 "Parasites"
- trait_parasite_desc:0 "Parasites need a host species to grow and procreate. Without such a host, these aliens would have to infest each other, but this would be mostly not accepted. \n"
- 
- #pop_modifiers
- parasite_mali:0 "No host species"
- 
- #Customtooltip
- TRAIT_Parasite_EFFECT:0 "Needs xeno-species for growth"
+trait_parasite:0 "Parasites"
+trait_parasite_desc:0 "Parasites need a host species to grow and procreate. Without such a host, these aliens would have to infest each other, but this would be mostly not accepted. \n"
 
+#pop_modifiers
+parasite_mali:0 "No host species"
 
-parasite.2.name:0 "SOMETHING_WEIRD"
-parasite.2.desc:0 "SOMETHING_WEIRD"
- 
-parasite.5.name:0 "TEMPLE_FOUND"
-parasite.5.desc:0 "TEMPLE_FOUND"
-
-ancient_lotus_temple:0 "ancient temple"
-ancient_lotus_temple_desc:0 "ancient temple"
+#Customtooltip
+TRAIT_Parasite_EFFECT:0 "Needs xeno-species for growth"
 
 job_parasite_host:0 "Host"
 job_parasite_host_plural:0 "Hosts"
@@ -29,6 +19,27 @@ planet_parasite_no_host:0 "No hosts for parasitic procreation"
 planet_parasite_no_host_desc:0 "No hosts for parasitic procreation"
 
 mod_job_parasite_host_add:0 "Host jobs"
+
+PARASITE_TEMPLE_INVESTIGATE:0 "Investigate the unusual cavern"
+
+parasite.2.name:0 "Something unexpected"
+parasite.2.desc:0 "Recent seismic surveys on [parasite_planet.GetName] have shown a huge cavern in its crust. And the shape of that cavern strongly hints at an artificial origin. Maybe we should investigate this."
+ 
+parasite.5.name:0 "Entry found"
+parasite.5.desc:0 "After weeks of digging in the hostile environment on [parasite_planet.GetName] [Leader.GetName] and [Leader.GetHerHis] team finaly found something that resembles an air lock with its outer door open.\nUnfortunately the chamber of the air lock is so small that only on person would fit and the team cannot find any mechanism to open the outer door once its closed.\n\n[Leader.GetName] assumes that the air lock is operated from the inside and offers to go alone."
+
+parasite.5.a:0 "[Leader.GetSheHeCap] can go"
+parasite.5.a.desc:0 "[Leader.GetName] enters the underground structure."
+
+parasite.5.b:0 "Its a trap!"
+parasite.5.b.desc:0 "Reject [Leader.GetHerHis] request and seal of the entry."
+
+parasite.6.name:0 "[Leader.GetName] returns"
+parasite.6.desc:0 "After [Leader.GetName] entered the air lock it didn't open agian.\nAs minutes turned into hours the team frantically tried to open the door. They even tried explosives, but nothing helped.\n\nBut then, days later, it opened on its own and [Leader.GetName] came out. [Leader.GetSheHeCap] claims that the mechanism for the air lock was broken and that it took [Leader.GetHerHim] days to repair it. But luckily the atmosphere in what [Leader.GetSheHe] descibes as an ancient temple was breathable.\n\nConsidering what [Leader.GetName] has been trough [Leader.GetSheHe] seems to be in a remarkable shape. [Leader.GetSheHeCap] says that this experience has somehow energized [Leader.GetHerHim] and that [Leader.GetSheHe] is eager to return to duty.\n\nAltough the air lock still can't be opened from the outside, [Leader.GetName] assures us that it is safe and that we should set up a permanent research station. So our scientists can ivestigate the temple further."
+
+
+ancient_lotus_temple:0 "ancient temple"
+ancient_lotus_temple_desc:0 "ancient temple"
 
 # policies
 policy_parasite_station:0 "Influence of the Lotus Temple"
@@ -60,10 +71,10 @@ parasite.32.c:0 "This is going way to far. Shut the whole thing down."
 
 parasite.60.name:0 "A tragic accident"
 parasite.60.noassignment:0 "[accident_leader.GetName] got killed in a freak accident."
-parasite.60.assignment:0 "$parasite.60.noassignment$\n\nLuckily [accident_leader.GetHisHer] assistent [replacement.GetName] who has worked very closely with [accident_leader.GetHimHer] stepped in an offered to take over [accident_leader.GetHisHer] command."
+parasite.60.assignment:0 "$parasite.60.noassignment$\n\nLuckily [accident_leader.GetHerHis] assistent [replacement.GetName] who has worked very closely with [accident_leader.GetHerHim] stepped in and offered to take over [accident_leader.GetHerHis] command."
 
 parasite.60.a:0 "Agreed, uninterrupted command is essential"
-parasite.60.a.desc:0 "$parasite.60.a.base.tooltip$\n[replacement.GetName] will succed [accident_leader.GetName] in [accident_leader.GetHisHer] command."
+parasite.60.a.desc:0 "$parasite.60.a.base.tooltip$\n[replacement.GetName] will succed [accident_leader.GetName] in [accident_leader.GetHerHis] command."
 
 parasite.60.b:0 "No. Let's have a proper selection process"
 

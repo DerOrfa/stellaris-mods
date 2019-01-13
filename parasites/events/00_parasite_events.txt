@@ -56,7 +56,7 @@ country_event = {
 	location = event_target:parasite_planet
 
 	option = {
-		name = EXCELLENT
+		name = CURIOUS
 		hidden_effect = { 
 			event_target:parasite_planet = {
 				set_planet_flag = parasite_temple
@@ -70,7 +70,7 @@ country_event = {
 
 	}
 	option = {
-		name = parasite.2.b
+		name = NOTIME
 	}
 }
 
@@ -82,6 +82,35 @@ ship_event = {
 	
 	title = "parasite.5.name"
 	desc = "parasite.5.desc"
+	picture = GFX_evt_big_landing_ship
+	show_sound = event_alien_nature
+	location = this
+
+	option = {
+		name = parasite.5.a
+		custom_tooltip = parasite.5.a.desc
+
+		hidden_effect = {
+			event_target:parasite_planet = {
+				clear_deposits = yes
+				add_deposit = ancient_lotus_temple_station
+			}
+		}
+		ship_event = { id = parasite.6 days = 4 random = 1 } 
+	}
+	option = {
+		name = parasite.5.b
+		custom_tooltip = parasite.5.b.desc
+	}
+}
+#returned from the temple
+ship_event = {
+	id = parasite.6
+	is_triggered_only = yes
+	fire_only_once = yes 
+	
+	title = "parasite.6.name"
+	desc = "parasite.6.desc"
 	picture = GFX_evt_big_landing_ship
 	show_sound = event_alien_nature
 	location = this
@@ -113,15 +142,7 @@ ship_event = {
 				set_species_flag = parasite_speciation_1
 			}
 		}
-
-		hidden_effect = {
-			event_target:parasite_planet = {
-				clear_deposits = yes
-				add_deposit = ancient_lotus_temple_station
-			}
-			owner = { country_event = { id = parasite.300 days = 400 random = 5 } } #start timer for speciation
-		}
-
+		owner = { country_event = { id = parasite.300 days = @SPECIATION1_TIME random = @SPECIATION1_RND } } #start timer for speciation
 	}
 }
 
@@ -134,7 +155,7 @@ ship_event = {
 	show_sound = event_laboratory_sound
 	location = this
 
-	mean_time_to_happen = { months = 36 }
+	mean_time_to_happen = { months = @PARASITE_PROTEGE_MTTH_MONTHS }
 	
 	trigger = { 
 		exists = leader
@@ -180,7 +201,7 @@ planet_event = {
 	id = parasite.20
 	hide_window = yes
 
-	mean_time_to_happen = { months = 1 }
+	mean_time_to_happen = { months = @PARASITE_TALENT_MTTH_MONTHS }
 	
 	trigger = { 
 		has_planet_flag = parasite_temple
@@ -188,7 +209,7 @@ planet_event = {
 	} 
 	
 	immediate = { 
-		planet_event = { id = parasite.30 days = 3 random = 1 } 	#start timer for extending station after first created leader
+		planet_event = { id = parasite.30 days = 15 random = 15 } 	#start timer for extending station after first created leader
 		starbase = { owner = { country_event = { id = parasite.22 } }}
 	}
 }
@@ -354,7 +375,7 @@ country_event = {
 	id = parasite.50
 	hide_window = yes
 	
-	mean_time_to_happen = { months = 6 }
+	mean_time_to_happen = { months = @PARASITE_LEADER_MTTH_MONTHS }
 
 	trigger = {
 		has_policy_flag = parasite_station_education_full
