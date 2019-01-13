@@ -97,12 +97,12 @@ replace_leader = {
 		if = { 
 			limit = { exists = fleet }
 			fleet = { save_event_target_as = assignment }
-			log = "Replaced [This.GetName] commands the fleet [This.Fleet.GetName]"
+			log = "Replaced [This.GetName] commands the fleet [Fleet.GetName]"
 		} 
-#		else_if = { #asking governors for sector-scope seems broken
+#		else_if = { #assign_leader to sector seems broken
 #			limit = { exists = sector}
 #			sector = { save_event_target_as = assignment }
-#			log = "Replaced [This.GetName] commands the sector [This.Sector.GetName]"
+#			log = "Replaced [This.GetName] commands the sector [Sector.GetName]"
 #		}
 	}
 

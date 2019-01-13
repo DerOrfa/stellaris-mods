@@ -19,6 +19,7 @@ trait_parasite = {
 trait_scientist_shaken = {
 	cost = 0
 	modification = no
+	initial = no
 	icon = "gfx/interface/icons/traits/leader_traits/leader_trait_paranoid.dds"
 
 	modifier = {
@@ -33,6 +34,7 @@ trait_scientist_shaken = {
 trait_admiral_shaken = {
 	cost = 0
 	modification = no
+	initial = no
 	icon = "gfx/interface/icons/traits/leader_traits/leader_trait_paranoid.dds"
 
 	modifier = {
@@ -47,6 +49,7 @@ trait_admiral_shaken = {
 trait_general_shaken = {
 	cost = 0
 	modification = no
+	initial = no
 	icon = "gfx/interface/icons/traits/leader_traits/leader_trait_paranoid.dds"
 
 	modifier = {
@@ -61,6 +64,7 @@ trait_general_shaken = {
 trait_governor_shaken = {
 	cost = 0
 	modification = no
+	initial = no
 	icon = "gfx/interface/icons/traits/leader_traits/leader_trait_paranoid.dds"
 
 	modifier = { planet_building_build_speed_mult = -0.2 }
@@ -72,6 +76,7 @@ trait_governor_shaken = {
 trait_ruler_shaken = {
 	cost = 0
 	modification = no
+	initial = no
 	icon = "gfx/interface/icons/traits/leader_traits/leader_trait_paranoid.dds"
 
 	modifier = { country_base_influence_produces_add = -1 }

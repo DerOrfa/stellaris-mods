@@ -30,6 +30,7 @@ country_event = {
 					every_owned_ship = {
 						limit = { 
 							exists = orbit 
+							is_ship_class = shipclass_mining_station
 							orbit = { is_same_value = event_target:parasite_planet }
 						}
 						orbit = { log = "Removing [Prev.GetName] orbiting [This.GetName] to make place for lotus station" }
@@ -110,7 +111,7 @@ ship_event = {
 	fire_only_once = yes 
 	
 	title = "parasite.6.name"
-	desc = "parasite.6.desc"
+	desc = "parasite.6.desc" #todo have a different text when research station is already there
 	picture = GFX_evt_big_landing_ship
 	show_sound = event_alien_nature
 	location = this
@@ -145,110 +146,62 @@ ship_event = {
 		}
 		hidden_effect = {
 			owner = { 
-				country_event = { id = parasite.300 days = @SPECIATION1_TIME random = @SPECIATION1_RND } #start timer for speciation
+				country_event = { id = parasite.300 days = @PARASITE_SPECIATION1_TIME random = @PARASITE_SPECIATION1_RND } #start timer for speciation
 			} 
 		}
 	}
 }
 
-# new officer (random event )
 ship_event = {
-	id = parasite.10
-	title = "anomaly.4055.name"
-	desc = "parasite.10.desc"
-	picture = GFX_evt_physics_research
-	show_sound = event_laboratory_sound
-	location = this
-
-	trigger = { 
-		exists = leader
-		leader = { is_parasite_leader = yes } 
-	}
-	
-	mean_time_to_happen = { months = @PARASITE_PROTEGE_MTTH_MONTHS }
-	
-	immediate = { #ROOT is not the country, so we have to save it
-		owner = { save_event_target_as = parasite_country }
-		leader = { set_leader_flag = protege_triggered }
-	}
-		
-	option = {
-		name = anomaly.4055.a
-		owner = {
-			save_event_target_as = parasite_country #needed for make_leader_parasite below
-			create_leader = {
-				class = scientist
-				species = owner_main_species
-				name = random
-				skill = 3
-				gender = leader
-				leader_age_min = 20
-				leader_age_max = 30
-				effect = {
-					make_leader_parasite = yes
-				}
-			}
-		}
-	}
-	option = {
-		name = anomaly.4055.b
-		add_modifier = {
-			modifier = protege_onboard
-			days = 7200
-		}
-	}	
-}
-
-# parasite station randomly creates a parasite leader (scientist only)
-planet_event = {
 	id = parasite.20
 	hide_window = yes
-
+	
+	trigger = {
+		is_ship_class = shipclass_research_station
+		orbit = { has_planet_flag = parasite_temple }
+	}
+	
 	mean_time_to_happen = { 
 		months = @PARASITE_TALENT_MTTH_MONTHS 
 		modifier = { # reduce rate after first trigger
 				factor = 4
-				has_planet_flag = talent_triggered
+				has_ship_flag = talent_triggered
 		}
 	}
-	
-	trigger = { 
-		has_planet_flag = parasite_temple
-		has_research_station = yes
-	} 
-	
 	immediate = { 
-		planet_event = { id = parasite.30 days = 15 random = 15 } 	#start timer for extending station after first created leader
-		starbase = { owner = { country_event = { id = parasite.22 } }}
-		set_planet_flag = talent_triggered
+		ship_event = { id = parasite.30 days = 15 random = 15 } 	#start timer for extending station after first created leader
+		ship_event = { id = parasite.22 }
+		set_ship_flag = talent_triggered
 	}
 }
-country_event = {
+ship_event = {
 	id = parasite.22
 	is_triggered_only = yes
 	title = "anomaly.4055.name"
 	desc = "parasite.22.desc"
 	picture = GFX_evt_physics_research
 	show_sound = event_laboratory_sound
-	location = FROMFROM
+	location = this
 	
 	trigger = { # only if we still use the station as a science station
-		NOT = { has_policy_flag = parasite_station_education_full }
+		owner = { NOT = { has_policy_flag = parasite_station_education_full } }
 	}
 	
-	immediate = { save_event_target_as = parasite_country } #needed for make_leader_parasite below
+	immediate = { owner = { save_event_target_as = parasite_country } } #needed for make_leader_parasite below
 
 	option = {
 		name = parasite.22.a
-		create_leader = {
-			class = scientist
-			species = owner_main_species
-			name = random
-			skill = 3
-			leader_age_min = 20
-			leader_age_max = 30
-			effect = {
-				make_leader_parasite = yes
+		owner = {
+			create_leader = {
+				class = scientist
+				species = owner_main_species
+				name = random
+				skill = 3
+				leader_age_min = 20
+				leader_age_max = 30
+				effect = {
+					make_leader_parasite = yes
+				}
 			}
 		}
 	}
@@ -261,14 +214,14 @@ country_event = {
 }
 
 # event to extend station (this will make all new leaders parasite leaders)
-planet_event = {
+ship_event = {
 	id = parasite.30
 	is_triggered_only = yes
 	fire_only_once = yes
 	hide_window = yes
 
 	immediate = { 
-		starbase = { owner = { country_event = { id = parasite.32 } }}
+		owner = { country_event = { id = parasite.32 } }
 	}
 }
 country_event = {
@@ -278,7 +231,7 @@ country_event = {
 	desc = "parasite.32.desc"
 	picture = GFX_evt_physics_research
 	show_sound = event_laboratory_sound
-	location = FROMFROM
+	location = FROM
 	fire_only_once = yes
 	
 	immediate = {
@@ -322,10 +275,10 @@ country_event = {
 	}
 	option = {
 		name = parasite.32.c
-		FROMFROM = { 
+		FROM = { orbit = {
 			remove_deposit = ancient_lotus_temple 
 			remove_planet_flag = parasite_temple
-		}
+		} }
 		ai_chance = {
 			factor = 100
 			modifier = {
@@ -385,10 +338,16 @@ country_event = {
 	id = parasite.50
 	hide_window = yes
 	
-	mean_time_to_happen = { months = @PARASITE_LEADER_MTTH_MONTHS }
+	mean_time_to_happen = { 
+		months = @PARASITE_ASN_MTTH_MONTHS 
+		modifier = { # much less likely if is parasite station is just for research
+				factor = 10
+				NOT = { has_policy_flag = parasite_station_education_full }
+		}
+	}
 
 	trigger = {
-		has_policy_flag = parasite_station_education_full
+		has_country_flag = parasite_station_extended
 	}
 
 	immediate = {
@@ -406,15 +365,15 @@ country_event = {
 					limit = { is_parasite_leader = no }
 					save_event_target_as = accident_leader
 					random_list = { 
-						33 = { #leader is killed
+						50 = { #leader is killed
 							log = "Assassination attempt on pooled [This.GetName] from [Root.GetName] succeded"
 							kill_leader = { show_notification = no }
 						} 
-						33 = { #survives and becomes shaken 
-							log = "Assassination attempt on pooled [This.GetName] from [Root.GetName] made [Root.GetHerHim] shaken"
+						25 = { #survives and becomes shaken 
+							log = "Assassination attempt on pooled [This.GetName] from [Root.GetName] made shaken"
 							make_leader_shaken = yes
 						} 
-						33 = { #survives
+						25 = { #survives
 							log = "Assassination attempt on pooled [This.GetName] from [Root.GetName] failed"
 						} 
 					}
@@ -474,7 +433,7 @@ country_event = {
 	option = {
 		name = "parasite.60.a"
 		trigger = { exists = event_target:assignment }
-		event_target:accident_leader = { kill_leader = { show_notification = yes } }
+		event_target:accident_leader = { kill_leader = { show_notification = no } }
 		
 		custom_tooltip = "parasite.60.a.desc"
 
@@ -493,7 +452,7 @@ country_event = {
 		name =  "parasite.60.b"
 		trigger = { exists = event_target:assignment }
 		
-		event_target:accident_leader = { kill_leader = { show_notification = yes } }
+		event_target:accident_leader = { kill_leader = { show_notification = no } }
 
 		if = { limit = { exists = event_target:assignment}		
 			remove_saved_leader = replacement
@@ -504,7 +463,7 @@ country_event = {
 		name =  TERRIBLE
 		trigger = { NOT = { exists = event_target:assignment } }
 		
-		event_target:accident_leader = { kill_leader = { show_notification = yes } }
+		event_target:accident_leader = { kill_leader = { show_notification = no } }
 
 		if = { limit = { exists = event_target:assignment}		
 			remove_saved_leader = replacement
@@ -574,12 +533,41 @@ country_event = {
 		
 		#"reveal" pops on planets
 		every_owned_planet = { 
-			random_pop = {
+			# if the governor is parasite he has put parasites in strategic positions
+			if = { 
 				limit = {
-					is_pop_category = ruler
+					sector = {
+						exists = leader
+						leader = { is_parasite_leader = yes }
+					}
 				}
-				change_species = event_target:lotus_touched_species
-				hidden_effect = { pop_change_ethic = ethic_authoritarian }
+				every_owned_pop = {
+					limit = {
+						OR = {
+							is_pop_category = ruler
+							has_job = enforcer
+						}
+						planet = { is_same_value = PREVPREV }
+					}
+					change_species = event_target:lotus_touched_species
+					hidden_effect = { pop_change_ethic = ethic_authoritarian }
+				}
+			}
+			else = { # otherwise its a bit random
+				random_pop = {
+					limit = {
+						is_pop_category = ruler
+					}
+					change_species = event_target:lotus_touched_species
+					hidden_effect = { pop_change_ethic = ethic_authoritarian }
+				}
+				random_pop = {
+					limit = {
+						is_pop_category = specialist
+					}
+					change_species = event_target:lotus_touched_species
+					hidden_effect = { pop_change_ethic = ethic_authoritarian }
+				}
 			}
 		}
 	}
@@ -595,7 +583,7 @@ planet_event = {
 	trigger = {
 		has_planet_flag = parasite_temple
 	}
-	immediate = { # we keep "parasite_station_extended" intentionaly
+	immediate = { 
 		add_deposit = ancient_lotus_temple
 	}
 }

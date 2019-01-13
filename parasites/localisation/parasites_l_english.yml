@@ -7,6 +7,16 @@ parasite_mali:0 "No host species"
 
 #Customtooltip
 TRAIT_Parasite_EFFECT:0 "Needs xeno-species for growth"
+trait_scientist_shaken:0 "Shaken"
+trait_scientist_shaken_desc:0 "The leader suvived an attempt on his life an now allways sleeps with one eye open"
+trait_admiral_shaken:0 "$trait_scientist_shaken$"
+trait_admiral_shaken_desc:0 "$trait_scientist_shaken_desc$"
+trait_general_shaken:0 "$trait_scientist_shaken$"
+trait_general_shaken_desc:0 "$trait_scientist_shaken_desc$"
+trait_governor_shaken:0 "$trait_scientist_shaken$"
+trait_governor_shaken_desc:0 "$trait_scientist_shaken_desc$"
+trait_ruler_shaken:0 "$trait_scientist_shaken$"
+trait_ruler_shaken_desc:0 "$trait_scientist_shaken_desc$"
 
 job_parasite_host:0 "Host"
 job_parasite_host_plural:0 "Hosts"
@@ -42,28 +52,28 @@ ancient_lotus_temple:0 "ancient temple"
 ancient_lotus_temple_desc:0 "ancient temple"
 
 # policies
-policy_parasite_station:0 "Influence of the Lotus Temple"
-policy_parasite_station_desc:0 "Shall we train all of our future leaders under the influence of the Lotus Temple"
+policy_parasite_station:0 "Influence of the ancient temple"
+policy_parasite_station_desc:0 "Shall we train all of our future leaders under the influence of the ancient temple"
 
 parasite_station_education_full:0 "Centralized education"
 parasite_station_education_full_name:0 "Centralized education"
-parasite_station_education_full_desc:0 "This will greatly boost the skill of our future leaders. But also will expose them to the still not understood influence of the Lotus Temple."
+parasite_station_education_full_desc:0 "This will greatly boost the skill of our future leaders. But also will expose them to the still not understood influence of the ancient temple."
 
 parasite_station_education_none:0 "Traditional education."
 parasite_station_education_none_name:0 "Traditional education."
-parasite_station_education_none_desc:0 "Avoid exposing our future leaders to the influence of the Louts Temple.\nThe scientists on the station will still be exposed."
+parasite_station_education_none_desc:0 "Avoid exposing our future leaders to the influence of the ancient temple.\nThe scientists on the station will still be exposed."
 
 
 # storyline
-parasite.5.name:0 "Opening the Temple"
+parasite.5.name:0 "Entering the temple"
 
 parasite.10.desc:0 "[Root.GetLeaderName] is calling our attention to [Root.Leader.GetHerHis] first officer at the [Root.GetName]. [Root.Leader.GetSheHeCap] praises the protégés unusual talent and recommends giving that young talent an own command."
 
-parasite.22.desc:0 "The commander of the research Station above [FROMFROM.GetName] is telling us about an especially talented scientist who seems to be a little bored of the daily research work on the station."
+parasite.22.desc:0 "The commander of [This.GetName] researching the ancient temple is telling us about an especially talented scientist who seems to be a little bored of the daily research work on the station."
 parasite.22.a:0 "Maybe we should give that upstart a bigger challenge."
 
 parasite.32.name:0 "Fountainhead"
-parasite.32.desc:0 "The research station above [FROMFROM.GetName] seems to be a real fountain of talent. The commander of the station is certain this is somehow related to the temple on the planet. He suggest to gather all of our greatest talents there to raise their skills to even higher levels."
+parasite.32.desc:0 "[FROM.GetName] seems to be a real fountain of talent.\n\nThe commander informs us that all young scientists start to show extraordonary skill and confidence shortly after they've visited the ancient temple for the first time.\nIt is pretty save to assume that the temple somehow is boosting their mental capacity.\n\nThe Commander suggests to centralize the education of all of our future leaders on [FROM.GetName] and have them visiting the temple regularly."
 parasite.32.a:0 "Obviously the most talented deserve the best education available."
 parasite.32.a.desc:0 "All future leaders will be trained at the station.$parasite.32.a.base.tooltip$"
 parasite.32.b:0 "I don't like the idea of a literally detached elite. Stick to the research."
