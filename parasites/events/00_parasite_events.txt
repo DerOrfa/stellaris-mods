@@ -95,8 +95,8 @@ ship_event = {
 				clear_deposits = yes
 				add_deposit = ancient_lotus_temple_station
 			}
+			ship_event = { id = parasite.6 days = 4 random = 1 } 
 		}
-		ship_event = { id = parasite.6 days = 4 random = 1 } 
 	}
 	option = {
 		name = parasite.5.b
@@ -118,6 +118,7 @@ ship_event = {
 	option = {
 		name = EXCELLENT
 		leader = { 
+			set_timed_leader_flag = { flag = has_gained_level_trait days = 20 }
 			add_experience = 500
 			add_trait = leader_trait_expertise_statecraft 
 			add_ruler_trait = trait_ruler_charismatic
@@ -142,7 +143,11 @@ ship_event = {
 				set_species_flag = parasite_speciation_1
 			}
 		}
-		owner = { country_event = { id = parasite.300 days = @SPECIATION1_TIME random = @SPECIATION1_RND } } #start timer for speciation
+		hidden_effect = {
+			owner = { 
+				country_event = { id = parasite.300 days = @SPECIATION1_TIME random = @SPECIATION1_RND } #start timer for speciation
+			} 
+		}
 	}
 }
 
@@ -155,15 +160,16 @@ ship_event = {
 	show_sound = event_laboratory_sound
 	location = this
 
-	mean_time_to_happen = { months = @PARASITE_PROTEGE_MTTH_MONTHS }
-	
 	trigger = { 
 		exists = leader
 		leader = { is_parasite_leader = yes } 
 	}
 	
+	mean_time_to_happen = { months = @PARASITE_PROTEGE_MTTH_MONTHS }
+	
 	immediate = { #ROOT is not the country, so we have to save it
 		owner = { save_event_target_as = parasite_country }
+		leader = { set_leader_flag = protege_triggered }
 	}
 		
 	option = {
@@ -186,12 +192,9 @@ ship_event = {
 	}
 	option = {
 		name = anomaly.4055.b
-		custom_tooltip = "anomaly.4055.b.tooltip"
-		hidden_effect = {
-			add_modifier = {
-				modifier = protege_onboard
-				days = 7200
-			}
+		add_modifier = {
+			modifier = protege_onboard
+			days = 7200
 		}
 	}	
 }
@@ -201,7 +204,13 @@ planet_event = {
 	id = parasite.20
 	hide_window = yes
 
-	mean_time_to_happen = { months = @PARASITE_TALENT_MTTH_MONTHS }
+	mean_time_to_happen = { 
+		months = @PARASITE_TALENT_MTTH_MONTHS 
+		modifier = { # reduce rate after first trigger
+				factor = 4
+				has_planet_flag = talent_triggered
+		}
+	}
 	
 	trigger = { 
 		has_planet_flag = parasite_temple
@@ -211,6 +220,7 @@ planet_event = {
 	immediate = { 
 		planet_event = { id = parasite.30 days = 15 random = 15 } 	#start timer for extending station after first created leader
 		starbase = { owner = { country_event = { id = parasite.22 } }}
+		set_planet_flag = talent_triggered
 	}
 }
 country_event = {
