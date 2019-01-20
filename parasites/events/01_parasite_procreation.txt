@@ -1,6 +1,8 @@
-##################################
-#Events for parasite procreation #
-##################################
+###############################################
+#Events for parasite procreation parasite.1xx #
+###############################################
+
+namespace = parasite
 
 #when a new pop is born maybe kill a host on that planet
 planet_event = {

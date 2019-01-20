@@ -73,7 +73,7 @@ parasite.22.desc:0 "The commander of [This.GetName] researching the ancient temp
 parasite.22.a:0 "Maybe we should give that upstart a bigger challenge."
 
 parasite.32.name:0 "Fountainhead"
-parasite.32.desc:0 "[FROM.GetName] seems to be a real fountain of talent.\n\nThe commander informs us that all young scientists start to show extraordonary skill and confidence shortly after they've visited the ancient temple for the first time.\nIt is pretty save to assume that the temple somehow is boosting their mental capacity.\n\nThe Commander suggests to centralize the education of all of our future leaders on [FROM.GetName] and have them visiting the temple regularly."
+parasite.32.desc:0 "[FROM.GetName] seems to be a real fountain of talent.\n\nThe commander informs us that all young scientists start to show extraordonary skill and confidence shortly after they've visited the ancient temple for the first time. They also dubbed the temple "Lotus Temple".\nIt is pretty save to assume that this temple somehow is boosting their mental capacity.\n\nThe Commander suggests to centralize the education of all of our future leaders on [FROM.GetName] and have them visiting the temple regularly."
 parasite.32.a:0 "Obviously the most talented deserve the best education available."
 parasite.32.a.desc:0 "All future leaders will be trained at the station.$parasite.32.a.base.tooltip$"
 parasite.32.b:0 "I don't like the idea of a literally detached elite. Stick to the research."
@@ -85,12 +85,18 @@ parasite.60.assignment:0 "$parasite.60.noassignment$\n\nLuckily [accident_leader
 
 parasite.60.a:0 "Agreed, uninterrupted command is essential"
 parasite.60.a.desc:0 "$parasite.60.a.base.tooltip$\n[replacement.GetName] will succed [accident_leader.GetName] in [accident_leader.GetHerHis] command."
-
 parasite.60.b:0 "No. Let's have a proper selection process"
 
 parasite.65.name:0 "A dangerous accident"
 parasite.65.desc:0 "[accident_leader.GetName] nearly got killed in a freak accident."
 
-parasite.300.desc:0 "In the recent years it became increasingly clear that those who have been influenced by the ancient temple are more than just talented.\n\nAlthough they are a bit shy of manual labor they seem to be born for administrative or academic jobs.\nAnd because of their undeniable contributions to the state, the public generaly does not mind the fact that they quite naturally fill all the top jobs.\n\nThey also seem to pass on their eerily intelligence and charisma to their children, so we probably should consider them to be their own species."
+parasite.300.desc:0 "In the recent years it became increasingly clear that those who have been influenced by the ancient temple are more than just talented.\n\nAlthough they are a bit shy of manual labor they seem to be born for administrative or academic jobs.\nAnd because of their undeniable contributions to the state, the public generaly does not mind the fact that they quite naturally fill all the top jobs.\n\nThey also seem to pass on their eerily intelligence and charisma to their children, so we probably should consider them to be their own species.\nThey refer to themself as Lotus Touched"
 
 lotus_touched.name:0 "Lotus Touched"
+
+parasite.350.name:0 "Attack on the local government"
+
+parasite.400.desc:0 "The Lotus Touched have formed their own political faction. They argue that, beacause they are exceptionally good leaders and adminstrators they should be favoured in those positions. As this would benefit all the citizens of the state."
+
+ruler_must_be_parasite:0 "Ruler must be Lotus Touched"
+ruler_is_not_parasite_desc:0 "This faction believes that only Lotus Touched are truly fit for ruling the state."
