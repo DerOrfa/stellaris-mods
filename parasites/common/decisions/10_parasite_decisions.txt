@@ -1,0 +1,51 @@
+##########################################################################
+# Decisions
+##########################################################################
+decision_reeducation = {
+	owned_planets_only = yes
+
+	resources = {
+		category = decisions
+		cost = {
+			influence = 50
+		}
+	}
+	
+	potential = {
+		any_pop = {	
+			NOT = { species = { has_species_flag = parasite_speciation_1 } }
+			has_job = unemployed
+			is_pop_category = specialist 
+		}
+		NOT = { has_modifier = planet_reeducation }
+	}
+	
+	effect = {
+		add_modifier = { modifier = "planet_reeducation" days = -1 }
+	}
+	ai_weight = {
+		weight = 0
+	}
+}
+
+decision_end_reeducation = {
+	owned_planets_only = yes
+	sound = event_administrative_work
+
+	resources = {
+		category = decisions
+	}
+	
+	potential = {
+		owner = { is_regular_empire = yes }
+		has_modifier = planet_reeducation
+	}
+	
+	effect = {
+		remove_modifier = planet_reeducation
+	}
+	
+	ai_weight = {
+		weight = 0
+	}
+}
