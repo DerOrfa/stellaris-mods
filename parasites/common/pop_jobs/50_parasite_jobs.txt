@@ -1,3 +1,25 @@
+reeducation = {
+	category = specialist
+#	clothes_texture_index = 2
+	building_icon = building_bureaucratic_complex
+#	icon = default
+	
+	pop_modifier = {
+#		pop_housing_usage_add = -0.5
+		pop_demotion_time_mult = 0.3
+	}
+		
+	possible = {#causes scope error although imho it should not
+		is_parasite_pop = no #also it actually works
+	}
+	resources = {
+		category = planet_jobs
+		produces = { society_research = 2 }
+		upkeep = { energy = 2 }
+	}
+	weight =  { weight = @special_job_weight }
+}
+
 parasite_host = {
 	category = worker
 #	clothes_texture_index = 2

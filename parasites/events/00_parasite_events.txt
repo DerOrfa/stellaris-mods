@@ -253,7 +253,7 @@ planet_event = {
 	id = parasite.350
 	title = parasite.350.name
 	desc = parasite.350.desc
-	picture = GFX_evt_burning_settlement
+	picture = GFX_evt_arguing_senate
 	show_sound = event_air_raid_siren
 	location = THIS
 
@@ -281,9 +281,10 @@ planet_event = {
 			flag = recent_unrest_event
 			days = @UNEMPLOYED_ATTACK_COOLDOWN
 		}
-		if = { limit = { has_modifier = authoritarian_unrest }
+		if = { limit = { has_modifier = authoritarian_unrest } #remove prevous
 			remove_modifier = authoritarian_unrest
 		}
+		planet_event = { id = parasite.360 days = 50 random = 10 } #trigger event to ask for reeducation
 	}
 	
 	option = {
@@ -335,6 +336,40 @@ planet_event = {
 		}
 	}
 }
+planet_event = {
+	id = parasite.360
+	title = parasite.360.name
+	desc = parasite.360.desc
+	picture = GFX_evt_burning_settlement
+	is_triggered_only = yes
+	location = THIS
+	
+	trigger = {
+		sector = {# if the governor is (still) parasite 
+			exists = leader
+			leader = { is_parasite_leader = yes }
+		}
+		NOT = { has_modifier = planet_reeducation }
+	}
+	
+	immediate = {
+		sector = {# get the govenor 
+			if = { limit = { exists = leader }
+				leader = { save_event_target_as = reeducation_leader }
+			}
+		}
+	}
+	
+	option = {
+		name = OK
+		add_modifier = { modifier = "planet_reeducation" days = -1 }
+	}
+	
+	option = {
+		name = parasite.360.b
+	}
+
+}
 
 # the parasite faction is formed
 pop_faction_event = {
@@ -348,7 +383,7 @@ pop_faction_event = {
 	is_triggered_only = yes
 	
 	option = {
-		name = "OK"
+		name = OK
 		trigger = { owner = {
 			exists = ruler 
 			ruler = { species = { has_species_flag = parasite_speciation_1 }  }
@@ -356,7 +391,7 @@ pop_faction_event = {
 		assign_leader = owner.ruler
 	}
 	option = {
-		name = "OK"
+		name = OK
 		trigger = { owner = {
 			NOT = { 
 				exists = ruler 
@@ -374,6 +409,35 @@ pop_faction_event = {
 		}
 	}
 }
+#pop in reeducation is reeducated
+planet_event = {
+	id = parasite.450
+	hide_window = yes
+
+	trigger = {
+		any_pop = { has_job = reeducation }
+	}
+
+	mean_time_to_happen = { months = @REEDUCATION_MTTH_MONTHS }
+
+	immediate = {
+		random_pop = { 
+			limit = { has_job = reeducation }   
+			random_list = {
+				80 = {#success pops class is cleared (aka demoted)
+					clear_pop_category = yes
+					pop_change_ethic = ethic_authoritarian
+					log = "pop successfuly reeducated on [From.GetName]"
+				}
+				20 = { # some "dissapear"
+					log = "reeducated pop dies on [From.GetName]"
+					kill_pop = yes
+				}
+			}
+		}
+	}
+}
+
 
 # planet has been terraformed 
 # From = Terraforming country
