@@ -140,12 +140,16 @@ ship_event = {
 					trait="trait_intelligent"
 					trait="trait_charismatic"
 					trait="trait_natural_sociologists"
+					trait="trait_rapid_breeders"
 				}
 				homeworld = home_planet
 			}
 			last_created_species = { 
 				save_event_target_as = lotus_touched_species 
 				set_species_flag = parasite_speciation_1
+				if = { limit = { has_global_flag = lotus_portrait_loaded }
+					change_species_portrait = lotus
+				}
 			}
 		}
 		hidden_effect = {
@@ -253,7 +257,7 @@ planet_event = {
 	id = parasite.350
 	title = parasite.350.name
 	desc = parasite.350.desc
-	picture = GFX_evt_arguing_senate
+	picture = GFX_evt_burning_settlement
 	show_sound = event_air_raid_siren
 	location = THIS
 
@@ -310,7 +314,7 @@ planet_event = {
 	option = {
 		trigger = { 
 			OR = {
-				any_pop = {	
+				any_pop = {
 					has_job = enforcer
 					species = { has_species_flag = parasite_speciation_1 }
 				}
@@ -340,7 +344,7 @@ planet_event = {
 	id = parasite.360
 	title = parasite.360.name
 	desc = parasite.360.desc
-	picture = GFX_evt_burning_settlement
+	picture = GFX_evt_arguing_senate
 	is_triggered_only = yes
 	location = THIS
 	
@@ -368,7 +372,6 @@ planet_event = {
 	option = {
 		name = parasite.360.b
 	}
-
 }
 
 # the parasite faction is formed

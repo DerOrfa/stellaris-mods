@@ -18,7 +18,7 @@ ship_event = {
 	mean_time_to_happen = { 
 		months = @PARASITE_TALENT_MTTH_MONTHS 
 		modifier = { # reduce rate after first trigger
-				factor = 4
+				factor = 5
 				has_ship_flag = talent_triggered
 		}
 	}
@@ -196,9 +196,14 @@ country_event = {
 	mean_time_to_happen = { 
 		months = @PARASITE_ASN_MTTH_MONTHS 
 		modifier = { # much less likely if is parasite station is just for research
-				factor = 10
+				factor = 8
 				NOT = { has_policy_flag = parasite_station_education_full }
 		}
+		modifier = { # reduce rate after speciation
+			factor = 2
+			has_country_flag = parasite_speciation_1
+		}
+
 	}
 
 	trigger = {
@@ -206,15 +211,11 @@ country_event = {
 	}
 
 	immediate = {
-		log = "Assassination attempt in [This.GetName]"
 		random_list = { 
-			70 = {
+			75 = {
 				modifier = { #skip if there are no non-parasite leaders in the pool anymore
 					factor = 0
 					count_pool_leader = { limit = { is_parasite_leader = no } count < 1 }
-				}
-				if = { limit = { count_pool_leader = { limit = { is_parasite_leader = no } count < 1 } }
-					log = "Err: Assassination attempt on pooled despite no pooled leaders left"
 				}
 				random_pool_leader = {
 					limit = { is_parasite_leader = no }
@@ -234,7 +235,7 @@ country_event = {
 					}
 				}
 			}
-			30 ={
+			25 ={
 				random_owned_leader = {
 					limit = { is_parasite_leader = no }
 					weights = {

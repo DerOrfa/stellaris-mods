@@ -43,7 +43,7 @@ make_leader_parasite = {
 
 	#generic modification for parasite station education
 #	leader_age = -10 #will not make them younger but live shorter
-	set_skill = 2
+	set_skill = 3
 	
 	# before takeover parasite leaders are eager to get into service
 	if = { limit = { NOT = { has_trait = leader_trait_eager } } 
