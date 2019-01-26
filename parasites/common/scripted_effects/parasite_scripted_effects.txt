@@ -50,27 +50,8 @@ make_leader_parasite = {
 		add_trait = leader_trait_eager 
 		set_leader_flag = parasite_eager #remember to remove this after takeover
 	}
-	
-	if = {
-		limit = { leader_class = admiral  }
-		add_trait = leader_trait_trickster
-	}
-	else_if = {
-		limit = { leader_class = general }
-		add_trait = leader_trait_charismatic
-	} 
-	else_if = {
-		limit = { leader_class = ruler }
-		add_trait = trait_ruler_charismatic
-	} 
-	else_if = {
-		limit = { leader_class = governor }
-		add_trait = leader_trait_intellectual
-	} 
-	else_if = {
-		limit = { leader_class = scientist }
-		add_trait = leader_trait_spark_of_genius
-	} 
+
+	add_trait = trait_ruler_charismatic
 	
 	#if first speciation has occured and this is not that species, reject the leader
 	# @todo this will break if we did not find the parasite species above
