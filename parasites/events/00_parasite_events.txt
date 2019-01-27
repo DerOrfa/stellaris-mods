@@ -440,14 +440,20 @@ planet_event = {
 	hide_window = yes
 
 	trigger = {
-		any_pop = { has_job = reeducation }
+		any_pop = { OR = {
+				has_job = reeducation 
+				has_job = ruler_reeducation 
+		} }
 	}
 
 	mean_time_to_happen = { months = @REEDUCATION_MTTH_MONTHS }
 
 	immediate = {
 		random_pop = { 
-			limit = { has_job = reeducation }   
+			limit = { OR = {
+				has_job = reeducation 
+				has_job = ruler_reeducation 
+			}}   
 			random_list = {
 				80 = {#success pops class is cleared (aka demoted)
 					clear_pop_category = yes
