@@ -74,18 +74,16 @@ replace_leader = {
 	owner = { save_event_target_as = parasite_country }
 	
 	#get assignment
-	event_target:accident_leader = { 
-		if = { 
-			limit = { exists = fleet }
-			fleet = { save_event_target_as = assignment }
-			log = "Replaced [This.GetName] commands the fleet [Fleet.GetName]"
-		} 
-#		else_if = { #assign_leader to sector seems broken
-#			limit = { exists = sector}
-#			sector = { save_event_target_as = assignment }
-#			log = "Replaced [This.GetName] commands the sector [Sector.GetName]"
-#		}
-	}
+	if = { 
+		limit = { exists = fleet }
+		fleet = { save_event_target_as = assignment }
+		log = "Replaced [This.GetName] commands the fleet [Fleet.GetName]"
+	} 
+#	else_if = { #assign_leader to sector seems broken
+#		limit = { exists = sector}
+#		sector = { save_event_target_as = assignment }
+#		log = "Replaced [This.GetName] commands the sector [Sector.GetName]"
+#	}
 
 	if = { limit = { exists = event_target:assignment}
 		if = {
