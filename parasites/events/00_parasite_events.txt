@@ -290,18 +290,11 @@ planet_event = {
 		}
 		planet_event = { id = parasite.360 days = 50 random = 10 } #trigger event to ask for reeducation
 	}
-	
+	#if there is no leader
 	option = {
-		trigger = {
-			NOR = {
-				any_pop = {	
-					has_job = enforcer
-					species = { has_species_flag = parasite_speciation_1 }
-				}
-				sector = {# if the governor is parasite he has put parasites in strategic positions
-					exists = leader
-					leader = { is_parasite_leader = yes }
-				}
+		trigger = { 
+			sector = {
+				NOT = { exists = leader }
 			}
 		}
 		name = TERRIBLE
@@ -310,18 +303,21 @@ planet_event = {
 			modifier = authoritarian_unrest
 			days = 3600 # 10 years
 		}
+		random_pop = {	
+			limit = { 
+				is_parasite_pop = no
+				has_job = unemployed
+				is_pop_category = specialist
+			}
+			kill_pop = yes
+		}
 	}
+	# if the governor is parasite the attackers are defeated
 	option = {
-		trigger = { 
-			OR = {
-				any_pop = {
-					has_job = enforcer
-					species = { has_species_flag = parasite_speciation_1 }
-				}
-				sector = {# if the governor is parasite he has put parasites in strategic positions
-					exists = leader
-					leader = { is_parasite_leader = yes }
-				}
+		trigger = {
+			sector = {
+				exists = leader
+				leader = { is_parasite_leader = yes }
 			}
 		}
 		name = TERRIBLE
@@ -332,11 +328,37 @@ planet_event = {
 		}
 		random_pop = {	
 			limit = { 
-				species = { has_species_flag = parasite_speciation_1 }
+				is_parasite_pop = no
 				has_job = unemployed
 				is_pop_category = specialist
 			}
 			kill_pop = yes
+		}
+	}
+	# if the governor is not parasite he is killed 
+	option = {
+		trigger = { 
+			sector = {
+				exists = leader
+				leader = { is_parasite_leader = no }
+			}
+		}
+		name = TERRIBLE
+		add_planet_devastation = 15
+		add_modifier = {
+			modifier = authoritarian_unrest
+			days = 3600 # 10 years
+		}
+		random_pop = {	
+			limit = { 
+				is_parasite_pop = no
+				has_job = unemployed
+				is_pop_category = specialist
+			}
+			kill_pop = yes
+		}
+		sector = {
+			leader = { kill_leader = { show_notification = no } }
 		}
 	}
 }
