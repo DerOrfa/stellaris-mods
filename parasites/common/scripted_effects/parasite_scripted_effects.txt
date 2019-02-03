@@ -20,25 +20,30 @@ make_leader_shaken = {
 	}
 }
 
+#this = country
+get_parasite_species = {
+	log = "==== picking parasite species from [This.GetName]"
+	if = {
+		limit = { any_owned_pop = { species = { has_species_flag = parasite_speciation_1 } } }
+		random_owned_pop = { 
+			limit = { species = { has_species_flag = parasite_speciation_1 } } 
+			species = { save_event_target_as = lotus_touched_species } 
+		}
+	} else_if = {
+		limit = { any_owned_leader = { species = { has_species_flag = parasite_speciation_1 } } }
+		random_owned_leader = { 
+			limit = { species = { has_species_flag = parasite_speciation_1 } } 
+			species = { save_event_target_as = lotus_touched_species } 
+		}
+	}
+}
+
 #this = leader
 #uses event_target:parasite_country
 make_leader_parasite = {
 	#restore parasite species from leaders or pops
 	event_target:parasite_country = {
-		log = "==== picking parasite species from [This.GetName]"
-		if = {
-			limit = { any_owned_pop = { species = { has_species_flag = parasite_speciation_1 } } }
-			random_owned_pop = { 
-				limit = { species = { has_species_flag = parasite_speciation_1 } } 
-				species = { save_event_target_as = lotus_touched_species } 
-			}
-		} else_if = {
-			limit = { any_owned_leader = { species = { has_species_flag = parasite_speciation_1 } } }
-			random_owned_leader = { 
-				limit = { species = { has_species_flag = parasite_speciation_1 } } 
-				species = { save_event_target_as = lotus_touched_species } 
-			}
-		}
+		get_parasite_species = yes
 	}
 
 	#generic modification for parasite station education
@@ -153,3 +158,49 @@ replace_leader = {
 	}
 }
 
+parasite_clone_leader = {
+	
+	#get assignment
+	if = { 
+		limit = { exists = fleet }
+		fleet = { save_event_target_as = assignment_fleet }
+		log = "Cloned [This.GetName] commands the fleet [Fleet.GetName]"
+	} 
+
+	if = {
+		limit = { leader_class = admiral  }
+		event_target:parasite_infiltration = {
+			clone_leader = {
+				target = PREV
+				class = admiral
+			}
+		}
+	}
+	else_if = {
+		limit = { leader_class = general  }
+		event_target:parasite_infiltration = {
+			clone_leader = {
+				target = PREV
+				class = general
+			}
+		}
+	} 
+	else_if = {
+		limit = { leader_class = governor  }
+		event_target:parasite_infiltration = {
+			clone_leader = {
+				target = PREV
+				class = governor
+			}
+		}
+	}
+	else_if = {
+		limit = { leader_class = scientist  }
+		event_target:parasite_infiltration = {
+			clone_leader = {
+				target = PREV
+				class = scientist
+			}
+		}
+	}
+}

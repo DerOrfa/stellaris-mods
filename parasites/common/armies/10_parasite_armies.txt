@@ -1,0 +1,48 @@
+#Defensive armies can't transport off the planet
+#maintenance is directly scripted here. 0.25 translates to 0.25 monthly cost (excluding other upkeep modifiers)
+#morale_damage = 1		# average morale damage of the army, default: auto (calculated from morale * MORALE_DAMAGE_MULT)
+#building spawned armies can't be built normally, but only created from pops working buildings
+
+# Rebel Armies
+local_resistance_army = {
+	rebel = yes
+	defensive = yes
+	damage = 0.5
+	health = 0.75
+	morale = 1
+	icon_frame = 3
+	
+	potential = {
+		always = no
+	}
+}
+
+parasite_infiltrator_army = {
+	damage = 1.00
+	health = 1.00
+	morale = 2.00
+	morale_damage = 2.00
+	collateral_damage = 0.50
+	war_exhaustion = 3.00
+	time = 150
+	icon_frame = 9
+	resources = {
+		category = armies
+		cost = {
+			minerals = 250
+		}
+
+		upkeep = {
+			energy = 2.5
+		}
+	}
+
+	potential = {
+		from = {
+			NOR = {
+				has_species_flag = parasite_speciation_1
+				has_species_flag = parasite_speciation_2
+			}
+		}
+	}
+}

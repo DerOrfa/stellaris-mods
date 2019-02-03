@@ -458,6 +458,7 @@ planet_event = {
 				80 = {#success pops class is cleared (aka demoted)
 					clear_pop_category = yes
 					pop_change_ethic = ethic_authoritarian
+					set_pop_flag = reeducated
 					log = "pop successfuly reeducated on [From.GetName]"
 				}
 				20 = { # some "dissapear"
@@ -469,6 +470,137 @@ planet_event = {
 	}
 }
 
+planet_event = {
+	id = parasite.500
+	title = parasite.500
+	desc =  parasite.500.desc
+	is_triggered_only = yes
+	
+	immediate = {
+		get_parasite_species = yes
+
+		owner = { save_event_target_as = parasite_infiltrated }
+	}
+
+	option = {
+		name = "parasite.500.a"
+		create_rebels = {
+			name = "Lotus Cult"
+			species = event_target:lotus_touched_species
+			authority="auth_oligarchic"
+			ethos = {
+				ethic="ethic_authoritarian"
+				ethic="ethic_xenophobe"
+				ethic="ethic_spiritualist"
+			}
+			civics={
+				civic="civic_exalted_priesthood"
+				civic="civic_mining_guilds"
+			}
+			effect = {
+				log = "parasite state [This.GetName] startet"
+				save_event_target_as = parasite_infiltration
+				#clean out existing leaders
+				every_owned_leader = {kill_leader = { show_notification = no }}
+				root = {
+					owner = {
+						every_relation = {
+							limit = { has_communications = prev }
+							establish_communications_no_message = event_target:parasite_infiltration
+						}
+						ruler = {
+							if = { limit = { is_parasite_leader = yes }
+								log = "making [This.GetName] ruler of [parasite_infiltration.GetName]"
+								parasite_clone_leader = yes
+								event_target:parasite_infiltration = { assign_leader = last_created_leader }
+								kill_leader = { show_notification = no }
+							}
+						}
+#						add_opinion_modifier = { makes lotus cult not like originator because they broke away
+#							who = event_target:parasite_infiltration
+#							modifier = opinion_broke_away 
+#						}
+						#parasite leaders defect to lotus cult (taking their fleets with them)
+						every_owned_leader = {
+							limit = { is_parasite_leader = yes }
+							parasite_clone_leader = yes
+							if = { limit = { exists = event_target:assignment_fleet }
+								event_target:assignment_fleet = { 
+									set_owner = event_target:parasite_infiltration
+								}
+								last_created_leader = { event_target:assignment_fleet = { 
+									assign_leader =  PREV 
+									print_scope_effect = yes
+								} }
+							}
+							kill_leader = { show_notification = no }
+						}
+					}
+				}
+			}
+		}
+
+		hidden_effect = { 
+			#one defence army switches sides when ruler or enforcer is parasite
+			if = { limit = { any_pop = { OR = {
+					is_pop_category = ruler
+					has_job = enforcer
+				} } }
+				random_planet_army = {
+					limit = { NOT = { army_type = local_resistance_army } }
+					log = "[parasite_infiltration.GetName] replacing [This.GetName]"
+					remove_army = yes
+					PREV = {
+						create_army = {
+							name = "Lotus Cult Infiltrators"
+							owner = event_target:parasite_infiltration
+							species = event_target:parasite_infiltration
+							type = "assault_army"
+						}
+					}
+				}
+			}
+			#create resistance army per egalitarian pop
+			every_owned_pop = { limit = { 
+					has_ethic = ethic_egalitarian
+					NOT = { is_exact_same_species = event_target:lotus_touched_species }
+					NOT = { has_pop_flag = reeducated }
+				}
+				planet = {
+					log = "creating resistance for [parasite_infiltrated.GetName] from [Prev.GetName] on [This.GetName]"
+					create_army = {
+						name = "NAME_Freedom_Fighters"
+						owner = event_target:parasite_infiltrated
+						species = PREV
+						type = "local_resistance_army"
+					}
+				}
+			}
+			#create normal army per reeducated pop
+			every_owned_pop = { limit = { has_pop_flag = reeducated }
+				planet = { 
+					log = "creating army for [parasite_infiltration.GetName] from [Prev.GetName] on [This.GetName]"
+					create_army = {
+						owner = event_target:parasite_infiltration
+						species = PREV
+						type = "assault_army"
+					}
+				}
+			}
+			#create infiltrator army per parasite pop
+			every_owned_pop = { limit = { is_exact_same_species = event_target:lotus_touched_species }
+				planet = { 
+					log = "creating infiltrator for [parasite_infiltration.GetName] from [Prev.GetName] on [This.GetName]"
+					create_army = {
+						owner = event_target:parasite_infiltration
+						species = PREV
+						type = "parasite_infiltrator_army"
+					}
+				}
+			}
+		}
+	}
+}
 
 # planet has been terraformed 
 # From = Terraforming country
