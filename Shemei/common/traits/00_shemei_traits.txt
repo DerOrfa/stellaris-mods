@@ -7,7 +7,9 @@ trait_pride = {
 	
 	allowed_archetypes = { BIOLOGICAL }
 	
-#	modifier = { tile_resource_unity_mult = 0.10 }
+	modifier = {
+		planet_jobs_unity_produces_mult = 0.1
+	}
 	icon = "gfx/interface/icons/traits/trait_pride.dds"
 
 }

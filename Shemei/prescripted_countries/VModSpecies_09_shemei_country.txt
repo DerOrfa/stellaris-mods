@@ -1,38 +1,24 @@
 lamia = {
-	name = "lamia"
-	adjective="Shemei"
 	spawn_enabled = yes
 
-	species = {
-		species_class="MAT"
+	key="Shemei Cult"
+	ship_prefix="ISS"
+	species={
+		class="MAT"
 		portrait="shemei"
-		name = "Shemei"
-		plural = "Shemei"
-		adjective = "Shemei"
-		name_list = "VMODLAMIA_01"
+		name="Shemei"
+		plural="Shemei"
+		adjective="Shemeian"
+		name_list="VMODLAMIA_01"
 		trait="trait_pride"
 		trait="trait_charismatic"
-		trait="trait_adaptive"
-		trait="trait_parasite"
 		trait="trait_decadent"
 	}
-
-	secondary_species={
-		class = "REP"
-		portrait = "rep10"
-		name = "Yurrghal"
-		plural = "Yurrghal"
-		adjective = "Yurrghal"
-		name_list = "REP3"
-		trait="trait_syncretic_proles"
-		trait="trait_industrious"
-		trait="trait_fleeting"
-		trait="trait_slow_learners"
-		trait="trait_strong"
-	}
-
-	ship_prefix = ""
-
+	name="Shemei Cult"
+	adjective="Shemei"
+	authority="auth_corporate"
+	government="gov_subversive_cult"
+	advisor_voice_type="l_slick_corp"
 	planet_name="Gol'Xerak"
 	planet_class="pc_desert"
 	system_name="Lamia"
@@ -40,12 +26,9 @@ lamia = {
 	
 	room="personality_spiritual_seekers_room"
 		
-	authority="auth_dictatorial"
-	government="gov_theocratic_dictatorship"
 	ethic="ethic_authoritarian"
 	ethic="ethic_xenophobe"
 	ethic="ethic_spiritualist"
-	civics={ "civic_corvee_system"	"civic_syncretic_evolution"	}
 
 	flags = { lamia }
 	
@@ -82,4 +65,9 @@ lamia = {
 		ruler_title="High Priestess"
 		ruler_title_female="High Priestess"
 	}
+	civics={
+		"civic_criminal_heritage"
+		"civic_gospel_of_the_masses"
+	}
+
 }

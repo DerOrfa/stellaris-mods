@@ -113,7 +113,6 @@ lamia_system_initializer = {
 			size = 14
 			starting_planet = yes
 			has_ring = no
-			tile_blockers = none
 			modifiers = none
 			flags = { planet_golxerak }
 			
@@ -126,11 +125,32 @@ lamia_system_initializer = {
 				add_modifier = {
 					modifier = beautiful_oasis
 					days = -1 # -1 = never expires
-					} 
+				} 
+				create_species = {
+					name = "Yurrghal"
+					plural = "Yurrghal"
+					adjective = "Yurrghal"
+					class = random_non_machine
+					portrait = random
+					name_list = "REP3"
+					traits = {
+						trait="trait_syncretic_proles"
+						trait="trait_industrious"
+						trait="trait_fleeting"
+						trait="trait_slow_learners"
+						trait="trait_strong"
+					}
+					homeworld = THIS
 				}
-			
-			init_effect = {
-#				generate_start_buildings_and_blockers = yes
+				while = {
+					count = 10
+					create_pop = {
+						species = last_created_species
+						ethos = { ethic = ethic_fanatic_spiritualist }
+					}
+				}
+				
+
 			}
 		}
 	}
