@@ -4,24 +4,6 @@ on_game_start_country = {
 	}
 }
 
-# A pop has finished growing
-# This = Planet scope
-# From = Country
-# FromFrom = Pop
-on_pop_grown = {
-	events = {
-		parasite.101
-	}
-}
-
-# A pop has been added to the planet
-# Root = pop
-# From = planet
-on_pop_added = {
-	events = {
-	}
-}
-
 # Executes after a policy has been changed
 # use last_changed_policy to identify which policy it was
 # This = Country

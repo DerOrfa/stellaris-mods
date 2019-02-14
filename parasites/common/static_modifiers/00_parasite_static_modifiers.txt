@@ -10,10 +10,3 @@ planet_parasite_no_host = {
 	pop_happiness = -0.2
 	pop_growth_speed = -0.5
 }
-
-planet_reeducation = {
-	icon = "gfx/interface/icons/planet_modifiers/pm_default.dds"
-	icon_frame = 2
-	job_reeducation_add = 2
-	job_ruler_reeducation_add = 1
-}

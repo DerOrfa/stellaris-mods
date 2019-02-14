@@ -1,5 +1,5 @@
-name="Parasites"
-path="mod/Shemei"
+name="Parasites Infiltration"
+path="mod/parasite_infiltration"
 tags={
 	"Species"
 }

@@ -10,9 +10,11 @@ lamia = {
 		plural="Shemei"
 		adjective="Shemeian"
 		name_list="VMODLAMIA_01"
-		trait="trait_pride"
 		trait="trait_charismatic"
 		trait="trait_decadent"
+		trait="trait_parasite"
+		trait="trait_intelligent"
+		trait="trait_pride"
 	}
 	name="Shemei Cult"
 	adjective="Shemei"

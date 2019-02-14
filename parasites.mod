@@ -3,5 +3,5 @@ path="mod/parasites"
 tags={
 	"Species"
 }
-picture="parasites.png"
+picture="wasp_parasite.jpg"
 supported_version="2.2.*"

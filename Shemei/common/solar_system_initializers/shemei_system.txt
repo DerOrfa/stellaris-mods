@@ -146,7 +146,7 @@ lamia_system_initializer = {
 					count = 10
 					create_pop = {
 						species = last_created_species
-						ethos = { ethic = ethic_fanatic_spiritualist }
+						ethos = { ethic = "ethic_spiritualist" }
 					}
 				}
 				

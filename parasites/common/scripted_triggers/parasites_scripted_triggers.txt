@@ -12,14 +12,3 @@ pop_can_be_host = {
 		}
 	}
 }
-
-is_parasite_leader = {
-	OR = {
-		has_leader_flag = parasite_leader 
-		species = { has_species_flag = parasite_speciation_1 }
-	}
-}
-
-is_parasite_pop = { 
-	species = { has_species_flag = parasite_speciation_1 }
-}
