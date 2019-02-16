@@ -16,3 +16,9 @@ on_pop_added = {
 	}
 }
 
+on_leader_spawned = {
+	events = {
+		parasite.120
+		parasite.121
+	}
+}

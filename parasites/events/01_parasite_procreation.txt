@@ -10,9 +10,7 @@ planet_event = {
 	is_triggered_only = yes
 	hide_window = yes
 
-	trigger = {
-		FROMFROM = { pop_has_trait = trait_parasite }
-	}
+	trigger = {	FROMFROM = { pop_is_parasitic = yes } }
 
 	immediate = {
 		random_pop = { 
@@ -61,7 +59,7 @@ planet_event = {# add host job
 	hide_window = yes
 	
 	trigger = {
-		any_pop = { pop_has_trait = trait_parasite } 
+		any_pop = { pop_is_parasitic = yes } 
 		NOT = { has_modifier = planet_parasite_procreation }
 	}
 
@@ -76,7 +74,7 @@ planet_event = {# remove host job
 	
 	trigger = {
 		has_modifier = planet_parasite_procreation 
-		NOT = { any_pop = { pop_has_trait = trait_parasite } }
+		NOT = { any_pop = { pop_is_parasitic = yes } }
 	}
 
 	immediate = {
@@ -111,5 +109,48 @@ planet_event = { # remove no-host malus if there is a host
 
 	immediate = {
 		remove_modifier = planet_parasite_no_host
+	}
+}
+
+#female only leaders
+country_event = {
+	id = parasite.120
+	is_triggered_only = yes
+	hide_window = yes
+
+	trigger = {
+		from = {
+			gender = male
+			has_trait = trait_parasite_female
+		}
+	}
+
+	immediate = {
+		from = {
+			log = "making leader [This.GetName] female"
+			set_is_female = yes
+			set_name = random
+		}
+	}
+}
+#male only leaders
+country_event = {
+	id = parasite.121
+	is_triggered_only = yes
+	hide_window = yes
+
+	trigger = {
+		from = {
+			gender = female
+			has_trait = trait_parasite_male
+		}
+	}
+
+	immediate = {
+		from = {
+			log = "making leader [This.GetName] male"
+			set_is_female = no
+			set_name = random
+		}
 	}
 }

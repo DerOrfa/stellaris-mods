@@ -1,6 +1,12 @@
 ﻿l_english:
 trait_parasite:0 "Parasites"
-trait_parasite_desc:0 "Parasites need a host species to grow and procreate. Without such a host, these aliens would have to infest each other, but this would be mostly not accepted. \n"
+trait_parasite_desc:0 "Parasites need a host species to grow and procreate. Without such a host, these aliens would have to infest each other, but this would be mostly not accepted.\n"
+
+trait_parasite_female:0 "Parasites (female only)"
+trait_parasite_female_desc:0 "$trait_parasite_desc$\nThis species has no male gender."
+
+trait_parasite_male:0 "Parasites (male only)"
+trait_parasite_male_desc:0 "$trait_parasite_desc$\nThis species has no female gender."
 
 #pop_modifiers
 parasite_mali:0 "No host species"

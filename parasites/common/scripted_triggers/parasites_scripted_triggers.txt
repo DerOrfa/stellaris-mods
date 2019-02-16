@@ -12,3 +12,11 @@ pop_can_be_host = {
 		}
 	}
 }
+
+pop_is_parasitic = {
+	OR = {
+		pop_has_trait = trait_parasite
+		pop_has_trait = trait_parasite_female 
+		pop_has_trait = trait_parasite_male 
+	}
+}
