@@ -4,6 +4,54 @@
 
 namespace = parasite
 
+country_event = {
+	id = parasite.1
+	hide_window = yes
+	fire_only_once = yes 
+	is_triggered_only = yes
+	
+	trigger = {
+		has_country_flag = parasite_hosts_init
+	}
+	
+	immediate = {
+		owner = { save_event_target_as = host_owner }
+		home_planet = {
+			log = "populating [This.GetName] of [Prev.GetName] with hosts"
+			create_species = {
+				name = "Yurrghal"
+				plural = "Yurrghal"
+				adjective = "Yurrghal"
+				class = random_non_machine
+				portrait = random
+				name_list = random
+				traits = {
+					trait="trait_syncretic_proles"
+					trait="trait_industrious"
+					trait="trait_fleeting"
+					trait="trait_slow_learners"
+					trait="trait_strong"
+				}
+				homeworld = THIS
+			}
+			while = {
+				count = 10
+				create_pop = {
+					species = last_created_species
+					ethos = { ethic = "ethic_spiritualist" }
+				}
+			}
+			while = {
+				count = 10
+				random_pop = { 
+					limit = { pop_is_parasitic = yes }
+					kill_pop = yes 
+				}
+			}
+		}
+	}
+}
+
 #when a new pop is born maybe kill a host on that planet
 planet_event = {
 	id = parasite.101

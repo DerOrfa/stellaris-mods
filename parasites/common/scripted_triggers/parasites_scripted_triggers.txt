@@ -1,7 +1,7 @@
 pop_can_be_host = {
 	is_organic_species = yes
 	OR = { # not parasite itself, or enslaved parasite, or in labor camp
-		NOT = { has_trait = trait_parasite }
+		pop_is_parasitic = no
 		AND = {
 			is_enslaved = yes
 			NOT = { has_slavery_type = { type = slavery_military } }

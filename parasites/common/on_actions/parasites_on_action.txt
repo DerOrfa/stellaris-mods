@@ -1,3 +1,9 @@
+on_game_start_country = {
+	events = {
+		parasite.1
+	}
+}
+
 # A pop has finished growing
 # This = Planet scope
 # From = Country
