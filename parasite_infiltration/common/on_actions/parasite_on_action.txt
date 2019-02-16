@@ -1,6 +1,6 @@
 on_game_start_country = {
 	events = {
-		parasite.1
+		parasite_inf.1
 	}
 }
 
@@ -17,13 +17,13 @@ on_policy_changed = {
 # From = Terraforming country
 on_terraforming_complete = {
 	events = {
-		parasite.900
+		parasite_inf.900
 	}
 }
 
 on_ruler_set = {
 	events = {
-		parasite.200
+		parasite_inf.200
 	}
 }
 
@@ -31,6 +31,6 @@ on_ruler_set = {
 # scope: country, from: leader
 on_leader_spawned = {
 	events = {
-		parasite.40
+		parasite_inf.40
 	}
 }
