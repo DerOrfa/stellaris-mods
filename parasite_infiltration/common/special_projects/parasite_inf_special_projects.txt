@@ -62,6 +62,6 @@ special_project = {
 	}
 	
 	on_success = {
-		ship_event = { id = parasite.5 }
+		ship_event = { id = parasite_inf.5 }
 	}
 }

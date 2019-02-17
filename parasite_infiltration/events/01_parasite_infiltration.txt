@@ -1,8 +1,8 @@
 ###############################################################
-# Events for parasite infiltration parasite.xx + parasite.200 #
+# Events for parasite infiltration parasite_inf.xx + parasite_inf.200 #
 ###############################################################
 
-namespace = parasite
+namespace = parasite_inf
 
 # initialize parasite event chain on mars (aka the only terraforming candidate  in sol)
 country_event = {
@@ -54,8 +54,8 @@ country_event = {
 	is_triggered_only = yes
 	fire_only_once = yes 
 
-	title = "parasite.2.name"
-	desc = "parasite.2.desc"
+	title = "parasite_inf.2.name"
+	desc = "parasite_inf.2.desc"
 	picture = GFX_evt_alien_nature
 	show_sound = event_alien_nature
 	location = event_target:parasite_planet
@@ -85,15 +85,15 @@ ship_event = {
 	is_triggered_only = yes
 	fire_only_once = yes 
 	
-	title = "parasite.5.name"
-	desc = "parasite.5.desc"
+	title = "parasite_inf.5.name"
+	desc = "parasite_inf.5.desc"
 	picture = GFX_evt_big_landing_ship
 	show_sound = event_alien_nature
 	location = this
 
 	option = {
-		name = parasite.5.a
-		custom_tooltip = parasite.5.a.desc
+		name = parasite_inf.5.a
+		custom_tooltip = parasite_inf.5.a.desc
 
 		hidden_effect = {
 			event_target:parasite_planet = {
@@ -104,8 +104,8 @@ ship_event = {
 		}
 	}
 	option = {
-		name = parasite.5.b
-		custom_tooltip = parasite.5.b.desc
+		name = parasite_inf.5.b
+		custom_tooltip = parasite_inf.5.b.desc
 	}
 }
 #returned from the temple
@@ -114,8 +114,8 @@ ship_event = {
 	is_triggered_only = yes
 	fire_only_once = yes 
 	
-	title = "parasite.6.name"
-	desc = "parasite.6.desc" #todo have a different text when research station is already there
+	title = "parasite_inf.6.name"
+	desc = "parasite_inf.6.desc" #todo have a different text when research station is already there
 	picture = GFX_evt_big_landing_ship
 	show_sound = event_alien_nature
 	location = this
@@ -188,7 +188,7 @@ ship_event = {
 	id = parasite_inf.22
 	is_triggered_only = yes
 	title = "anomaly.4055.name"
-	desc = "parasite.22.desc"
+	desc = "parasite_inf.22.desc"
 	picture = GFX_evt_physics_research
 	show_sound = event_laboratory_sound
 	location = this
@@ -200,7 +200,7 @@ ship_event = {
 	immediate = { owner = { save_event_target_as = parasite_country } } #needed for make_leader_parasite below
 
 	option = {
-		name = parasite.22.a
+		name = parasite_inf.22.a
 		owner = {
 			create_leader = {
 				class = scientist
@@ -237,8 +237,8 @@ ship_event = {
 country_event = {
 	id = parasite_inf.32
 	is_triggered_only = yes
-	title = "parasite.32.name"
-	desc = "parasite.32.desc"
+	title = "parasite_inf.32.name"
+	desc = "parasite_inf.32.desc"
 	picture = GFX_evt_physics_research
 	show_sound = event_laboratory_sound
 	location = FROM
@@ -249,8 +249,8 @@ country_event = {
 	}
 	
 	option = {
-		name = parasite.32.a
-		custom_tooltip = parasite.32.a.desc
+		name = parasite_inf.32.a
+		custom_tooltip = parasite_inf.32.a.desc
 		ai_chance = {
 			factor = 150
 			modifier = {
@@ -270,7 +270,7 @@ country_event = {
 
 	}
 	option = {
-		name = parasite.32.b
+		name = parasite_inf.32.b
 		ai_chance = {
 			factor = 100
 			modifier = {
@@ -284,7 +284,7 @@ country_event = {
 		}
 	}
 	option = {
-		name = parasite.32.c
+		name = parasite_inf.32.c
 		FROM = { orbit = {
 			remove_deposit = ancient_lotus_temple 
 			remove_planet_flag = parasite_temple
@@ -405,10 +405,10 @@ country_event = {
 					log = "Assassination attempt on owned [This.GetName] from [Root.GetName]"
 					random_list = { 
 						33 = { #leader is killed
-							owner = { country_event = { id=parasite.60 } } #kill'n'tell
+							owner = { country_event = { id=parasite_inf.60 } } #kill'n'tell
 						} 
 						33 = { #survives and becomes shaken
-							owner = { country_event = { id=parasite.65 } } #not-kill'n'tell
+							owner = { country_event = { id=parasite_inf.65 } } #not-kill'n'tell
 						} 
 						33 = { #survives
 							log = "Assassination attempt on owned [This.GetName] from [Root.GetName] failed"
@@ -424,7 +424,7 @@ country_event = {
 country_event = { 
 	id = parasite_inf.60
 	is_triggered_only = yes
-	title = "parasite.60.name"
+	title = "parasite_inf.60.name"
 	picture = GFX_evt_exploding_ship
 	show_sound = event_ship_explosion
 
@@ -434,20 +434,20 @@ country_event = {
 
 	desc = {
 		trigger = { NOT = { exists = event_target:assignment } }
-		text = "parasite.60.noassignment"
+		text = "parasite_inf.60.noassignment"
 	}	
 	desc = {
 		trigger = { exists = event_target:assignment }
-		text = "parasite.60.assignment"
+		text = "parasite_inf.60.assignment"
 	}
 	
 	#replacement exists and we want that
 	option = {
-		name = "parasite.60.a"
+		name = "parasite_inf.60.a"
 		trigger = { exists = event_target:assignment }
 		event_target:accident_leader = { kill_leader = { show_notification = no } }
 		
-		custom_tooltip = "parasite.60.a.desc"
+		custom_tooltip = "parasite_inf.60.a.desc"
 
 		activate_saved_leader = {
 			key = replacement
@@ -461,7 +461,7 @@ country_event = {
 	}
 	#replacement rejected
 	option = {
-		name =  "parasite.60.b"
+		name =  "parasite_inf.60.b"
 		trigger = { exists = event_target:assignment }
 		
 		event_target:accident_leader = { kill_leader = { show_notification = no } }
@@ -487,8 +487,8 @@ country_event = {
 country_event = { 
 	id = parasite_inf.65
 	is_triggered_only = yes
-	title = "parasite.65.name"
-	desc = "parasite.65.desc"
+	title = "parasite_inf.65.name"
+	desc = "parasite_inf.65.desc"
 	picture = GFX_evt_exploding_ship
 	show_sound = event_ship_explosion
 
@@ -519,8 +519,8 @@ country_event = {
 	is_triggered_only = yes
 	fire_only_once = yes 
 	
-	title = "parasite.300.name"
-	desc = "parasite.300.desc"
+	title = "parasite_inf.300.name"
+	desc = "parasite_inf.300.desc"
 	picture = GFX_evt_alien_propaganda
 	show_sound = event_mystic_reveal
 	#event_public_unrest
@@ -608,8 +608,8 @@ planet_event = {
 # an unemployed non-parasite pop attacks government
 planet_event = {
 	id = parasite_inf.350
-	title = parasite.350.name
-	desc = parasite.350.desc
+	title = parasite_inf.350.name
+	desc = parasite_inf.350.desc
 	picture = GFX_evt_burning_settlement
 	show_sound = event_air_raid_siren
 	location = THIS
@@ -717,8 +717,8 @@ planet_event = {
 }
 planet_event = {
 	id = parasite_inf.360
-	title = parasite.360.name
-	desc = parasite.360.desc
+	title = parasite_inf.360.name
+	desc = parasite_inf.360.desc
 	picture = GFX_evt_arguing_senate
 	is_triggered_only = yes
 	location = THIS
@@ -745,7 +745,7 @@ planet_event = {
 	}
 	
 	option = {
-		name = parasite.360.b
+		name = parasite_inf.360.b
 	}
 }
 
@@ -753,7 +753,7 @@ planet_event = {
 pop_faction_event = {
 	id = parasite_inf.400
 	title = factions.1.title
-	desc =  parasite.400.desc
+	desc =  parasite_inf.400.desc
 
 	picture = GFX_evt_galactic_senate
 	show_sound = event_factions
@@ -825,8 +825,8 @@ planet_event = {
 
 planet_event = {
 	id = parasite_inf.500
-	title = parasite.500
-	desc =  parasite.500.desc
+	title = parasite_inf.500
+	desc =  parasite_inf.500.desc
 	is_triggered_only = yes
 	
 	immediate = {
@@ -836,7 +836,7 @@ planet_event = {
 	}
 
 	option = {
-		name = "parasite.500.a"
+		name = "parasite_inf.500.a"
 		create_rebels = {
 			name = "Lotus Cult"
 			species = event_target:lotus_touched_species

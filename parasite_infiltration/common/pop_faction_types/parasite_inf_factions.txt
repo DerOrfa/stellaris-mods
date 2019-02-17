@@ -235,7 +235,7 @@ lotus_faction_1 = {
 	}
 	
 	on_create = {
-		pop_faction_event = { id = parasite.400 }
+		pop_faction_event = { id = parasite_inf.400 }
 	}
 
 	on_destroy = {

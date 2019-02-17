@@ -1,8 +1,9 @@
+
 reeducation = {
 	category = specialist
 #	clothes_texture_index = 2
 	building_icon = building_bureaucratic_complex
-#	icon = default
+	icon = reeducation
 	
 	pop_modifier = {
 #		pop_housing_usage_add = -0.5
@@ -19,11 +20,12 @@ reeducation = {
 	}
 	weight =  { weight = @special_job_weight }
 }
+
 ruler_reeducation = {
 	category = ruler
 #	clothes_texture_index = 2
 	building_icon = building_bureaucratic_complex
-	icon = "texture gfx/interface/icons/jobs/job_reeducation.dds"
+	icon = reeducation
 	
 	pop_modifier = {
 #		pop_housing_usage_add = -0.5
