@@ -4,7 +4,7 @@ lamia = {
 	key="Shemei Cult"
 	ship_prefix="ISS"
 	species={
-		class="MAT"
+		class="PAR"
 		portrait="shemei"
 		name="Shemei"
 		plural="Shemei"
@@ -12,7 +12,7 @@ lamia = {
 		name_list="VMODLAMIA_01"
 		trait="trait_charismatic"
 		trait="trait_decadent"
-		trait="trait_parasite"
+		trait="trait_parasite_female"
 		trait="trait_intelligent"
 		trait="trait_pride"
 	}
@@ -24,7 +24,6 @@ lamia = {
 	planet_name="Gol'Xerak"
 	planet_class="pc_desert"
 	system_name="Lamia"
-	initializer="lamia_system_initializer"
 	
 	room="personality_spiritual_seekers_room"
 		
@@ -32,10 +31,7 @@ lamia = {
 	ethic="ethic_xenophobe"
 	ethic="ethic_spiritualist"
 
-	flags = { lamia }
-	
-	weapon="tech_lasers_1"
-	ftl=hyperdrive
+	flags = { parasite_hosts_init }
 	
 	graphical_culture="molluscoid_01"
 	city_graphical_culture="molluscoid_01"

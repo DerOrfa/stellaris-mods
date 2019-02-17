@@ -1,12 +1,12 @@
-MAT = {
+PAR = {
 	archetype = BIOLOGICAL
 	possible = { authority = { NOT = { value = auth_machine_intelligence text = SPECIES_CLASS_MUST_NOT_USE_MACHINE_INTELLIGENCE } } }
 	gender = no
 	
-	portraits = { "shemei" "lotus" }
+	portraits = { "shemei" }
 	
 	# These should not be used for randomly generated species
-	non_randomized_portraits = { "shemei" "lotus" }
+	non_randomized_portraits = { "shemei" }
 	
 	graphical_culture = mammalian_01
 	move_pop_sound_effect = "moving_pop_confirmation"
