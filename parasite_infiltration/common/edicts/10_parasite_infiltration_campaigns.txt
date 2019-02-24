@@ -1,0 +1,38 @@
+##########################################################################
+# Unity Ambitions - edicts
+##########################################################################
+
+# Sets the edict-cost for all edicts with this variable
+@campaignCost = 1000
+@campaignDuration = 3600
+
+#################
+# Campaigns
+# shorter duration, cost energy
+#################
+
+parasite_rule = {
+	length = @campaignDuration
+	resources = {
+		category = campaigns
+		cost = {
+			influence = 100
+		}
+	}
+
+	modifier = {
+		pop_ethic_authoritarian_attraction_mult = 0.5
+	}
+	
+	potential = {
+		has_country_flag = parasite_speciation_1
+	}
+	
+	ai_weight = {
+		weight = 0
+	}
+	effect = {
+		 set_timed_country_flag = { flag = parasite_rule_campaign days = @campaignDuration }
+	}
+}
+

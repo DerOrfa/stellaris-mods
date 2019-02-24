@@ -95,6 +95,20 @@ lotus_faction_1 = {
 	}
 
 	demand = {
+		title = "has_parasite_rule_campaign"
+		unfulfilled_title = "want_parasite_rule_campaign"
+		desc = "parasite_rule_campaign_desc"
+		
+		fulfilled_effect = 20
+		
+		trigger = {
+			owner = {
+				has_country_flag = parasite_rule_campaign
+			}
+		}
+	}
+
+	demand = {
 		title = "ruler_must_be_parasite"
 		unfulfilled_title = "ruler_is_not_parasite"
 		desc = "ruler_is_not_parasite_desc"
