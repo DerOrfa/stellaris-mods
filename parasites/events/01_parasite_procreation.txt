@@ -169,7 +169,7 @@ country_event = {
 	trigger = {
 		from = {
 			gender = male
-			has_trait = trait_parasite_female
+			species = { has_trait = trait_parasite_female }
 		}
 	}
 
@@ -190,7 +190,7 @@ country_event = {
 	trigger = {
 		from = {
 			gender = female
-			has_trait = trait_parasite_male
+			species = { has_trait = trait_parasite_male }
 		}
 	}
 
