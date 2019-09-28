@@ -19,6 +19,13 @@ on_pop_grown = {
 # From = planet
 on_pop_added = {
 	events = {
+		parasite.10
+	}
+}
+
+on_monthly_pulse = {
+	events = {
+		parasite.105
 	}
 }
 
