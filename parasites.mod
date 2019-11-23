@@ -1,7 +1,9 @@
-name="Parasites"
-path="mod/parasites"
+version="2.5.*"
 tags={
 	"Species"
 }
-picture="wasp_parasite.jpg"
-supported_version="2.5.*"
+name="Parasites"
+path="mod/parasites"
+picture="thumb.jpg"
+
+

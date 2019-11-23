@@ -1,5 +1,5 @@
 pop_can_be_host = {
-	is_archetype = BIOLOGICAL 
+	species = { is_archetype = BIOLOGICAL }
 	OR = { # not parasite itself, or enslaved parasite, or in labor camp
 		pop_is_parasitic = no
 		AND = {
