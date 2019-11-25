@@ -82,7 +82,7 @@ planet_event = {
 		random_pop = { 
 			limit = { has_job = parasite_host }   
 			random_list = {
-				50 = {# chances of survival
+				70 = {# chances of survival
 						modifier = {
 							factor = 0.8
 							is_enslaved = yes
@@ -113,7 +113,7 @@ planet_event = {
 						}
 						log = "Not killing host POP  on [Prev.GetName]"
 					}
-				50 = { 
+				30 = { 
 					kill_pop = yes 
 					log = "Killing host POP  on [Prev.GetName]"
 				}

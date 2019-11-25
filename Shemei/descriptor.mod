@@ -4,4 +4,4 @@ tags={
 	"Species"
 }
 picture="Shemei.jpg"
-supported_version="2.1.*"
+supported_version="2.4.*"
